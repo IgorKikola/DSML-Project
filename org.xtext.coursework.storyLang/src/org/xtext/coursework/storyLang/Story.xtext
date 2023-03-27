@@ -8,7 +8,11 @@ StoryProgram:
 
 Statement:
 	NameStatement |
-	EmotionStatement
+	EmotionStatement |
+	VerbStatement |
+	AdverbStatement |
+	AdjectiveStatement |
+	LocationStatement
 ;
 
 NameStatement:
@@ -19,4 +23,21 @@ NameStatement:
 EmotionStatement:
 	'emotions:' list+=STRING (',' list+=STRING )* ';'
 ;
+
+VerbStatement:
+	'verb:' list+=STRING (',' list+=STRING )* ';'
+;
+
+AdverbStatement:
+	'adverbs:' list+=STRING (',' list+=STRING )* ';'
+;
+
+LocationStatement:
+	'locations:' list+=STRING (',' list+=STRING )* ';'
+;
+
+AdjectiveStatement:
+	'adjectives:' list+=STRING (',' list+=STRING )* ';'
+;
+
 

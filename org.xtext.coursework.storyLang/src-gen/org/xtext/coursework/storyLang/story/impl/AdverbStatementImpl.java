@@ -3,56 +3,48 @@
  */
 package org.xtext.coursework.storyLang.story.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
-import org.xtext.coursework.storyLang.story.NameStatement;
+import org.xtext.coursework.storyLang.story.AdverbStatement;
 import org.xtext.coursework.storyLang.story.StoryPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Name Statement</b></em>'.
+ * An implementation of the model object '<em><b>Adverb Statement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.coursework.storyLang.story.impl.NameStatementImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.xtext.coursework.storyLang.story.impl.AdverbStatementImpl#getList <em>List</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class NameStatementImpl extends StatementImpl implements NameStatement
+public class AdverbStatementImpl extends StatementImpl implements AdverbStatement
 {
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getList() <em>List</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getList()
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected String value = VALUE_EDEFAULT;
+  protected EList<String> list;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected NameStatementImpl()
+  protected AdverbStatementImpl()
   {
     super();
   }
@@ -65,7 +57,7 @@ public class NameStatementImpl extends StatementImpl implements NameStatement
   @Override
   protected EClass eStaticClass()
   {
-    return StoryPackage.Literals.NAME_STATEMENT;
+    return StoryPackage.Literals.ADVERB_STATEMENT;
   }
 
   /**
@@ -74,23 +66,13 @@ public class NameStatementImpl extends StatementImpl implements NameStatement
    * @generated
    */
   @Override
-  public String getValue()
+  public EList<String> getList()
   {
-    return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setValue(String newValue)
-  {
-    String oldValue = value;
-    value = newValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, StoryPackage.NAME_STATEMENT__VALUE, oldValue, value));
+    if (list == null)
+    {
+      list = new EDataTypeEList<String>(String.class, this, StoryPackage.ADVERB_STATEMENT__LIST);
+    }
+    return list;
   }
 
   /**
@@ -103,8 +85,8 @@ public class NameStatementImpl extends StatementImpl implements NameStatement
   {
     switch (featureID)
     {
-      case StoryPackage.NAME_STATEMENT__VALUE:
-        return getValue();
+      case StoryPackage.ADVERB_STATEMENT__LIST:
+        return getList();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -114,13 +96,15 @@ public class NameStatementImpl extends StatementImpl implements NameStatement
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case StoryPackage.NAME_STATEMENT__VALUE:
-        setValue((String)newValue);
+      case StoryPackage.ADVERB_STATEMENT__LIST:
+        getList().clear();
+        getList().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +120,8 @@ public class NameStatementImpl extends StatementImpl implements NameStatement
   {
     switch (featureID)
     {
-      case StoryPackage.NAME_STATEMENT__VALUE:
-        setValue(VALUE_EDEFAULT);
+      case StoryPackage.ADVERB_STATEMENT__LIST:
+        getList().clear();
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +137,8 @@ public class NameStatementImpl extends StatementImpl implements NameStatement
   {
     switch (featureID)
     {
-      case StoryPackage.NAME_STATEMENT__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case StoryPackage.ADVERB_STATEMENT__LIST:
+        return list != null && !list.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -170,10 +154,10 @@ public class NameStatementImpl extends StatementImpl implements NameStatement
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (value: ");
-    result.append(value);
+    result.append(" (list: ");
+    result.append(list);
     result.append(')');
     return result.toString();
   }
 
-} //NameStatementImpl
+} //AdverbStatementImpl

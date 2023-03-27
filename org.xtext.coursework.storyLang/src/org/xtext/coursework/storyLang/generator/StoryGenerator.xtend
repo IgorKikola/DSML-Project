@@ -10,9 +10,10 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import org.xtext.coursework.storyLang.story.StoryProgram
 import org.xtext.coursework.storyLang.story.NameStatement
 import org.xtext.coursework.storyLang.story.EmotionStatement
-import java.util.List
-import java.util.ArrayList
-import java.util.Random
+import org.xtext.coursework.storyLang.story.VerbStatement
+import org.xtext.coursework.storyLang.story.AdverbStatement
+import org.xtext.coursework.storyLang.story.LocationStatement
+import org.xtext.coursework.storyLang.story.AdjectiveStatement
 
 /**
  * Generates code from your model files on save.
@@ -39,21 +40,12 @@ class StoryGenerator extends AbstractGenerator {
     def String doGenerateStats(StoryProgram program) '''
         Program contains:
 
-        - «program.statements.filter(NameStatement).iterator().next().value» name
-        - «program.eAllContents.filter(EmotionStatement).toString» emotions
-        
-        
-        - «
-        
-		
-       	
-        
-        program.statements.filter(EmotionStatement).iterator.next.list.get(Math.floor(Math.random()*3).intValue())
-        
-        
-        
-        
-        » emotions statement
+        - «program.statements.filter(NameStatement).iterator().next().value» name              
+        - «program.statements.filter(EmotionStatement).iterator.next.list.get(Math.floor(Math.random()*program.statements.filter(EmotionStatement).iterator.next.list.size).intValue())» emotions statement
+        - «program.statements.filter(VerbStatement).iterator().next().list.get(Math.floor(Math.random()*program.statements.filter(VerbStatement).iterator.next.list.size).intValue())» verb     
+        - «program.statements.filter(AdverbStatement).iterator().next().list.get(Math.floor(Math.random()*program.statements.filter(AdverbStatement).iterator.next.list.size).intValue())» adverb     
+        - «program.statements.filter(LocationStatement).iterator().next().list.get(Math.floor(Math.random()*program.statements.filter(LocationStatement).iterator.next.list.size).intValue())» location
+        - «program.statements.filter(AdjectiveStatement).iterator().next().list.get(Math.floor(Math.random()*program.statements.filter(AdjectiveStatement).iterator.next.list.size).intValue())» adjective     
       
     '''
 	
