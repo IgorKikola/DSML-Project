@@ -1,0 +1,9 @@
+grammar org.xtext.coursework.storyLang.Story with org.eclipse.xtext.common.Terminals
+
+generate story "http://www.xtext.org/coursework/storyLang/Story"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
