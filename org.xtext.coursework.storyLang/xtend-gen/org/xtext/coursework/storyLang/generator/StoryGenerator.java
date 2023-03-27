@@ -3,10 +3,18 @@
  */
 package org.xtext.coursework.storyLang.generator;
 
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Iterators;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.xtext.coursework.storyLang.story.EmotionStatement;
+import org.xtext.coursework.storyLang.story.NameStatement;
+import org.xtext.coursework.storyLang.story.StoryProgram;
 
 /**
  * Generates code from your model files on save.
@@ -15,7 +23,45 @@ import org.eclipse.xtext.generator.IGeneratorContext;
  */
 @SuppressWarnings("all")
 public class StoryGenerator extends AbstractGenerator {
+  private int test = 10;
+
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    EObject _head = IterableExtensions.<EObject>head(resource.getContents());
+    final StoryProgram model = ((StoryProgram) _head);
+    fsa.generateFile(this.deriveTargetFileNameFor(resource), this.doGenerateStats(model));
+  }
+
+  public String deriveTargetFileNameFor(final Resource resource) {
+    return resource.getURI().appendFileExtension("txt").lastSegment();
+  }
+
+  public String doGenerateStats(final StoryProgram program) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Program contains:");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("- ");
+    String _value = Iterables.<NameStatement>filter(program.getStatements(), NameStatement.class).iterator().next().getValue();
+    _builder.append(_value);
+    _builder.append(" name");
+    _builder.newLineIfNotEmpty();
+    _builder.append("- ");
+    String _string = Iterators.<EmotionStatement>filter(program.eAllContents(), EmotionStatement.class).toString();
+    _builder.append(_string);
+    _builder.append(" emotions");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("- ");
+    double _random = Math.random();
+    double _multiply = (_random * 3);
+    String _get = Iterables.<EmotionStatement>filter(program.getStatements(), EmotionStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply)).intValue());
+    _builder.append(_get);
+    _builder.append(" emotions statement");
+    _builder.newLineIfNotEmpty();
+    _builder.append("      ");
+    _builder.newLine();
+    return _builder.toString();
   }
 }

@@ -3,27 +3,20 @@ grammar org.xtext.coursework.storyLang.Story with org.eclipse.xtext.common.Termi
 generate story "http://www.xtext.org/coursework/storyLang/Story"
 
 StoryProgram:
-	stories+=Statement*;
+	statements += Statement*
+;
 
 Statement:
-	Name 
-;	
-	
-Name:
-	'Hello' name=ID '!'
+	NameStatement |
+	EmotionStatement
 ;
 
-Verbs:
-	verbs= 'Walked' | 'Ran'
-;
-
-Adjectives:
-	adjectives=ID
-;
-
-Adverbs:
-	adverbs=ID
+NameStatement:
+	'name:' value=STRING ';'
 ;
 
 
+EmotionStatement:
+	'emotions:' list+=STRING (',' list+=STRING )* ';'
+;
 

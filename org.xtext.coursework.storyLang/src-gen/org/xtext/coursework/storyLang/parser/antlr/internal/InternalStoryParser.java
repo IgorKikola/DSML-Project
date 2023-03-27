@@ -21,17 +21,19 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalStoryParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Hello'", "'!'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'name:'", "';'", "'emotions:'", "','"
     };
-    public static final int RULE_ID=4;
+    public static final int RULE_ID=5;
     public static final int RULE_WS=9;
-    public static final int RULE_STRING=6;
+    public static final int RULE_STRING=4;
     public static final int RULE_ANY_OTHER=10;
     public static final int RULE_SL_COMMENT=8;
-    public static final int RULE_INT=5;
+    public static final int RULE_INT=6;
     public static final int T__11=11;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__12=12;
+    public static final int T__13=13;
+    public static final int T__14=14;
     public static final int EOF=-1;
 
     // delegates
@@ -110,43 +112,43 @@ public class InternalStoryParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStoryProgram"
-    // InternalStory.g:71:1: ruleStoryProgram returns [EObject current=null] : ( (lv_stories_0_0= ruleStatement ) )* ;
+    // InternalStory.g:71:1: ruleStoryProgram returns [EObject current=null] : ( (lv_statements_0_0= ruleStatement ) )* ;
     public final EObject ruleStoryProgram() throws RecognitionException {
         EObject current = null;
 
-        EObject lv_stories_0_0 = null;
+        EObject lv_statements_0_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalStory.g:77:2: ( ( (lv_stories_0_0= ruleStatement ) )* )
-            // InternalStory.g:78:2: ( (lv_stories_0_0= ruleStatement ) )*
+            // InternalStory.g:77:2: ( ( (lv_statements_0_0= ruleStatement ) )* )
+            // InternalStory.g:78:2: ( (lv_statements_0_0= ruleStatement ) )*
             {
-            // InternalStory.g:78:2: ( (lv_stories_0_0= ruleStatement ) )*
+            // InternalStory.g:78:2: ( (lv_statements_0_0= ruleStatement ) )*
             loop1:
             do {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==11) ) {
+                if ( (LA1_0==11||LA1_0==13) ) {
                     alt1=1;
                 }
 
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalStory.g:79:3: (lv_stories_0_0= ruleStatement )
+            	    // InternalStory.g:79:3: (lv_statements_0_0= ruleStatement )
             	    {
-            	    // InternalStory.g:79:3: (lv_stories_0_0= ruleStatement )
-            	    // InternalStory.g:80:4: lv_stories_0_0= ruleStatement
+            	    // InternalStory.g:79:3: (lv_statements_0_0= ruleStatement )
+            	    // InternalStory.g:80:4: lv_statements_0_0= ruleStatement
             	    {
 
-            	    				newCompositeNode(grammarAccess.getStoryProgramAccess().getStoriesStatementParserRuleCall_0());
+            	    				newCompositeNode(grammarAccess.getStoryProgramAccess().getStatementsStatementParserRuleCall_0());
             	    			
             	    pushFollow(FOLLOW_3);
-            	    lv_stories_0_0=ruleStatement();
+            	    lv_statements_0_0=ruleStatement();
 
             	    state._fsp--;
 
@@ -156,8 +158,8 @@ public class InternalStoryParser extends AbstractInternalAntlrParser {
             	    				}
             	    				add(
             	    					current,
-            	    					"stories",
-            	    					lv_stories_0_0,
+            	    					"statements",
+            	    					lv_statements_0_0,
             	    					"org.xtext.coursework.storyLang.Story.Statement");
             	    				afterParserOrEnumRuleCall();
             	    			
@@ -229,32 +231,78 @@ public class InternalStoryParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStatement"
-    // InternalStory.g:107:1: ruleStatement returns [EObject current=null] : this_Name_0= ruleName ;
+    // InternalStory.g:107:1: ruleStatement returns [EObject current=null] : (this_NameStatement_0= ruleNameStatement | this_EmotionStatement_1= ruleEmotionStatement ) ;
     public final EObject ruleStatement() throws RecognitionException {
         EObject current = null;
 
-        EObject this_Name_0 = null;
+        EObject this_NameStatement_0 = null;
+
+        EObject this_EmotionStatement_1 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalStory.g:113:2: (this_Name_0= ruleName )
-            // InternalStory.g:114:2: this_Name_0= ruleName
+            // InternalStory.g:113:2: ( (this_NameStatement_0= ruleNameStatement | this_EmotionStatement_1= ruleEmotionStatement ) )
+            // InternalStory.g:114:2: (this_NameStatement_0= ruleNameStatement | this_EmotionStatement_1= ruleEmotionStatement )
             {
+            // InternalStory.g:114:2: (this_NameStatement_0= ruleNameStatement | this_EmotionStatement_1= ruleEmotionStatement )
+            int alt2=2;
+            int LA2_0 = input.LA(1);
 
-            		newCompositeNode(grammarAccess.getStatementAccess().getNameParserRuleCall());
-            	
-            pushFollow(FOLLOW_2);
-            this_Name_0=ruleName();
+            if ( (LA2_0==11) ) {
+                alt2=1;
+            }
+            else if ( (LA2_0==13) ) {
+                alt2=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 2, 0, input);
 
-            state._fsp--;
+                throw nvae;
+            }
+            switch (alt2) {
+                case 1 :
+                    // InternalStory.g:115:3: this_NameStatement_0= ruleNameStatement
+                    {
+
+                    			newCompositeNode(grammarAccess.getStatementAccess().getNameStatementParserRuleCall_0());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_NameStatement_0=ruleNameStatement();
+
+                    state._fsp--;
 
 
-            		current = this_Name_0;
-            		afterParserOrEnumRuleCall();
-            	
+                    			current = this_NameStatement_0;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+                case 2 :
+                    // InternalStory.g:124:3: this_EmotionStatement_1= ruleEmotionStatement
+                    {
+
+                    			newCompositeNode(grammarAccess.getStatementAccess().getEmotionStatementParserRuleCall_1());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_EmotionStatement_1=ruleEmotionStatement();
+
+                    state._fsp--;
+
+
+                    			current = this_EmotionStatement_1;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+
+            }
+
 
             }
 
@@ -274,25 +322,25 @@ public class InternalStoryParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleStatement"
 
 
-    // $ANTLR start "entryRuleName"
-    // InternalStory.g:125:1: entryRuleName returns [EObject current=null] : iv_ruleName= ruleName EOF ;
-    public final EObject entryRuleName() throws RecognitionException {
+    // $ANTLR start "entryRuleNameStatement"
+    // InternalStory.g:136:1: entryRuleNameStatement returns [EObject current=null] : iv_ruleNameStatement= ruleNameStatement EOF ;
+    public final EObject entryRuleNameStatement() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleName = null;
+        EObject iv_ruleNameStatement = null;
 
 
         try {
-            // InternalStory.g:125:45: (iv_ruleName= ruleName EOF )
-            // InternalStory.g:126:2: iv_ruleName= ruleName EOF
+            // InternalStory.g:136:54: (iv_ruleNameStatement= ruleNameStatement EOF )
+            // InternalStory.g:137:2: iv_ruleNameStatement= ruleNameStatement EOF
             {
-             newCompositeNode(grammarAccess.getNameRule()); 
+             newCompositeNode(grammarAccess.getNameStatementRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleName=ruleName();
+            iv_ruleNameStatement=ruleNameStatement();
 
             state._fsp--;
 
-             current =iv_ruleName; 
+             current =iv_ruleNameStatement; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -307,51 +355,51 @@ public class InternalStoryParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleName"
+    // $ANTLR end "entryRuleNameStatement"
 
 
-    // $ANTLR start "ruleName"
-    // InternalStory.g:132:1: ruleName returns [EObject current=null] : (otherlv_0= 'Hello' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '!' ) ;
-    public final EObject ruleName() throws RecognitionException {
+    // $ANTLR start "ruleNameStatement"
+    // InternalStory.g:143:1: ruleNameStatement returns [EObject current=null] : (otherlv_0= 'name:' ( (lv_value_1_0= RULE_STRING ) ) otherlv_2= ';' ) ;
+    public final EObject ruleNameStatement() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token lv_name_1_0=null;
+        Token lv_value_1_0=null;
         Token otherlv_2=null;
 
 
         	enterRule();
 
         try {
-            // InternalStory.g:138:2: ( (otherlv_0= 'Hello' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '!' ) )
-            // InternalStory.g:139:2: (otherlv_0= 'Hello' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '!' )
+            // InternalStory.g:149:2: ( (otherlv_0= 'name:' ( (lv_value_1_0= RULE_STRING ) ) otherlv_2= ';' ) )
+            // InternalStory.g:150:2: (otherlv_0= 'name:' ( (lv_value_1_0= RULE_STRING ) ) otherlv_2= ';' )
             {
-            // InternalStory.g:139:2: (otherlv_0= 'Hello' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '!' )
-            // InternalStory.g:140:3: otherlv_0= 'Hello' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '!'
+            // InternalStory.g:150:2: (otherlv_0= 'name:' ( (lv_value_1_0= RULE_STRING ) ) otherlv_2= ';' )
+            // InternalStory.g:151:3: otherlv_0= 'name:' ( (lv_value_1_0= RULE_STRING ) ) otherlv_2= ';'
             {
             otherlv_0=(Token)match(input,11,FOLLOW_4); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getNameAccess().getHelloKeyword_0());
+            			newLeafNode(otherlv_0, grammarAccess.getNameStatementAccess().getNameKeyword_0());
             		
-            // InternalStory.g:144:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalStory.g:145:4: (lv_name_1_0= RULE_ID )
+            // InternalStory.g:155:3: ( (lv_value_1_0= RULE_STRING ) )
+            // InternalStory.g:156:4: (lv_value_1_0= RULE_STRING )
             {
-            // InternalStory.g:145:4: (lv_name_1_0= RULE_ID )
-            // InternalStory.g:146:5: lv_name_1_0= RULE_ID
+            // InternalStory.g:156:4: (lv_value_1_0= RULE_STRING )
+            // InternalStory.g:157:5: lv_value_1_0= RULE_STRING
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_5); 
+            lv_value_1_0=(Token)match(input,RULE_STRING,FOLLOW_5); 
 
-            					newLeafNode(lv_name_1_0, grammarAccess.getNameAccess().getNameIDTerminalRuleCall_1_0());
+            					newLeafNode(lv_value_1_0, grammarAccess.getNameStatementAccess().getValueSTRINGTerminalRuleCall_1_0());
             				
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getNameRule());
+            						current = createModelElement(grammarAccess.getNameStatementRule());
             					}
             					setWithLastConsumed(
             						current,
-            						"name",
-            						lv_name_1_0,
-            						"org.eclipse.xtext.common.Terminals.ID");
+            						"value",
+            						lv_value_1_0,
+            						"org.eclipse.xtext.common.Terminals.STRING");
             				
 
             }
@@ -361,7 +409,7 @@ public class InternalStoryParser extends AbstractInternalAntlrParser {
 
             otherlv_2=(Token)match(input,12,FOLLOW_2); 
 
-            			newLeafNode(otherlv_2, grammarAccess.getNameAccess().getExclamationMarkKeyword_2());
+            			newLeafNode(otherlv_2, grammarAccess.getNameStatementAccess().getSemicolonKeyword_2());
             		
 
             }
@@ -382,7 +430,174 @@ public class InternalStoryParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleName"
+    // $ANTLR end "ruleNameStatement"
+
+
+    // $ANTLR start "entryRuleEmotionStatement"
+    // InternalStory.g:181:1: entryRuleEmotionStatement returns [EObject current=null] : iv_ruleEmotionStatement= ruleEmotionStatement EOF ;
+    public final EObject entryRuleEmotionStatement() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleEmotionStatement = null;
+
+
+        try {
+            // InternalStory.g:181:57: (iv_ruleEmotionStatement= ruleEmotionStatement EOF )
+            // InternalStory.g:182:2: iv_ruleEmotionStatement= ruleEmotionStatement EOF
+            {
+             newCompositeNode(grammarAccess.getEmotionStatementRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleEmotionStatement=ruleEmotionStatement();
+
+            state._fsp--;
+
+             current =iv_ruleEmotionStatement; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleEmotionStatement"
+
+
+    // $ANTLR start "ruleEmotionStatement"
+    // InternalStory.g:188:1: ruleEmotionStatement returns [EObject current=null] : (otherlv_0= 'emotions:' ( (lv_list_1_0= RULE_STRING ) ) (otherlv_2= ',' ( (lv_list_3_0= RULE_STRING ) ) )* otherlv_4= ';' ) ;
+    public final EObject ruleEmotionStatement() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_list_1_0=null;
+        Token otherlv_2=null;
+        Token lv_list_3_0=null;
+        Token otherlv_4=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalStory.g:194:2: ( (otherlv_0= 'emotions:' ( (lv_list_1_0= RULE_STRING ) ) (otherlv_2= ',' ( (lv_list_3_0= RULE_STRING ) ) )* otherlv_4= ';' ) )
+            // InternalStory.g:195:2: (otherlv_0= 'emotions:' ( (lv_list_1_0= RULE_STRING ) ) (otherlv_2= ',' ( (lv_list_3_0= RULE_STRING ) ) )* otherlv_4= ';' )
+            {
+            // InternalStory.g:195:2: (otherlv_0= 'emotions:' ( (lv_list_1_0= RULE_STRING ) ) (otherlv_2= ',' ( (lv_list_3_0= RULE_STRING ) ) )* otherlv_4= ';' )
+            // InternalStory.g:196:3: otherlv_0= 'emotions:' ( (lv_list_1_0= RULE_STRING ) ) (otherlv_2= ',' ( (lv_list_3_0= RULE_STRING ) ) )* otherlv_4= ';'
+            {
+            otherlv_0=(Token)match(input,13,FOLLOW_4); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getEmotionStatementAccess().getEmotionsKeyword_0());
+            		
+            // InternalStory.g:200:3: ( (lv_list_1_0= RULE_STRING ) )
+            // InternalStory.g:201:4: (lv_list_1_0= RULE_STRING )
+            {
+            // InternalStory.g:201:4: (lv_list_1_0= RULE_STRING )
+            // InternalStory.g:202:5: lv_list_1_0= RULE_STRING
+            {
+            lv_list_1_0=(Token)match(input,RULE_STRING,FOLLOW_6); 
+
+            					newLeafNode(lv_list_1_0, grammarAccess.getEmotionStatementAccess().getListSTRINGTerminalRuleCall_1_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getEmotionStatementRule());
+            					}
+            					addWithLastConsumed(
+            						current,
+            						"list",
+            						lv_list_1_0,
+            						"org.eclipse.xtext.common.Terminals.STRING");
+            				
+
+            }
+
+
+            }
+
+            // InternalStory.g:218:3: (otherlv_2= ',' ( (lv_list_3_0= RULE_STRING ) ) )*
+            loop3:
+            do {
+                int alt3=2;
+                int LA3_0 = input.LA(1);
+
+                if ( (LA3_0==14) ) {
+                    alt3=1;
+                }
+
+
+                switch (alt3) {
+            	case 1 :
+            	    // InternalStory.g:219:4: otherlv_2= ',' ( (lv_list_3_0= RULE_STRING ) )
+            	    {
+            	    otherlv_2=(Token)match(input,14,FOLLOW_4); 
+
+            	    				newLeafNode(otherlv_2, grammarAccess.getEmotionStatementAccess().getCommaKeyword_2_0());
+            	    			
+            	    // InternalStory.g:223:4: ( (lv_list_3_0= RULE_STRING ) )
+            	    // InternalStory.g:224:5: (lv_list_3_0= RULE_STRING )
+            	    {
+            	    // InternalStory.g:224:5: (lv_list_3_0= RULE_STRING )
+            	    // InternalStory.g:225:6: lv_list_3_0= RULE_STRING
+            	    {
+            	    lv_list_3_0=(Token)match(input,RULE_STRING,FOLLOW_6); 
+
+            	    						newLeafNode(lv_list_3_0, grammarAccess.getEmotionStatementAccess().getListSTRINGTerminalRuleCall_2_1_0());
+            	    					
+
+            	    						if (current==null) {
+            	    							current = createModelElement(grammarAccess.getEmotionStatementRule());
+            	    						}
+            	    						addWithLastConsumed(
+            	    							current,
+            	    							"list",
+            	    							lv_list_3_0,
+            	    							"org.eclipse.xtext.common.Terminals.STRING");
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop3;
+                }
+            } while (true);
+
+            otherlv_4=(Token)match(input,12,FOLLOW_2); 
+
+            			newLeafNode(otherlv_4, grammarAccess.getEmotionStatementAccess().getSemicolonKeyword_3());
+            		
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleEmotionStatement"
 
     // Delegated rules
 
@@ -391,8 +606,9 @@ public class InternalStoryParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000002802L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000005000L});
 
 }

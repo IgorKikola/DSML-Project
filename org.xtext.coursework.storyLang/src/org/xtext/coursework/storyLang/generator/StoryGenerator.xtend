@@ -7,6 +7,12 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.coursework.storyLang.story.StoryProgram
+import org.xtext.coursework.storyLang.story.NameStatement
+import org.xtext.coursework.storyLang.story.EmotionStatement
+import java.util.List
+import java.util.ArrayList
+import java.util.Random
 
 /**
  * Generates code from your model files on save.
@@ -14,12 +20,44 @@ import org.eclipse.xtext.generator.IGeneratorContext
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class StoryGenerator extends AbstractGenerator {
+	
+	int test = 10;
+
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
-	}
+		
+
+        val model = resource.contents.head as StoryProgram
+        fsa.generateFile(resource.deriveTargetFileNameFor, model.doGenerateStats)
+    }
+
+    def deriveTargetFileNameFor(Resource resource) {
+        resource.URI.appendFileExtension('txt').lastSegment
+    }
+
+
+    def String doGenerateStats(StoryProgram program) '''
+        Program contains:
+
+        - «program.statements.filter(NameStatement).iterator().next().value» name
+        - «program.eAllContents.filter(EmotionStatement).toString» emotions
+        
+        
+        - «
+        
+		
+       	
+        
+        program.statements.filter(EmotionStatement).iterator.next.list.get(Math.floor(Math.random()*3).intValue())
+        
+        
+        
+        
+        » emotions statement
+      
+    '''
+	
+	
+	
+	
 }

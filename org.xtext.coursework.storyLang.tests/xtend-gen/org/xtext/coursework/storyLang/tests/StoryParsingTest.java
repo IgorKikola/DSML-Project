@@ -16,7 +16,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 public class StoryParsingTest {
   @Inject
   private /* ParseHelper<Model> */Object parseHelper;
-  
+
   @Test
   public void loadModel() {
     throw new Error("Unresolved compilation problems:"
