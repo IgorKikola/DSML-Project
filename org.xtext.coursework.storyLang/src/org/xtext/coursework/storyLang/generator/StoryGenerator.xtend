@@ -386,5 +386,5 @@ class StoryGenerator extends AbstractGenerator {
         «ENDFOR»
     '''
 	
-	
+r	
 }
