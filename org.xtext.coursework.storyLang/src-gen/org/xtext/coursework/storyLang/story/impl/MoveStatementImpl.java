@@ -11,23 +11,23 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
-import org.xtext.coursework.storyLang.story.LocationStatement;
+import org.xtext.coursework.storyLang.story.MoveStatement;
 import org.xtext.coursework.storyLang.story.StoryPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Location Statement</b></em>'.
+ * An implementation of the model object '<em><b>Move Statement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.coursework.storyLang.story.impl.LocationStatementImpl#getList <em>List</em>}</li>
+ *   <li>{@link org.xtext.coursework.storyLang.story.impl.MoveStatementImpl#getList <em>List</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class LocationStatementImpl extends StatementImpl implements LocationStatement
+public class MoveStatementImpl extends StatementImpl implements MoveStatement
 {
   /**
    * The cached value of the '{@link #getList() <em>List</em>}' attribute list.
@@ -44,7 +44,7 @@ public class LocationStatementImpl extends StatementImpl implements LocationStat
    * <!-- end-user-doc -->
    * @generated
    */
-  protected LocationStatementImpl()
+  protected MoveStatementImpl()
   {
     super();
   }
@@ -57,7 +57,7 @@ public class LocationStatementImpl extends StatementImpl implements LocationStat
   @Override
   protected EClass eStaticClass()
   {
-    return StoryPackage.Literals.LOCATION_STATEMENT;
+    return StoryPackage.Literals.MOVE_STATEMENT;
   }
 
   /**
@@ -70,7 +70,7 @@ public class LocationStatementImpl extends StatementImpl implements LocationStat
   {
     if (list == null)
     {
-      list = new EDataTypeEList<String>(String.class, this, StoryPackage.LOCATION_STATEMENT__LIST);
+      list = new EDataTypeEList<String>(String.class, this, StoryPackage.MOVE_STATEMENT__LIST);
     }
     return list;
   }
@@ -85,7 +85,7 @@ public class LocationStatementImpl extends StatementImpl implements LocationStat
   {
     switch (featureID)
     {
-      case StoryPackage.LOCATION_STATEMENT__LIST:
+      case StoryPackage.MOVE_STATEMENT__LIST:
         return getList();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -102,7 +102,7 @@ public class LocationStatementImpl extends StatementImpl implements LocationStat
   {
     switch (featureID)
     {
-      case StoryPackage.LOCATION_STATEMENT__LIST:
+      case StoryPackage.MOVE_STATEMENT__LIST:
         getList().clear();
         getList().addAll((Collection<? extends String>)newValue);
         return;
@@ -120,7 +120,7 @@ public class LocationStatementImpl extends StatementImpl implements LocationStat
   {
     switch (featureID)
     {
-      case StoryPackage.LOCATION_STATEMENT__LIST:
+      case StoryPackage.MOVE_STATEMENT__LIST:
         getList().clear();
         return;
     }
@@ -137,7 +137,7 @@ public class LocationStatementImpl extends StatementImpl implements LocationStat
   {
     switch (featureID)
     {
-      case StoryPackage.LOCATION_STATEMENT__LIST:
+      case StoryPackage.MOVE_STATEMENT__LIST:
         return list != null && !list.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -160,4 +160,4 @@ public class LocationStatementImpl extends StatementImpl implements LocationStat
     return result.toString();
   }
 
-} //LocationStatementImpl
+} //MoveStatementImpl

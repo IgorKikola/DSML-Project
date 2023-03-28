@@ -3,48 +3,56 @@
  */
 package org.xtext.coursework.storyLang.story.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xtext.coursework.storyLang.story.AdverbStatement;
+import org.xtext.coursework.storyLang.story.PlaceStatement;
 import org.xtext.coursework.storyLang.story.StoryPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Adverb Statement</b></em>'.
+ * An implementation of the model object '<em><b>Place Statement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.coursework.storyLang.story.impl.AdverbStatementImpl#getList <em>List</em>}</li>
+ *   <li>{@link org.xtext.coursework.storyLang.story.impl.PlaceStatementImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AdverbStatementImpl extends StatementImpl implements AdverbStatement
+public class PlaceStatementImpl extends StatementImpl implements PlaceStatement
 {
   /**
-   * The cached value of the '{@link #getList() <em>List</em>}' attribute list.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getList()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected EList<String> list;
+  protected static final String VALUE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AdverbStatementImpl()
+  protected PlaceStatementImpl()
   {
     super();
   }
@@ -57,7 +65,7 @@ public class AdverbStatementImpl extends StatementImpl implements AdverbStatemen
   @Override
   protected EClass eStaticClass()
   {
-    return StoryPackage.Literals.ADVERB_STATEMENT;
+    return StoryPackage.Literals.PLACE_STATEMENT;
   }
 
   /**
@@ -66,13 +74,23 @@ public class AdverbStatementImpl extends StatementImpl implements AdverbStatemen
    * @generated
    */
   @Override
-  public EList<String> getList()
+  public String getValue()
   {
-    if (list == null)
-    {
-      list = new EDataTypeEList<String>(String.class, this, StoryPackage.ADVERB_STATEMENT__LIST);
-    }
-    return list;
+    return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setValue(String newValue)
+  {
+    String oldValue = value;
+    value = newValue;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StoryPackage.PLACE_STATEMENT__VALUE, oldValue, value));
   }
 
   /**
@@ -85,8 +103,8 @@ public class AdverbStatementImpl extends StatementImpl implements AdverbStatemen
   {
     switch (featureID)
     {
-      case StoryPackage.ADVERB_STATEMENT__LIST:
-        return getList();
+      case StoryPackage.PLACE_STATEMENT__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -96,15 +114,13 @@ public class AdverbStatementImpl extends StatementImpl implements AdverbStatemen
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case StoryPackage.ADVERB_STATEMENT__LIST:
-        getList().clear();
-        getList().addAll((Collection<? extends String>)newValue);
+      case StoryPackage.PLACE_STATEMENT__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -120,8 +136,8 @@ public class AdverbStatementImpl extends StatementImpl implements AdverbStatemen
   {
     switch (featureID)
     {
-      case StoryPackage.ADVERB_STATEMENT__LIST:
-        getList().clear();
+      case StoryPackage.PLACE_STATEMENT__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -137,8 +153,8 @@ public class AdverbStatementImpl extends StatementImpl implements AdverbStatemen
   {
     switch (featureID)
     {
-      case StoryPackage.ADVERB_STATEMENT__LIST:
-        return list != null && !list.isEmpty();
+      case StoryPackage.PLACE_STATEMENT__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -154,10 +170,10 @@ public class AdverbStatementImpl extends StatementImpl implements AdverbStatemen
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (list: ");
-    result.append(list);
+    result.append(" (value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }
 
-} //AdverbStatementImpl
+} //PlaceStatementImpl

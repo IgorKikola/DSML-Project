@@ -7,21 +7,21 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Location Statement</b></em>'.
+ * A representation of the model object '<em><b>Nearby Statement</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.coursework.storyLang.story.LocationStatement#getList <em>List</em>}</li>
+ *   <li>{@link org.xtext.coursework.storyLang.story.NearbyStatement#getList <em>List</em>}</li>
  * </ul>
  *
- * @see org.xtext.coursework.storyLang.story.StoryPackage#getLocationStatement()
+ * @see org.xtext.coursework.storyLang.story.StoryPackage#getNearbyStatement()
  * @model
  * @generated
  */
-public interface LocationStatement extends Statement
+public interface NearbyStatement extends Statement
 {
   /**
    * Returns the value of the '<em><b>List</b></em>' attribute list.
@@ -29,10 +29,10 @@ public interface LocationStatement extends Statement
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>List</em>' attribute list.
-   * @see org.xtext.coursework.storyLang.story.StoryPackage#getLocationStatement_List()
+   * @see org.xtext.coursework.storyLang.story.StoryPackage#getNearbyStatement_List()
    * @model unique="false"
    * @generated
    */
   EList<String> getList();
 
-} // LocationStatement
+} // NearbyStatement

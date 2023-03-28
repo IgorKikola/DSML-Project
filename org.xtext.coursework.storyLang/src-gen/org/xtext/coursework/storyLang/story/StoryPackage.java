@@ -105,14 +105,14 @@ public interface StoryPackage extends EPackage
   int STATEMENT_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.coursework.storyLang.story.impl.NameStatementImpl <em>Name Statement</em>}' class.
+   * The meta object id for the '{@link org.xtext.coursework.storyLang.story.impl.PlaceStatementImpl <em>Place Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.coursework.storyLang.story.impl.NameStatementImpl
-   * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getNameStatement()
+   * @see org.xtext.coursework.storyLang.story.impl.PlaceStatementImpl
+   * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getPlaceStatement()
    * @generated
    */
-  int NAME_STATEMENT = 2;
+  int PLACE_STATEMENT = 2;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -121,26 +121,26 @@ public interface StoryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NAME_STATEMENT__VALUE = STATEMENT_FEATURE_COUNT + 0;
+  int PLACE_STATEMENT__VALUE = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Name Statement</em>' class.
+   * The number of structural features of the '<em>Place Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NAME_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int PLACE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.coursework.storyLang.story.impl.EmotionStatementImpl <em>Emotion Statement</em>}' class.
+   * The meta object id for the '{@link org.xtext.coursework.storyLang.story.impl.PathStatementImpl <em>Path Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.coursework.storyLang.story.impl.EmotionStatementImpl
-   * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getEmotionStatement()
+   * @see org.xtext.coursework.storyLang.story.impl.PathStatementImpl
+   * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getPathStatement()
    * @generated
    */
-  int EMOTION_STATEMENT = 3;
+  int PATH_STATEMENT = 3;
 
   /**
    * The feature id for the '<em><b>List</b></em>' attribute list.
@@ -149,26 +149,26 @@ public interface StoryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EMOTION_STATEMENT__LIST = STATEMENT_FEATURE_COUNT + 0;
+  int PATH_STATEMENT__LIST = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Emotion Statement</em>' class.
+   * The number of structural features of the '<em>Path Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EMOTION_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int PATH_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.coursework.storyLang.story.impl.VerbStatementImpl <em>Verb Statement</em>}' class.
+   * The meta object id for the '{@link org.xtext.coursework.storyLang.story.impl.MoveStatementImpl <em>Move Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.coursework.storyLang.story.impl.VerbStatementImpl
-   * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getVerbStatement()
+   * @see org.xtext.coursework.storyLang.story.impl.MoveStatementImpl
+   * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getMoveStatement()
    * @generated
    */
-  int VERB_STATEMENT = 4;
+  int MOVE_STATEMENT = 4;
 
   /**
    * The feature id for the '<em><b>List</b></em>' attribute list.
@@ -177,26 +177,26 @@ public interface StoryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VERB_STATEMENT__LIST = STATEMENT_FEATURE_COUNT + 0;
+  int MOVE_STATEMENT__LIST = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Verb Statement</em>' class.
+   * The number of structural features of the '<em>Move Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VERB_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int MOVE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.coursework.storyLang.story.impl.AdverbStatementImpl <em>Adverb Statement</em>}' class.
+   * The meta object id for the '{@link org.xtext.coursework.storyLang.story.impl.NearbyStatementImpl <em>Nearby Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.coursework.storyLang.story.impl.AdverbStatementImpl
-   * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getAdverbStatement()
+   * @see org.xtext.coursework.storyLang.story.impl.NearbyStatementImpl
+   * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getNearbyStatement()
    * @generated
    */
-  int ADVERB_STATEMENT = 5;
+  int NEARBY_STATEMENT = 5;
 
   /**
    * The feature id for the '<em><b>List</b></em>' attribute list.
@@ -205,26 +205,26 @@ public interface StoryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADVERB_STATEMENT__LIST = STATEMENT_FEATURE_COUNT + 0;
+  int NEARBY_STATEMENT__LIST = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Adverb Statement</em>' class.
+   * The number of structural features of the '<em>Nearby Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADVERB_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int NEARBY_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.coursework.storyLang.story.impl.LocationStatementImpl <em>Location Statement</em>}' class.
+   * The meta object id for the '{@link org.xtext.coursework.storyLang.story.impl.SubstanceStatementImpl <em>Substance Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.coursework.storyLang.story.impl.LocationStatementImpl
-   * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getLocationStatement()
+   * @see org.xtext.coursework.storyLang.story.impl.SubstanceStatementImpl
+   * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getSubstanceStatement()
    * @generated
    */
-  int LOCATION_STATEMENT = 6;
+  int SUBSTANCE_STATEMENT = 6;
 
   /**
    * The feature id for the '<em><b>List</b></em>' attribute list.
@@ -233,26 +233,26 @@ public interface StoryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOCATION_STATEMENT__LIST = STATEMENT_FEATURE_COUNT + 0;
+  int SUBSTANCE_STATEMENT__LIST = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Location Statement</em>' class.
+   * The number of structural features of the '<em>Substance Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOCATION_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int SUBSTANCE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.coursework.storyLang.story.impl.AdjectiveStatementImpl <em>Adjective Statement</em>}' class.
+   * The meta object id for the '{@link org.xtext.coursework.storyLang.story.impl.MoodStatementImpl <em>Mood Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.coursework.storyLang.story.impl.AdjectiveStatementImpl
-   * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getAdjectiveStatement()
+   * @see org.xtext.coursework.storyLang.story.impl.MoodStatementImpl
+   * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getMoodStatement()
    * @generated
    */
-  int ADJECTIVE_STATEMENT = 7;
+  int MOOD_STATEMENT = 7;
 
   /**
    * The feature id for the '<em><b>List</b></em>' attribute list.
@@ -261,16 +261,16 @@ public interface StoryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADJECTIVE_STATEMENT__LIST = STATEMENT_FEATURE_COUNT + 0;
+  int MOOD_STATEMENT__LIST = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Adjective Statement</em>' class.
+   * The number of structural features of the '<em>Mood Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADJECTIVE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int MOOD_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
 
   /**
@@ -305,130 +305,130 @@ public interface StoryPackage extends EPackage
   EClass getStatement();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.coursework.storyLang.story.NameStatement <em>Name Statement</em>}'.
+   * Returns the meta object for class '{@link org.xtext.coursework.storyLang.story.PlaceStatement <em>Place Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Name Statement</em>'.
-   * @see org.xtext.coursework.storyLang.story.NameStatement
+   * @return the meta object for class '<em>Place Statement</em>'.
+   * @see org.xtext.coursework.storyLang.story.PlaceStatement
    * @generated
    */
-  EClass getNameStatement();
+  EClass getPlaceStatement();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.coursework.storyLang.story.NameStatement#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.coursework.storyLang.story.PlaceStatement#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.xtext.coursework.storyLang.story.NameStatement#getValue()
-   * @see #getNameStatement()
+   * @see org.xtext.coursework.storyLang.story.PlaceStatement#getValue()
+   * @see #getPlaceStatement()
    * @generated
    */
-  EAttribute getNameStatement_Value();
+  EAttribute getPlaceStatement_Value();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.coursework.storyLang.story.EmotionStatement <em>Emotion Statement</em>}'.
+   * Returns the meta object for class '{@link org.xtext.coursework.storyLang.story.PathStatement <em>Path Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Emotion Statement</em>'.
-   * @see org.xtext.coursework.storyLang.story.EmotionStatement
+   * @return the meta object for class '<em>Path Statement</em>'.
+   * @see org.xtext.coursework.storyLang.story.PathStatement
    * @generated
    */
-  EClass getEmotionStatement();
+  EClass getPathStatement();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.coursework.storyLang.story.EmotionStatement#getList <em>List</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>List</em>'.
-   * @see org.xtext.coursework.storyLang.story.EmotionStatement#getList()
-   * @see #getEmotionStatement()
-   * @generated
-   */
-  EAttribute getEmotionStatement_List();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.coursework.storyLang.story.VerbStatement <em>Verb Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Verb Statement</em>'.
-   * @see org.xtext.coursework.storyLang.story.VerbStatement
-   * @generated
-   */
-  EClass getVerbStatement();
-
-  /**
-   * Returns the meta object for the attribute list '{@link org.xtext.coursework.storyLang.story.VerbStatement#getList <em>List</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.coursework.storyLang.story.PathStatement#getList <em>List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute list '<em>List</em>'.
-   * @see org.xtext.coursework.storyLang.story.VerbStatement#getList()
-   * @see #getVerbStatement()
+   * @see org.xtext.coursework.storyLang.story.PathStatement#getList()
+   * @see #getPathStatement()
    * @generated
    */
-  EAttribute getVerbStatement_List();
+  EAttribute getPathStatement_List();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.coursework.storyLang.story.AdverbStatement <em>Adverb Statement</em>}'.
+   * Returns the meta object for class '{@link org.xtext.coursework.storyLang.story.MoveStatement <em>Move Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Adverb Statement</em>'.
-   * @see org.xtext.coursework.storyLang.story.AdverbStatement
+   * @return the meta object for class '<em>Move Statement</em>'.
+   * @see org.xtext.coursework.storyLang.story.MoveStatement
    * @generated
    */
-  EClass getAdverbStatement();
+  EClass getMoveStatement();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.coursework.storyLang.story.AdverbStatement#getList <em>List</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>List</em>'.
-   * @see org.xtext.coursework.storyLang.story.AdverbStatement#getList()
-   * @see #getAdverbStatement()
-   * @generated
-   */
-  EAttribute getAdverbStatement_List();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.coursework.storyLang.story.LocationStatement <em>Location Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Location Statement</em>'.
-   * @see org.xtext.coursework.storyLang.story.LocationStatement
-   * @generated
-   */
-  EClass getLocationStatement();
-
-  /**
-   * Returns the meta object for the attribute list '{@link org.xtext.coursework.storyLang.story.LocationStatement#getList <em>List</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.coursework.storyLang.story.MoveStatement#getList <em>List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute list '<em>List</em>'.
-   * @see org.xtext.coursework.storyLang.story.LocationStatement#getList()
-   * @see #getLocationStatement()
+   * @see org.xtext.coursework.storyLang.story.MoveStatement#getList()
+   * @see #getMoveStatement()
    * @generated
    */
-  EAttribute getLocationStatement_List();
+  EAttribute getMoveStatement_List();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.coursework.storyLang.story.AdjectiveStatement <em>Adjective Statement</em>}'.
+   * Returns the meta object for class '{@link org.xtext.coursework.storyLang.story.NearbyStatement <em>Nearby Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Adjective Statement</em>'.
-   * @see org.xtext.coursework.storyLang.story.AdjectiveStatement
+   * @return the meta object for class '<em>Nearby Statement</em>'.
+   * @see org.xtext.coursework.storyLang.story.NearbyStatement
    * @generated
    */
-  EClass getAdjectiveStatement();
+  EClass getNearbyStatement();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.coursework.storyLang.story.AdjectiveStatement#getList <em>List</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.coursework.storyLang.story.NearbyStatement#getList <em>List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute list '<em>List</em>'.
-   * @see org.xtext.coursework.storyLang.story.AdjectiveStatement#getList()
-   * @see #getAdjectiveStatement()
+   * @see org.xtext.coursework.storyLang.story.NearbyStatement#getList()
+   * @see #getNearbyStatement()
    * @generated
    */
-  EAttribute getAdjectiveStatement_List();
+  EAttribute getNearbyStatement_List();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.coursework.storyLang.story.SubstanceStatement <em>Substance Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Substance Statement</em>'.
+   * @see org.xtext.coursework.storyLang.story.SubstanceStatement
+   * @generated
+   */
+  EClass getSubstanceStatement();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.coursework.storyLang.story.SubstanceStatement#getList <em>List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>List</em>'.
+   * @see org.xtext.coursework.storyLang.story.SubstanceStatement#getList()
+   * @see #getSubstanceStatement()
+   * @generated
+   */
+  EAttribute getSubstanceStatement_List();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.coursework.storyLang.story.MoodStatement <em>Mood Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Mood Statement</em>'.
+   * @see org.xtext.coursework.storyLang.story.MoodStatement
+   * @generated
+   */
+  EClass getMoodStatement();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.coursework.storyLang.story.MoodStatement#getList <em>List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>List</em>'.
+   * @see org.xtext.coursework.storyLang.story.MoodStatement#getList()
+   * @see #getMoodStatement()
+   * @generated
+   */
+  EAttribute getMoodStatement_List();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -482,14 +482,14 @@ public interface StoryPackage extends EPackage
     EClass STATEMENT = eINSTANCE.getStatement();
 
     /**
-     * The meta object literal for the '{@link org.xtext.coursework.storyLang.story.impl.NameStatementImpl <em>Name Statement</em>}' class.
+     * The meta object literal for the '{@link org.xtext.coursework.storyLang.story.impl.PlaceStatementImpl <em>Place Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.coursework.storyLang.story.impl.NameStatementImpl
-     * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getNameStatement()
+     * @see org.xtext.coursework.storyLang.story.impl.PlaceStatementImpl
+     * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getPlaceStatement()
      * @generated
      */
-    EClass NAME_STATEMENT = eINSTANCE.getNameStatement();
+    EClass PLACE_STATEMENT = eINSTANCE.getPlaceStatement();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -497,35 +497,17 @@ public interface StoryPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute NAME_STATEMENT__VALUE = eINSTANCE.getNameStatement_Value();
+    EAttribute PLACE_STATEMENT__VALUE = eINSTANCE.getPlaceStatement_Value();
 
     /**
-     * The meta object literal for the '{@link org.xtext.coursework.storyLang.story.impl.EmotionStatementImpl <em>Emotion Statement</em>}' class.
+     * The meta object literal for the '{@link org.xtext.coursework.storyLang.story.impl.PathStatementImpl <em>Path Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.coursework.storyLang.story.impl.EmotionStatementImpl
-     * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getEmotionStatement()
+     * @see org.xtext.coursework.storyLang.story.impl.PathStatementImpl
+     * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getPathStatement()
      * @generated
      */
-    EClass EMOTION_STATEMENT = eINSTANCE.getEmotionStatement();
-
-    /**
-     * The meta object literal for the '<em><b>List</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EMOTION_STATEMENT__LIST = eINSTANCE.getEmotionStatement_List();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.coursework.storyLang.story.impl.VerbStatementImpl <em>Verb Statement</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.coursework.storyLang.story.impl.VerbStatementImpl
-     * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getVerbStatement()
-     * @generated
-     */
-    EClass VERB_STATEMENT = eINSTANCE.getVerbStatement();
+    EClass PATH_STATEMENT = eINSTANCE.getPathStatement();
 
     /**
      * The meta object literal for the '<em><b>List</b></em>' attribute list feature.
@@ -533,35 +515,17 @@ public interface StoryPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VERB_STATEMENT__LIST = eINSTANCE.getVerbStatement_List();
+    EAttribute PATH_STATEMENT__LIST = eINSTANCE.getPathStatement_List();
 
     /**
-     * The meta object literal for the '{@link org.xtext.coursework.storyLang.story.impl.AdverbStatementImpl <em>Adverb Statement</em>}' class.
+     * The meta object literal for the '{@link org.xtext.coursework.storyLang.story.impl.MoveStatementImpl <em>Move Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.coursework.storyLang.story.impl.AdverbStatementImpl
-     * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getAdverbStatement()
+     * @see org.xtext.coursework.storyLang.story.impl.MoveStatementImpl
+     * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getMoveStatement()
      * @generated
      */
-    EClass ADVERB_STATEMENT = eINSTANCE.getAdverbStatement();
-
-    /**
-     * The meta object literal for the '<em><b>List</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ADVERB_STATEMENT__LIST = eINSTANCE.getAdverbStatement_List();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.coursework.storyLang.story.impl.LocationStatementImpl <em>Location Statement</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.coursework.storyLang.story.impl.LocationStatementImpl
-     * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getLocationStatement()
-     * @generated
-     */
-    EClass LOCATION_STATEMENT = eINSTANCE.getLocationStatement();
+    EClass MOVE_STATEMENT = eINSTANCE.getMoveStatement();
 
     /**
      * The meta object literal for the '<em><b>List</b></em>' attribute list feature.
@@ -569,17 +533,17 @@ public interface StoryPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute LOCATION_STATEMENT__LIST = eINSTANCE.getLocationStatement_List();
+    EAttribute MOVE_STATEMENT__LIST = eINSTANCE.getMoveStatement_List();
 
     /**
-     * The meta object literal for the '{@link org.xtext.coursework.storyLang.story.impl.AdjectiveStatementImpl <em>Adjective Statement</em>}' class.
+     * The meta object literal for the '{@link org.xtext.coursework.storyLang.story.impl.NearbyStatementImpl <em>Nearby Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.coursework.storyLang.story.impl.AdjectiveStatementImpl
-     * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getAdjectiveStatement()
+     * @see org.xtext.coursework.storyLang.story.impl.NearbyStatementImpl
+     * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getNearbyStatement()
      * @generated
      */
-    EClass ADJECTIVE_STATEMENT = eINSTANCE.getAdjectiveStatement();
+    EClass NEARBY_STATEMENT = eINSTANCE.getNearbyStatement();
 
     /**
      * The meta object literal for the '<em><b>List</b></em>' attribute list feature.
@@ -587,7 +551,43 @@ public interface StoryPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ADJECTIVE_STATEMENT__LIST = eINSTANCE.getAdjectiveStatement_List();
+    EAttribute NEARBY_STATEMENT__LIST = eINSTANCE.getNearbyStatement_List();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.coursework.storyLang.story.impl.SubstanceStatementImpl <em>Substance Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.coursework.storyLang.story.impl.SubstanceStatementImpl
+     * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getSubstanceStatement()
+     * @generated
+     */
+    EClass SUBSTANCE_STATEMENT = eINSTANCE.getSubstanceStatement();
+
+    /**
+     * The meta object literal for the '<em><b>List</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SUBSTANCE_STATEMENT__LIST = eINSTANCE.getSubstanceStatement_List();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.coursework.storyLang.story.impl.MoodStatementImpl <em>Mood Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.coursework.storyLang.story.impl.MoodStatementImpl
+     * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getMoodStatement()
+     * @generated
+     */
+    EClass MOOD_STATEMENT = eINSTANCE.getMoodStatement();
+
+    /**
+     * The meta object literal for the '<em><b>List</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MOOD_STATEMENT__LIST = eINSTANCE.getMoodStatement_List();
 
   }
 

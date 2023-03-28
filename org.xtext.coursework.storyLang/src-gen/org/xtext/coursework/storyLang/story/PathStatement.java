@@ -7,21 +7,21 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Emotion Statement</b></em>'.
+ * A representation of the model object '<em><b>Path Statement</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.coursework.storyLang.story.EmotionStatement#getList <em>List</em>}</li>
+ *   <li>{@link org.xtext.coursework.storyLang.story.PathStatement#getList <em>List</em>}</li>
  * </ul>
  *
- * @see org.xtext.coursework.storyLang.story.StoryPackage#getEmotionStatement()
+ * @see org.xtext.coursework.storyLang.story.StoryPackage#getPathStatement()
  * @model
  * @generated
  */
-public interface EmotionStatement extends Statement
+public interface PathStatement extends Statement
 {
   /**
    * Returns the value of the '<em><b>List</b></em>' attribute list.
@@ -29,10 +29,10 @@ public interface EmotionStatement extends Statement
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>List</em>' attribute list.
-   * @see org.xtext.coursework.storyLang.story.StoryPackage#getEmotionStatement_List()
+   * @see org.xtext.coursework.storyLang.story.StoryPackage#getPathStatement_List()
    * @model unique="false"
    * @generated
    */
   EList<String> getList();
 
-} // EmotionStatement
+} // PathStatement

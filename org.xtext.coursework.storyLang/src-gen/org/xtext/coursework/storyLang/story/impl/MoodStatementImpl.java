@@ -11,23 +11,23 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
-import org.xtext.coursework.storyLang.story.AdjectiveStatement;
+import org.xtext.coursework.storyLang.story.MoodStatement;
 import org.xtext.coursework.storyLang.story.StoryPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Adjective Statement</b></em>'.
+ * An implementation of the model object '<em><b>Mood Statement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.coursework.storyLang.story.impl.AdjectiveStatementImpl#getList <em>List</em>}</li>
+ *   <li>{@link org.xtext.coursework.storyLang.story.impl.MoodStatementImpl#getList <em>List</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AdjectiveStatementImpl extends StatementImpl implements AdjectiveStatement
+public class MoodStatementImpl extends StatementImpl implements MoodStatement
 {
   /**
    * The cached value of the '{@link #getList() <em>List</em>}' attribute list.
@@ -44,7 +44,7 @@ public class AdjectiveStatementImpl extends StatementImpl implements AdjectiveSt
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AdjectiveStatementImpl()
+  protected MoodStatementImpl()
   {
     super();
   }
@@ -57,7 +57,7 @@ public class AdjectiveStatementImpl extends StatementImpl implements AdjectiveSt
   @Override
   protected EClass eStaticClass()
   {
-    return StoryPackage.Literals.ADJECTIVE_STATEMENT;
+    return StoryPackage.Literals.MOOD_STATEMENT;
   }
 
   /**
@@ -70,7 +70,7 @@ public class AdjectiveStatementImpl extends StatementImpl implements AdjectiveSt
   {
     if (list == null)
     {
-      list = new EDataTypeEList<String>(String.class, this, StoryPackage.ADJECTIVE_STATEMENT__LIST);
+      list = new EDataTypeEList<String>(String.class, this, StoryPackage.MOOD_STATEMENT__LIST);
     }
     return list;
   }
@@ -85,7 +85,7 @@ public class AdjectiveStatementImpl extends StatementImpl implements AdjectiveSt
   {
     switch (featureID)
     {
-      case StoryPackage.ADJECTIVE_STATEMENT__LIST:
+      case StoryPackage.MOOD_STATEMENT__LIST:
         return getList();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -102,7 +102,7 @@ public class AdjectiveStatementImpl extends StatementImpl implements AdjectiveSt
   {
     switch (featureID)
     {
-      case StoryPackage.ADJECTIVE_STATEMENT__LIST:
+      case StoryPackage.MOOD_STATEMENT__LIST:
         getList().clear();
         getList().addAll((Collection<? extends String>)newValue);
         return;
@@ -120,7 +120,7 @@ public class AdjectiveStatementImpl extends StatementImpl implements AdjectiveSt
   {
     switch (featureID)
     {
-      case StoryPackage.ADJECTIVE_STATEMENT__LIST:
+      case StoryPackage.MOOD_STATEMENT__LIST:
         getList().clear();
         return;
     }
@@ -137,7 +137,7 @@ public class AdjectiveStatementImpl extends StatementImpl implements AdjectiveSt
   {
     switch (featureID)
     {
-      case StoryPackage.ADJECTIVE_STATEMENT__LIST:
+      case StoryPackage.MOOD_STATEMENT__LIST:
         return list != null && !list.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -160,4 +160,4 @@ public class AdjectiveStatementImpl extends StatementImpl implements AdjectiveSt
     return result.toString();
   }
 
-} //AdjectiveStatementImpl
+} //MoodStatementImpl

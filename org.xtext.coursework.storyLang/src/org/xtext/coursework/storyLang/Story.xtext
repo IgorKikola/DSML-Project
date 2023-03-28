@@ -7,37 +7,36 @@ StoryProgram:
 ;
 
 Statement:
-	NameStatement |
-	EmotionStatement |
-	VerbStatement |
-	AdverbStatement |
-	AdjectiveStatement |
-	LocationStatement
+	PlaceStatement |
+	PathStatement |
+	MoveStatement |
+	NearbyStatement |
+	SubstanceStatement |
+	MoodStatement
 ;
 
-NameStatement:
-	'name:' value=STRING ';'
+PlaceStatement:
+	'place:' value=STRING ';'
 ;
 
-
-EmotionStatement:
-	'emotions:' list+=STRING (',' list+=STRING )* ';'
+PathStatement:
+	'path:' list+=STRING (',' list+=STRING )* ';'
 ;
 
-VerbStatement:
-	'verb:' list+=STRING (',' list+=STRING )* ';'
+MoveStatement:
+	'move:' list+=STRING (',' list+=STRING )* ';'
 ;
 
-AdverbStatement:
-	'adverbs:' list+=STRING (',' list+=STRING )* ';'
+NearbyStatement:
+	'nearby:' list+=STRING (',' list+=STRING )* ';'
 ;
 
-LocationStatement:
-	'locations:' list+=STRING (',' list+=STRING )* ';'
+SubstanceStatement:
+	'substance:' list+=STRING (',' list+=STRING )* ';'
 ;
 
-AdjectiveStatement:
-	'adjectives:' list+=STRING (',' list+=STRING )* ';'
+MoodStatement:
+	'mood:' list+=STRING (',' list+=STRING )* ';'
 ;
 
 

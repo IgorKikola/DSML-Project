@@ -7,21 +7,21 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Verb Statement</b></em>'.
+ * A representation of the model object '<em><b>Move Statement</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.coursework.storyLang.story.VerbStatement#getList <em>List</em>}</li>
+ *   <li>{@link org.xtext.coursework.storyLang.story.MoveStatement#getList <em>List</em>}</li>
  * </ul>
  *
- * @see org.xtext.coursework.storyLang.story.StoryPackage#getVerbStatement()
+ * @see org.xtext.coursework.storyLang.story.StoryPackage#getMoveStatement()
  * @model
  * @generated
  */
-public interface VerbStatement extends Statement
+public interface MoveStatement extends Statement
 {
   /**
    * Returns the value of the '<em><b>List</b></em>' attribute list.
@@ -29,10 +29,10 @@ public interface VerbStatement extends Statement
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>List</em>' attribute list.
-   * @see org.xtext.coursework.storyLang.story.StoryPackage#getVerbStatement_List()
+   * @see org.xtext.coursework.storyLang.story.StoryPackage#getMoveStatement_List()
    * @model unique="false"
    * @generated
    */
   EList<String> getList();
 
-} // VerbStatement
+} // MoveStatement

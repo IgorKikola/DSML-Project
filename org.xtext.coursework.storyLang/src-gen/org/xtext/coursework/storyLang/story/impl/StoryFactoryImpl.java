@@ -67,12 +67,12 @@ public class StoryFactoryImpl extends EFactoryImpl implements StoryFactory
     {
       case StoryPackage.STORY_PROGRAM: return createStoryProgram();
       case StoryPackage.STATEMENT: return createStatement();
-      case StoryPackage.NAME_STATEMENT: return createNameStatement();
-      case StoryPackage.EMOTION_STATEMENT: return createEmotionStatement();
-      case StoryPackage.VERB_STATEMENT: return createVerbStatement();
-      case StoryPackage.ADVERB_STATEMENT: return createAdverbStatement();
-      case StoryPackage.LOCATION_STATEMENT: return createLocationStatement();
-      case StoryPackage.ADJECTIVE_STATEMENT: return createAdjectiveStatement();
+      case StoryPackage.PLACE_STATEMENT: return createPlaceStatement();
+      case StoryPackage.PATH_STATEMENT: return createPathStatement();
+      case StoryPackage.MOVE_STATEMENT: return createMoveStatement();
+      case StoryPackage.NEARBY_STATEMENT: return createNearbyStatement();
+      case StoryPackage.SUBSTANCE_STATEMENT: return createSubstanceStatement();
+      case StoryPackage.MOOD_STATEMENT: return createMoodStatement();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -108,10 +108,10 @@ public class StoryFactoryImpl extends EFactoryImpl implements StoryFactory
    * @generated
    */
   @Override
-  public NameStatement createNameStatement()
+  public PlaceStatement createPlaceStatement()
   {
-    NameStatementImpl nameStatement = new NameStatementImpl();
-    return nameStatement;
+    PlaceStatementImpl placeStatement = new PlaceStatementImpl();
+    return placeStatement;
   }
 
   /**
@@ -120,10 +120,10 @@ public class StoryFactoryImpl extends EFactoryImpl implements StoryFactory
    * @generated
    */
   @Override
-  public EmotionStatement createEmotionStatement()
+  public PathStatement createPathStatement()
   {
-    EmotionStatementImpl emotionStatement = new EmotionStatementImpl();
-    return emotionStatement;
+    PathStatementImpl pathStatement = new PathStatementImpl();
+    return pathStatement;
   }
 
   /**
@@ -132,10 +132,10 @@ public class StoryFactoryImpl extends EFactoryImpl implements StoryFactory
    * @generated
    */
   @Override
-  public VerbStatement createVerbStatement()
+  public MoveStatement createMoveStatement()
   {
-    VerbStatementImpl verbStatement = new VerbStatementImpl();
-    return verbStatement;
+    MoveStatementImpl moveStatement = new MoveStatementImpl();
+    return moveStatement;
   }
 
   /**
@@ -144,10 +144,10 @@ public class StoryFactoryImpl extends EFactoryImpl implements StoryFactory
    * @generated
    */
   @Override
-  public AdverbStatement createAdverbStatement()
+  public NearbyStatement createNearbyStatement()
   {
-    AdverbStatementImpl adverbStatement = new AdverbStatementImpl();
-    return adverbStatement;
+    NearbyStatementImpl nearbyStatement = new NearbyStatementImpl();
+    return nearbyStatement;
   }
 
   /**
@@ -156,10 +156,10 @@ public class StoryFactoryImpl extends EFactoryImpl implements StoryFactory
    * @generated
    */
   @Override
-  public LocationStatement createLocationStatement()
+  public SubstanceStatement createSubstanceStatement()
   {
-    LocationStatementImpl locationStatement = new LocationStatementImpl();
-    return locationStatement;
+    SubstanceStatementImpl substanceStatement = new SubstanceStatementImpl();
+    return substanceStatement;
   }
 
   /**
@@ -168,10 +168,10 @@ public class StoryFactoryImpl extends EFactoryImpl implements StoryFactory
    * @generated
    */
   @Override
-  public AdjectiveStatement createAdjectiveStatement()
+  public MoodStatement createMoodStatement()
   {
-    AdjectiveStatementImpl adjectiveStatement = new AdjectiveStatementImpl();
-    return adjectiveStatement;
+    MoodStatementImpl moodStatement = new MoodStatementImpl();
+    return moodStatement;
   }
 
   /**

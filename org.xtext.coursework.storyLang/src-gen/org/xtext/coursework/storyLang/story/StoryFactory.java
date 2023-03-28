@@ -42,58 +42,58 @@ public interface StoryFactory extends EFactory
   Statement createStatement();
 
   /**
-   * Returns a new object of class '<em>Name Statement</em>'.
+   * Returns a new object of class '<em>Place Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Name Statement</em>'.
+   * @return a new object of class '<em>Place Statement</em>'.
    * @generated
    */
-  NameStatement createNameStatement();
+  PlaceStatement createPlaceStatement();
 
   /**
-   * Returns a new object of class '<em>Emotion Statement</em>'.
+   * Returns a new object of class '<em>Path Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Emotion Statement</em>'.
+   * @return a new object of class '<em>Path Statement</em>'.
    * @generated
    */
-  EmotionStatement createEmotionStatement();
+  PathStatement createPathStatement();
 
   /**
-   * Returns a new object of class '<em>Verb Statement</em>'.
+   * Returns a new object of class '<em>Move Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Verb Statement</em>'.
+   * @return a new object of class '<em>Move Statement</em>'.
    * @generated
    */
-  VerbStatement createVerbStatement();
+  MoveStatement createMoveStatement();
 
   /**
-   * Returns a new object of class '<em>Adverb Statement</em>'.
+   * Returns a new object of class '<em>Nearby Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Adverb Statement</em>'.
+   * @return a new object of class '<em>Nearby Statement</em>'.
    * @generated
    */
-  AdverbStatement createAdverbStatement();
+  NearbyStatement createNearbyStatement();
 
   /**
-   * Returns a new object of class '<em>Location Statement</em>'.
+   * Returns a new object of class '<em>Substance Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Location Statement</em>'.
+   * @return a new object of class '<em>Substance Statement</em>'.
    * @generated
    */
-  LocationStatement createLocationStatement();
+  SubstanceStatement createSubstanceStatement();
 
   /**
-   * Returns a new object of class '<em>Adjective Statement</em>'.
+   * Returns a new object of class '<em>Mood Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Adjective Statement</em>'.
+   * @return a new object of class '<em>Mood Statement</em>'.
    * @generated
    */
-  AdjectiveStatement createAdjectiveStatement();
+  MoodStatement createMoodStatement();
 
   /**
    * Returns the package supported by this factory.

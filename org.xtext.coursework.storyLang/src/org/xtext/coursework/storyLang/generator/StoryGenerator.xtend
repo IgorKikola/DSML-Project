@@ -8,12 +8,12 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import org.xtext.coursework.storyLang.story.StoryProgram
-import org.xtext.coursework.storyLang.story.NameStatement
-import org.xtext.coursework.storyLang.story.EmotionStatement
-import org.xtext.coursework.storyLang.story.VerbStatement
-import org.xtext.coursework.storyLang.story.AdverbStatement
-import org.xtext.coursework.storyLang.story.LocationStatement
-import org.xtext.coursework.storyLang.story.AdjectiveStatement
+import org.xtext.coursework.storyLang.story.PlaceStatement
+import org.xtext.coursework.storyLang.story.PathStatement
+import org.xtext.coursework.storyLang.story.MoveStatement
+import org.xtext.coursework.storyLang.story.NearbyStatement
+import org.xtext.coursework.storyLang.story.SubstanceStatement
+import org.xtext.coursework.storyLang.story.MoodStatement
 
 /**
  * Generates code from your model files on save.
@@ -22,14 +22,14 @@ import org.xtext.coursework.storyLang.story.AdjectiveStatement
  */
 class StoryGenerator extends AbstractGenerator {
 	
-	int test = 10;
+	
 
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		
 
         val model = resource.contents.head as StoryProgram
-        fsa.generateFile(resource.deriveTargetFileNameFor, model.doGenerateStats)
+        fsa.generateFile(resource.deriveTargetFileNameFor, model.doGenerate)
     }
 
     def deriveTargetFileNameFor(Resource resource) {
@@ -37,16 +37,36 @@ class StoryGenerator extends AbstractGenerator {
     }
 
 
-    def String doGenerateStats(StoryProgram program) '''
+    def String doGenerate(StoryProgram program) '''
         Program contains:
-
-        - «program.statements.filter(NameStatement).iterator().next().value» name              
-        - «program.statements.filter(EmotionStatement).iterator.next.list.get(Math.floor(Math.random()*program.statements.filter(EmotionStatement).iterator.next.list.size).intValue())» emotions statement
-        - «program.statements.filter(VerbStatement).iterator().next().list.get(Math.floor(Math.random()*program.statements.filter(VerbStatement).iterator.next.list.size).intValue())» verb     
-        - «program.statements.filter(AdverbStatement).iterator().next().list.get(Math.floor(Math.random()*program.statements.filter(AdverbStatement).iterator.next.list.size).intValue())» adverb     
-        - «program.statements.filter(LocationStatement).iterator().next().list.get(Math.floor(Math.random()*program.statements.filter(LocationStatement).iterator.next.list.size).intValue())» location
-        - «program.statements.filter(AdjectiveStatement).iterator().next().list.get(Math.floor(Math.random()*program.statements.filter(AdjectiveStatement).iterator.next.list.size).intValue())» adjective     
-      
+		«var mood1 = program.statements.filter(MoodStatement).iterator.next.list.get(Math.floor(Math.random()*program.statements.filter(MoodStatement).iterator.next.list.size).intValue())»
+		«var mood2 = program.statements.filter(MoodStatement).iterator.next.list.get(Math.floor(Math.random()*program.statements.filter(MoodStatement).iterator.next.list.size).intValue())»	
+		«var mood3 = program.statements.filter(MoodStatement).iterator.next.list.get(Math.floor(Math.random()*program.statements.filter(MoodStatement).iterator.next.list.size).intValue())»		
+		«var move = program.statements.filter(MoveStatement).iterator.next.list.get(Math.floor(Math.random()*program.statements.filter(MoveStatement).iterator.next.list.size).intValue())»	
+		«var adjust = ''»
+		«var place = program.statements.filter(PlaceStatement).iterator.next.value»
+		
+		«mood1.toFirstUpper» and 
+		«program.statements.filter(MoodStatement).iterator.next.list.get(Math.floor(Math.random()*program.statements.filter(MoodStatement).iterator.next.list.size).intValue())», the 
+		«place» was 
+		«mood2» with 
+		«program.statements.filter(SubstanceStatement).iterator.next.list.get(Math.floor(Math.random()*program.statements.filter(SubstanceStatement).iterator.next.list.size).intValue())».
+		«program.statements.filter(NearbyStatement).iterator.next.list.get(Math.floor(Math.random()*program.statements.filter(NearbyStatement).iterator.next.list.size).intValue()).toFirstUpper» 
+		«if(place.charAt(0) == 'a' || place.charAt(0) == 'e' || place.charAt(0) == 'i' || place.charAt(0) == 'o' || place.charAt(0) == 'u')
+		{adjust = 'an'}
+		else
+		{adjust= 'a'}»
+		«place»
+		«if(place.endsWith('ed'))
+		{move}
+		else if(place.endsWith('e'))
+		{move = move + 'd'}
+		else if(place.matches("[a-z]*[^aeiou]y"))
+		{move = move.substring(0,move.length-1)+'ied'}
+		else if(place.matches("[a-z]+"))
+		{move = move + 'ed'}» through the 
+		«program.statements.filter(PathStatement).iterator.next.list.get(Math.floor(Math.random()*program.statements.filter(PathStatement).iterator.next.list.size).intValue())», filling me with 
+		«program.statements.filter(SubstanceStatement).iterator.next.list.get(Math.floor(Math.random()*program.statements.filter(SubstanceStatement).iterator.next.list.size).intValue())».
     '''
 	
 	

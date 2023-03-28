@@ -1,11 +1,11 @@
 ','=14
 ';'=12
-'adjectives:'=18
-'adverbs:'=16
-'emotions:'=13
-'locations:'=17
-'name:'=11
-'verb:'=15
+'mood:'=18
+'move:'=15
+'nearby:'=16
+'path:'=13
+'place:'=11
+'substance:'=17
 RULE_ANY_OTHER=10
 RULE_ID=5
 RULE_INT=6

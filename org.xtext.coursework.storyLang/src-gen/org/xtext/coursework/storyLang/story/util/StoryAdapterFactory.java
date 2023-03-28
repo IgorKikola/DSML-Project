@@ -86,34 +86,34 @@ public class StoryAdapterFactory extends AdapterFactoryImpl
         return createStatementAdapter();
       }
       @Override
-      public Adapter caseNameStatement(NameStatement object)
+      public Adapter casePlaceStatement(PlaceStatement object)
       {
-        return createNameStatementAdapter();
+        return createPlaceStatementAdapter();
       }
       @Override
-      public Adapter caseEmotionStatement(EmotionStatement object)
+      public Adapter casePathStatement(PathStatement object)
       {
-        return createEmotionStatementAdapter();
+        return createPathStatementAdapter();
       }
       @Override
-      public Adapter caseVerbStatement(VerbStatement object)
+      public Adapter caseMoveStatement(MoveStatement object)
       {
-        return createVerbStatementAdapter();
+        return createMoveStatementAdapter();
       }
       @Override
-      public Adapter caseAdverbStatement(AdverbStatement object)
+      public Adapter caseNearbyStatement(NearbyStatement object)
       {
-        return createAdverbStatementAdapter();
+        return createNearbyStatementAdapter();
       }
       @Override
-      public Adapter caseLocationStatement(LocationStatement object)
+      public Adapter caseSubstanceStatement(SubstanceStatement object)
       {
-        return createLocationStatementAdapter();
+        return createSubstanceStatementAdapter();
       }
       @Override
-      public Adapter caseAdjectiveStatement(AdjectiveStatement object)
+      public Adapter caseMoodStatement(MoodStatement object)
       {
-        return createAdjectiveStatementAdapter();
+        return createMoodStatementAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -168,91 +168,91 @@ public class StoryAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.coursework.storyLang.story.NameStatement <em>Name Statement</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.coursework.storyLang.story.PlaceStatement <em>Place Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.coursework.storyLang.story.NameStatement
+   * @see org.xtext.coursework.storyLang.story.PlaceStatement
    * @generated
    */
-  public Adapter createNameStatementAdapter()
+  public Adapter createPlaceStatementAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.coursework.storyLang.story.EmotionStatement <em>Emotion Statement</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.coursework.storyLang.story.PathStatement <em>Path Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.coursework.storyLang.story.EmotionStatement
+   * @see org.xtext.coursework.storyLang.story.PathStatement
    * @generated
    */
-  public Adapter createEmotionStatementAdapter()
+  public Adapter createPathStatementAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.coursework.storyLang.story.VerbStatement <em>Verb Statement</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.coursework.storyLang.story.MoveStatement <em>Move Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.coursework.storyLang.story.VerbStatement
+   * @see org.xtext.coursework.storyLang.story.MoveStatement
    * @generated
    */
-  public Adapter createVerbStatementAdapter()
+  public Adapter createMoveStatementAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.coursework.storyLang.story.AdverbStatement <em>Adverb Statement</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.coursework.storyLang.story.NearbyStatement <em>Nearby Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.coursework.storyLang.story.AdverbStatement
+   * @see org.xtext.coursework.storyLang.story.NearbyStatement
    * @generated
    */
-  public Adapter createAdverbStatementAdapter()
+  public Adapter createNearbyStatementAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.coursework.storyLang.story.LocationStatement <em>Location Statement</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.coursework.storyLang.story.SubstanceStatement <em>Substance Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.coursework.storyLang.story.LocationStatement
+   * @see org.xtext.coursework.storyLang.story.SubstanceStatement
    * @generated
    */
-  public Adapter createLocationStatementAdapter()
+  public Adapter createSubstanceStatementAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.coursework.storyLang.story.AdjectiveStatement <em>Adjective Statement</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.coursework.storyLang.story.MoodStatement <em>Mood Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.coursework.storyLang.story.AdjectiveStatement
+   * @see org.xtext.coursework.storyLang.story.MoodStatement
    * @generated
    */
-  public Adapter createAdjectiveStatementAdapter()
+  public Adapter createMoodStatementAdapter()
   {
     return null;
   }

@@ -10,23 +10,23 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Story.ecore#//StoryProgram/statements"/>
     </genClasses>
     <genClasses ecoreClass="Story.ecore#//Statement"/>
-    <genClasses ecoreClass="Story.ecore#//NameStatement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Story.ecore#//NameStatement/value"/>
+    <genClasses ecoreClass="Story.ecore#//PlaceStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Story.ecore#//PlaceStatement/value"/>
     </genClasses>
-    <genClasses ecoreClass="Story.ecore#//EmotionStatement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Story.ecore#//EmotionStatement/list"/>
+    <genClasses ecoreClass="Story.ecore#//PathStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Story.ecore#//PathStatement/list"/>
     </genClasses>
-    <genClasses ecoreClass="Story.ecore#//VerbStatement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Story.ecore#//VerbStatement/list"/>
+    <genClasses ecoreClass="Story.ecore#//MoveStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Story.ecore#//MoveStatement/list"/>
     </genClasses>
-    <genClasses ecoreClass="Story.ecore#//AdverbStatement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Story.ecore#//AdverbStatement/list"/>
+    <genClasses ecoreClass="Story.ecore#//NearbyStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Story.ecore#//NearbyStatement/list"/>
     </genClasses>
-    <genClasses ecoreClass="Story.ecore#//LocationStatement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Story.ecore#//LocationStatement/list"/>
+    <genClasses ecoreClass="Story.ecore#//SubstanceStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Story.ecore#//SubstanceStatement/list"/>
     </genClasses>
-    <genClasses ecoreClass="Story.ecore#//AdjectiveStatement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Story.ecore#//AdjectiveStatement/list"/>
+    <genClasses ecoreClass="Story.ecore#//MoodStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Story.ecore#//MoodStatement/list"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

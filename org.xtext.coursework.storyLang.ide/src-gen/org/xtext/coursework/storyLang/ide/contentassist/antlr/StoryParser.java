@@ -32,29 +32,29 @@ public class StoryParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, StoryGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getStatementAccess().getAlternatives(), "rule__Statement__Alternatives");
-			builder.put(grammarAccess.getNameStatementAccess().getGroup(), "rule__NameStatement__Group__0");
-			builder.put(grammarAccess.getEmotionStatementAccess().getGroup(), "rule__EmotionStatement__Group__0");
-			builder.put(grammarAccess.getEmotionStatementAccess().getGroup_2(), "rule__EmotionStatement__Group_2__0");
-			builder.put(grammarAccess.getVerbStatementAccess().getGroup(), "rule__VerbStatement__Group__0");
-			builder.put(grammarAccess.getVerbStatementAccess().getGroup_2(), "rule__VerbStatement__Group_2__0");
-			builder.put(grammarAccess.getAdverbStatementAccess().getGroup(), "rule__AdverbStatement__Group__0");
-			builder.put(grammarAccess.getAdverbStatementAccess().getGroup_2(), "rule__AdverbStatement__Group_2__0");
-			builder.put(grammarAccess.getLocationStatementAccess().getGroup(), "rule__LocationStatement__Group__0");
-			builder.put(grammarAccess.getLocationStatementAccess().getGroup_2(), "rule__LocationStatement__Group_2__0");
-			builder.put(grammarAccess.getAdjectiveStatementAccess().getGroup(), "rule__AdjectiveStatement__Group__0");
-			builder.put(grammarAccess.getAdjectiveStatementAccess().getGroup_2(), "rule__AdjectiveStatement__Group_2__0");
+			builder.put(grammarAccess.getPlaceStatementAccess().getGroup(), "rule__PlaceStatement__Group__0");
+			builder.put(grammarAccess.getPathStatementAccess().getGroup(), "rule__PathStatement__Group__0");
+			builder.put(grammarAccess.getPathStatementAccess().getGroup_2(), "rule__PathStatement__Group_2__0");
+			builder.put(grammarAccess.getMoveStatementAccess().getGroup(), "rule__MoveStatement__Group__0");
+			builder.put(grammarAccess.getMoveStatementAccess().getGroup_2(), "rule__MoveStatement__Group_2__0");
+			builder.put(grammarAccess.getNearbyStatementAccess().getGroup(), "rule__NearbyStatement__Group__0");
+			builder.put(grammarAccess.getNearbyStatementAccess().getGroup_2(), "rule__NearbyStatement__Group_2__0");
+			builder.put(grammarAccess.getSubstanceStatementAccess().getGroup(), "rule__SubstanceStatement__Group__0");
+			builder.put(grammarAccess.getSubstanceStatementAccess().getGroup_2(), "rule__SubstanceStatement__Group_2__0");
+			builder.put(grammarAccess.getMoodStatementAccess().getGroup(), "rule__MoodStatement__Group__0");
+			builder.put(grammarAccess.getMoodStatementAccess().getGroup_2(), "rule__MoodStatement__Group_2__0");
 			builder.put(grammarAccess.getStoryProgramAccess().getStatementsAssignment(), "rule__StoryProgram__StatementsAssignment");
-			builder.put(grammarAccess.getNameStatementAccess().getValueAssignment_1(), "rule__NameStatement__ValueAssignment_1");
-			builder.put(grammarAccess.getEmotionStatementAccess().getListAssignment_1(), "rule__EmotionStatement__ListAssignment_1");
-			builder.put(grammarAccess.getEmotionStatementAccess().getListAssignment_2_1(), "rule__EmotionStatement__ListAssignment_2_1");
-			builder.put(grammarAccess.getVerbStatementAccess().getListAssignment_1(), "rule__VerbStatement__ListAssignment_1");
-			builder.put(grammarAccess.getVerbStatementAccess().getListAssignment_2_1(), "rule__VerbStatement__ListAssignment_2_1");
-			builder.put(grammarAccess.getAdverbStatementAccess().getListAssignment_1(), "rule__AdverbStatement__ListAssignment_1");
-			builder.put(grammarAccess.getAdverbStatementAccess().getListAssignment_2_1(), "rule__AdverbStatement__ListAssignment_2_1");
-			builder.put(grammarAccess.getLocationStatementAccess().getListAssignment_1(), "rule__LocationStatement__ListAssignment_1");
-			builder.put(grammarAccess.getLocationStatementAccess().getListAssignment_2_1(), "rule__LocationStatement__ListAssignment_2_1");
-			builder.put(grammarAccess.getAdjectiveStatementAccess().getListAssignment_1(), "rule__AdjectiveStatement__ListAssignment_1");
-			builder.put(grammarAccess.getAdjectiveStatementAccess().getListAssignment_2_1(), "rule__AdjectiveStatement__ListAssignment_2_1");
+			builder.put(grammarAccess.getPlaceStatementAccess().getValueAssignment_1(), "rule__PlaceStatement__ValueAssignment_1");
+			builder.put(grammarAccess.getPathStatementAccess().getListAssignment_1(), "rule__PathStatement__ListAssignment_1");
+			builder.put(grammarAccess.getPathStatementAccess().getListAssignment_2_1(), "rule__PathStatement__ListAssignment_2_1");
+			builder.put(grammarAccess.getMoveStatementAccess().getListAssignment_1(), "rule__MoveStatement__ListAssignment_1");
+			builder.put(grammarAccess.getMoveStatementAccess().getListAssignment_2_1(), "rule__MoveStatement__ListAssignment_2_1");
+			builder.put(grammarAccess.getNearbyStatementAccess().getListAssignment_1(), "rule__NearbyStatement__ListAssignment_1");
+			builder.put(grammarAccess.getNearbyStatementAccess().getListAssignment_2_1(), "rule__NearbyStatement__ListAssignment_2_1");
+			builder.put(grammarAccess.getSubstanceStatementAccess().getListAssignment_1(), "rule__SubstanceStatement__ListAssignment_1");
+			builder.put(grammarAccess.getSubstanceStatementAccess().getListAssignment_2_1(), "rule__SubstanceStatement__ListAssignment_2_1");
+			builder.put(grammarAccess.getMoodStatementAccess().getListAssignment_1(), "rule__MoodStatement__ListAssignment_1");
+			builder.put(grammarAccess.getMoodStatementAccess().getListAssignment_2_1(), "rule__MoodStatement__ListAssignment_2_1");
 		}
 	}
 	

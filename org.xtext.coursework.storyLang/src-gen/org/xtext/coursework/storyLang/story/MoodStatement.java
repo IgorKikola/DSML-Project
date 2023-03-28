@@ -7,21 +7,21 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Adverb Statement</b></em>'.
+ * A representation of the model object '<em><b>Mood Statement</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.coursework.storyLang.story.AdverbStatement#getList <em>List</em>}</li>
+ *   <li>{@link org.xtext.coursework.storyLang.story.MoodStatement#getList <em>List</em>}</li>
  * </ul>
  *
- * @see org.xtext.coursework.storyLang.story.StoryPackage#getAdverbStatement()
+ * @see org.xtext.coursework.storyLang.story.StoryPackage#getMoodStatement()
  * @model
  * @generated
  */
-public interface AdverbStatement extends Statement
+public interface MoodStatement extends Statement
 {
   /**
    * Returns the value of the '<em><b>List</b></em>' attribute list.
@@ -29,10 +29,10 @@ public interface AdverbStatement extends Statement
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>List</em>' attribute list.
-   * @see org.xtext.coursework.storyLang.story.StoryPackage#getAdverbStatement_List()
+   * @see org.xtext.coursework.storyLang.story.StoryPackage#getMoodStatement_List()
    * @model unique="false"
    * @generated
    */
   EList<String> getList();
 
-} // AdverbStatement
+} // MoodStatement

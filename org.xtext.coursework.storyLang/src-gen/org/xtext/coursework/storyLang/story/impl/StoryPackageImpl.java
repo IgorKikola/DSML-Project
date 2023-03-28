@@ -10,16 +10,16 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.xtext.coursework.storyLang.story.AdjectiveStatement;
-import org.xtext.coursework.storyLang.story.AdverbStatement;
-import org.xtext.coursework.storyLang.story.EmotionStatement;
-import org.xtext.coursework.storyLang.story.LocationStatement;
-import org.xtext.coursework.storyLang.story.NameStatement;
+import org.xtext.coursework.storyLang.story.MoodStatement;
+import org.xtext.coursework.storyLang.story.MoveStatement;
+import org.xtext.coursework.storyLang.story.NearbyStatement;
+import org.xtext.coursework.storyLang.story.PathStatement;
+import org.xtext.coursework.storyLang.story.PlaceStatement;
 import org.xtext.coursework.storyLang.story.Statement;
 import org.xtext.coursework.storyLang.story.StoryFactory;
 import org.xtext.coursework.storyLang.story.StoryPackage;
 import org.xtext.coursework.storyLang.story.StoryProgram;
-import org.xtext.coursework.storyLang.story.VerbStatement;
+import org.xtext.coursework.storyLang.story.SubstanceStatement;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,42 +48,42 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass nameStatementEClass = null;
+  private EClass placeStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass emotionStatementEClass = null;
+  private EClass pathStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass verbStatementEClass = null;
+  private EClass moveStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass adverbStatementEClass = null;
+  private EClass nearbyStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass locationStatementEClass = null;
+  private EClass substanceStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass adjectiveStatementEClass = null;
+  private EClass moodStatementEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -187,9 +187,9 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
    * @generated
    */
   @Override
-  public EClass getNameStatement()
+  public EClass getPlaceStatement()
   {
-    return nameStatementEClass;
+    return placeStatementEClass;
   }
 
   /**
@@ -198,9 +198,9 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
    * @generated
    */
   @Override
-  public EAttribute getNameStatement_Value()
+  public EAttribute getPlaceStatement_Value()
   {
-    return (EAttribute)nameStatementEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)placeStatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -209,9 +209,9 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
    * @generated
    */
   @Override
-  public EClass getEmotionStatement()
+  public EClass getPathStatement()
   {
-    return emotionStatementEClass;
+    return pathStatementEClass;
   }
 
   /**
@@ -220,9 +220,9 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
    * @generated
    */
   @Override
-  public EAttribute getEmotionStatement_List()
+  public EAttribute getPathStatement_List()
   {
-    return (EAttribute)emotionStatementEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)pathStatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -231,9 +231,9 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
    * @generated
    */
   @Override
-  public EClass getVerbStatement()
+  public EClass getMoveStatement()
   {
-    return verbStatementEClass;
+    return moveStatementEClass;
   }
 
   /**
@@ -242,9 +242,9 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
    * @generated
    */
   @Override
-  public EAttribute getVerbStatement_List()
+  public EAttribute getMoveStatement_List()
   {
-    return (EAttribute)verbStatementEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)moveStatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -253,9 +253,9 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
    * @generated
    */
   @Override
-  public EClass getAdverbStatement()
+  public EClass getNearbyStatement()
   {
-    return adverbStatementEClass;
+    return nearbyStatementEClass;
   }
 
   /**
@@ -264,9 +264,9 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
    * @generated
    */
   @Override
-  public EAttribute getAdverbStatement_List()
+  public EAttribute getNearbyStatement_List()
   {
-    return (EAttribute)adverbStatementEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)nearbyStatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -275,9 +275,9 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
    * @generated
    */
   @Override
-  public EClass getLocationStatement()
+  public EClass getSubstanceStatement()
   {
-    return locationStatementEClass;
+    return substanceStatementEClass;
   }
 
   /**
@@ -286,9 +286,9 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
    * @generated
    */
   @Override
-  public EAttribute getLocationStatement_List()
+  public EAttribute getSubstanceStatement_List()
   {
-    return (EAttribute)locationStatementEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)substanceStatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -297,9 +297,9 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
    * @generated
    */
   @Override
-  public EClass getAdjectiveStatement()
+  public EClass getMoodStatement()
   {
-    return adjectiveStatementEClass;
+    return moodStatementEClass;
   }
 
   /**
@@ -308,9 +308,9 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
    * @generated
    */
   @Override
-  public EAttribute getAdjectiveStatement_List()
+  public EAttribute getMoodStatement_List()
   {
-    return (EAttribute)adjectiveStatementEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)moodStatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -349,23 +349,23 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
 
     statementEClass = createEClass(STATEMENT);
 
-    nameStatementEClass = createEClass(NAME_STATEMENT);
-    createEAttribute(nameStatementEClass, NAME_STATEMENT__VALUE);
+    placeStatementEClass = createEClass(PLACE_STATEMENT);
+    createEAttribute(placeStatementEClass, PLACE_STATEMENT__VALUE);
 
-    emotionStatementEClass = createEClass(EMOTION_STATEMENT);
-    createEAttribute(emotionStatementEClass, EMOTION_STATEMENT__LIST);
+    pathStatementEClass = createEClass(PATH_STATEMENT);
+    createEAttribute(pathStatementEClass, PATH_STATEMENT__LIST);
 
-    verbStatementEClass = createEClass(VERB_STATEMENT);
-    createEAttribute(verbStatementEClass, VERB_STATEMENT__LIST);
+    moveStatementEClass = createEClass(MOVE_STATEMENT);
+    createEAttribute(moveStatementEClass, MOVE_STATEMENT__LIST);
 
-    adverbStatementEClass = createEClass(ADVERB_STATEMENT);
-    createEAttribute(adverbStatementEClass, ADVERB_STATEMENT__LIST);
+    nearbyStatementEClass = createEClass(NEARBY_STATEMENT);
+    createEAttribute(nearbyStatementEClass, NEARBY_STATEMENT__LIST);
 
-    locationStatementEClass = createEClass(LOCATION_STATEMENT);
-    createEAttribute(locationStatementEClass, LOCATION_STATEMENT__LIST);
+    substanceStatementEClass = createEClass(SUBSTANCE_STATEMENT);
+    createEAttribute(substanceStatementEClass, SUBSTANCE_STATEMENT__LIST);
 
-    adjectiveStatementEClass = createEClass(ADJECTIVE_STATEMENT);
-    createEAttribute(adjectiveStatementEClass, ADJECTIVE_STATEMENT__LIST);
+    moodStatementEClass = createEClass(MOOD_STATEMENT);
+    createEAttribute(moodStatementEClass, MOOD_STATEMENT__LIST);
   }
 
   /**
@@ -397,12 +397,12 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    nameStatementEClass.getESuperTypes().add(this.getStatement());
-    emotionStatementEClass.getESuperTypes().add(this.getStatement());
-    verbStatementEClass.getESuperTypes().add(this.getStatement());
-    adverbStatementEClass.getESuperTypes().add(this.getStatement());
-    locationStatementEClass.getESuperTypes().add(this.getStatement());
-    adjectiveStatementEClass.getESuperTypes().add(this.getStatement());
+    placeStatementEClass.getESuperTypes().add(this.getStatement());
+    pathStatementEClass.getESuperTypes().add(this.getStatement());
+    moveStatementEClass.getESuperTypes().add(this.getStatement());
+    nearbyStatementEClass.getESuperTypes().add(this.getStatement());
+    substanceStatementEClass.getESuperTypes().add(this.getStatement());
+    moodStatementEClass.getESuperTypes().add(this.getStatement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(storyProgramEClass, StoryProgram.class, "StoryProgram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -410,23 +410,23 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(nameStatementEClass, NameStatement.class, "NameStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getNameStatement_Value(), ecorePackage.getEString(), "value", null, 0, 1, NameStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(placeStatementEClass, PlaceStatement.class, "PlaceStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPlaceStatement_Value(), ecorePackage.getEString(), "value", null, 0, 1, PlaceStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(emotionStatementEClass, EmotionStatement.class, "EmotionStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getEmotionStatement_List(), ecorePackage.getEString(), "list", null, 0, -1, EmotionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(pathStatementEClass, PathStatement.class, "PathStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPathStatement_List(), ecorePackage.getEString(), "list", null, 0, -1, PathStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(verbStatementEClass, VerbStatement.class, "VerbStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVerbStatement_List(), ecorePackage.getEString(), "list", null, 0, -1, VerbStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(moveStatementEClass, MoveStatement.class, "MoveStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMoveStatement_List(), ecorePackage.getEString(), "list", null, 0, -1, MoveStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(adverbStatementEClass, AdverbStatement.class, "AdverbStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAdverbStatement_List(), ecorePackage.getEString(), "list", null, 0, -1, AdverbStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(nearbyStatementEClass, NearbyStatement.class, "NearbyStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNearbyStatement_List(), ecorePackage.getEString(), "list", null, 0, -1, NearbyStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(locationStatementEClass, LocationStatement.class, "LocationStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLocationStatement_List(), ecorePackage.getEString(), "list", null, 0, -1, LocationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(substanceStatementEClass, SubstanceStatement.class, "SubstanceStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSubstanceStatement_List(), ecorePackage.getEString(), "list", null, 0, -1, SubstanceStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(adjectiveStatementEClass, AdjectiveStatement.class, "AdjectiveStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAdjectiveStatement_List(), ecorePackage.getEString(), "list", null, 0, -1, AdjectiveStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(moodStatementEClass, MoodStatement.class, "MoodStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMoodStatement_List(), ecorePackage.getEString(), "list", null, 0, -1, MoodStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

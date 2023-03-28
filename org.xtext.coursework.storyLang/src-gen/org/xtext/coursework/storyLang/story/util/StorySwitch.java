@@ -87,51 +87,51 @@ public class StorySwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case StoryPackage.NAME_STATEMENT:
+      case StoryPackage.PLACE_STATEMENT:
       {
-        NameStatement nameStatement = (NameStatement)theEObject;
-        T result = caseNameStatement(nameStatement);
-        if (result == null) result = caseStatement(nameStatement);
+        PlaceStatement placeStatement = (PlaceStatement)theEObject;
+        T result = casePlaceStatement(placeStatement);
+        if (result == null) result = caseStatement(placeStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case StoryPackage.EMOTION_STATEMENT:
+      case StoryPackage.PATH_STATEMENT:
       {
-        EmotionStatement emotionStatement = (EmotionStatement)theEObject;
-        T result = caseEmotionStatement(emotionStatement);
-        if (result == null) result = caseStatement(emotionStatement);
+        PathStatement pathStatement = (PathStatement)theEObject;
+        T result = casePathStatement(pathStatement);
+        if (result == null) result = caseStatement(pathStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case StoryPackage.VERB_STATEMENT:
+      case StoryPackage.MOVE_STATEMENT:
       {
-        VerbStatement verbStatement = (VerbStatement)theEObject;
-        T result = caseVerbStatement(verbStatement);
-        if (result == null) result = caseStatement(verbStatement);
+        MoveStatement moveStatement = (MoveStatement)theEObject;
+        T result = caseMoveStatement(moveStatement);
+        if (result == null) result = caseStatement(moveStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case StoryPackage.ADVERB_STATEMENT:
+      case StoryPackage.NEARBY_STATEMENT:
       {
-        AdverbStatement adverbStatement = (AdverbStatement)theEObject;
-        T result = caseAdverbStatement(adverbStatement);
-        if (result == null) result = caseStatement(adverbStatement);
+        NearbyStatement nearbyStatement = (NearbyStatement)theEObject;
+        T result = caseNearbyStatement(nearbyStatement);
+        if (result == null) result = caseStatement(nearbyStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case StoryPackage.LOCATION_STATEMENT:
+      case StoryPackage.SUBSTANCE_STATEMENT:
       {
-        LocationStatement locationStatement = (LocationStatement)theEObject;
-        T result = caseLocationStatement(locationStatement);
-        if (result == null) result = caseStatement(locationStatement);
+        SubstanceStatement substanceStatement = (SubstanceStatement)theEObject;
+        T result = caseSubstanceStatement(substanceStatement);
+        if (result == null) result = caseStatement(substanceStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case StoryPackage.ADJECTIVE_STATEMENT:
+      case StoryPackage.MOOD_STATEMENT:
       {
-        AdjectiveStatement adjectiveStatement = (AdjectiveStatement)theEObject;
-        T result = caseAdjectiveStatement(adjectiveStatement);
-        if (result == null) result = caseStatement(adjectiveStatement);
+        MoodStatement moodStatement = (MoodStatement)theEObject;
+        T result = caseMoodStatement(moodStatement);
+        if (result == null) result = caseStatement(moodStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -172,97 +172,97 @@ public class StorySwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Name Statement</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Place Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Name Statement</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Place Statement</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNameStatement(NameStatement object)
+  public T casePlaceStatement(PlaceStatement object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Emotion Statement</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Path Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Emotion Statement</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Path Statement</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseEmotionStatement(EmotionStatement object)
+  public T casePathStatement(PathStatement object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Verb Statement</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Move Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Verb Statement</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Move Statement</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseVerbStatement(VerbStatement object)
+  public T caseMoveStatement(MoveStatement object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Adverb Statement</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Nearby Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Adverb Statement</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Nearby Statement</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAdverbStatement(AdverbStatement object)
+  public T caseNearbyStatement(NearbyStatement object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Location Statement</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Substance Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Location Statement</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Substance Statement</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseLocationStatement(LocationStatement object)
+  public T caseSubstanceStatement(SubstanceStatement object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Adjective Statement</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Mood Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Adjective Statement</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Mood Statement</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAdjectiveStatement(AdjectiveStatement object)
+  public T caseMoodStatement(MoodStatement object)
   {
     return null;
   }

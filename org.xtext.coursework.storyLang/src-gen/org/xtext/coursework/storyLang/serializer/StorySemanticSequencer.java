@@ -15,14 +15,14 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.coursework.storyLang.services.StoryGrammarAccess;
-import org.xtext.coursework.storyLang.story.AdjectiveStatement;
-import org.xtext.coursework.storyLang.story.AdverbStatement;
-import org.xtext.coursework.storyLang.story.EmotionStatement;
-import org.xtext.coursework.storyLang.story.LocationStatement;
-import org.xtext.coursework.storyLang.story.NameStatement;
+import org.xtext.coursework.storyLang.story.MoodStatement;
+import org.xtext.coursework.storyLang.story.MoveStatement;
+import org.xtext.coursework.storyLang.story.NearbyStatement;
+import org.xtext.coursework.storyLang.story.PathStatement;
+import org.xtext.coursework.storyLang.story.PlaceStatement;
 import org.xtext.coursework.storyLang.story.StoryPackage;
 import org.xtext.coursework.storyLang.story.StoryProgram;
-import org.xtext.coursework.storyLang.story.VerbStatement;
+import org.xtext.coursework.storyLang.story.SubstanceStatement;
 
 @SuppressWarnings("all")
 public class StorySemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -38,26 +38,26 @@ public class StorySemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == StoryPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case StoryPackage.ADJECTIVE_STATEMENT:
-				sequence_AdjectiveStatement(context, (AdjectiveStatement) semanticObject); 
+			case StoryPackage.MOOD_STATEMENT:
+				sequence_MoodStatement(context, (MoodStatement) semanticObject); 
 				return; 
-			case StoryPackage.ADVERB_STATEMENT:
-				sequence_AdverbStatement(context, (AdverbStatement) semanticObject); 
+			case StoryPackage.MOVE_STATEMENT:
+				sequence_MoveStatement(context, (MoveStatement) semanticObject); 
 				return; 
-			case StoryPackage.EMOTION_STATEMENT:
-				sequence_EmotionStatement(context, (EmotionStatement) semanticObject); 
+			case StoryPackage.NEARBY_STATEMENT:
+				sequence_NearbyStatement(context, (NearbyStatement) semanticObject); 
 				return; 
-			case StoryPackage.LOCATION_STATEMENT:
-				sequence_LocationStatement(context, (LocationStatement) semanticObject); 
+			case StoryPackage.PATH_STATEMENT:
+				sequence_PathStatement(context, (PathStatement) semanticObject); 
 				return; 
-			case StoryPackage.NAME_STATEMENT:
-				sequence_NameStatement(context, (NameStatement) semanticObject); 
+			case StoryPackage.PLACE_STATEMENT:
+				sequence_PlaceStatement(context, (PlaceStatement) semanticObject); 
 				return; 
 			case StoryPackage.STORY_PROGRAM:
 				sequence_StoryProgram(context, (StoryProgram) semanticObject); 
 				return; 
-			case StoryPackage.VERB_STATEMENT:
-				sequence_VerbStatement(context, (VerbStatement) semanticObject); 
+			case StoryPackage.SUBSTANCE_STATEMENT:
+				sequence_SubstanceStatement(context, (SubstanceStatement) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -66,71 +66,71 @@ public class StorySemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns AdjectiveStatement
-	 *     AdjectiveStatement returns AdjectiveStatement
+	 *     Statement returns MoodStatement
+	 *     MoodStatement returns MoodStatement
 	 *
 	 * Constraint:
 	 *     (list+=STRING list+=STRING*)
 	 */
-	protected void sequence_AdjectiveStatement(ISerializationContext context, AdjectiveStatement semanticObject) {
+	protected void sequence_MoodStatement(ISerializationContext context, MoodStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Statement returns AdverbStatement
-	 *     AdverbStatement returns AdverbStatement
+	 *     Statement returns MoveStatement
+	 *     MoveStatement returns MoveStatement
 	 *
 	 * Constraint:
 	 *     (list+=STRING list+=STRING*)
 	 */
-	protected void sequence_AdverbStatement(ISerializationContext context, AdverbStatement semanticObject) {
+	protected void sequence_MoveStatement(ISerializationContext context, MoveStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Statement returns EmotionStatement
-	 *     EmotionStatement returns EmotionStatement
+	 *     Statement returns NearbyStatement
+	 *     NearbyStatement returns NearbyStatement
 	 *
 	 * Constraint:
 	 *     (list+=STRING list+=STRING*)
 	 */
-	protected void sequence_EmotionStatement(ISerializationContext context, EmotionStatement semanticObject) {
+	protected void sequence_NearbyStatement(ISerializationContext context, NearbyStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Statement returns LocationStatement
-	 *     LocationStatement returns LocationStatement
+	 *     Statement returns PathStatement
+	 *     PathStatement returns PathStatement
 	 *
 	 * Constraint:
 	 *     (list+=STRING list+=STRING*)
 	 */
-	protected void sequence_LocationStatement(ISerializationContext context, LocationStatement semanticObject) {
+	protected void sequence_PathStatement(ISerializationContext context, PathStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Statement returns NameStatement
-	 *     NameStatement returns NameStatement
+	 *     Statement returns PlaceStatement
+	 *     PlaceStatement returns PlaceStatement
 	 *
 	 * Constraint:
 	 *     value=STRING
 	 */
-	protected void sequence_NameStatement(ISerializationContext context, NameStatement semanticObject) {
+	protected void sequence_PlaceStatement(ISerializationContext context, PlaceStatement semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, StoryPackage.Literals.NAME_STATEMENT__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StoryPackage.Literals.NAME_STATEMENT__VALUE));
+			if (transientValues.isValueTransient(semanticObject, StoryPackage.Literals.PLACE_STATEMENT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StoryPackage.Literals.PLACE_STATEMENT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNameStatementAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getPlaceStatementAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -149,13 +149,13 @@ public class StorySemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns VerbStatement
-	 *     VerbStatement returns VerbStatement
+	 *     Statement returns SubstanceStatement
+	 *     SubstanceStatement returns SubstanceStatement
 	 *
 	 * Constraint:
 	 *     (list+=STRING list+=STRING*)
 	 */
-	protected void sequence_VerbStatement(ISerializationContext context, VerbStatement semanticObject) {
+	protected void sequence_SubstanceStatement(ISerializationContext context, SubstanceStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -6,21 +6,21 @@ package org.xtext.coursework.storyLang.story;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Name Statement</b></em>'.
+ * A representation of the model object '<em><b>Place Statement</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.coursework.storyLang.story.NameStatement#getValue <em>Value</em>}</li>
+ *   <li>{@link org.xtext.coursework.storyLang.story.PlaceStatement#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see org.xtext.coursework.storyLang.story.StoryPackage#getNameStatement()
+ * @see org.xtext.coursework.storyLang.story.StoryPackage#getPlaceStatement()
  * @model
  * @generated
  */
-public interface NameStatement extends Statement
+public interface PlaceStatement extends Statement
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -28,14 +28,14 @@ public interface NameStatement extends Statement
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
    * @see #setValue(String)
-   * @see org.xtext.coursework.storyLang.story.StoryPackage#getNameStatement_Value()
+   * @see org.xtext.coursework.storyLang.story.StoryPackage#getPlaceStatement_Value()
    * @model
    * @generated
    */
   String getValue();
 
   /**
-   * Sets the value of the '{@link org.xtext.coursework.storyLang.story.NameStatement#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.coursework.storyLang.story.PlaceStatement#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.
@@ -44,4 +44,4 @@ public interface NameStatement extends Statement
    */
   void setValue(String value);
 
-} // NameStatement
+} // PlaceStatement

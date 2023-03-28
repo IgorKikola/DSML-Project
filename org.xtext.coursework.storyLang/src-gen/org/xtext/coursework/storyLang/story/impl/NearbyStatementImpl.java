@@ -11,23 +11,23 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
+import org.xtext.coursework.storyLang.story.NearbyStatement;
 import org.xtext.coursework.storyLang.story.StoryPackage;
-import org.xtext.coursework.storyLang.story.VerbStatement;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Verb Statement</b></em>'.
+ * An implementation of the model object '<em><b>Nearby Statement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.coursework.storyLang.story.impl.VerbStatementImpl#getList <em>List</em>}</li>
+ *   <li>{@link org.xtext.coursework.storyLang.story.impl.NearbyStatementImpl#getList <em>List</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class VerbStatementImpl extends StatementImpl implements VerbStatement
+public class NearbyStatementImpl extends StatementImpl implements NearbyStatement
 {
   /**
    * The cached value of the '{@link #getList() <em>List</em>}' attribute list.
@@ -44,7 +44,7 @@ public class VerbStatementImpl extends StatementImpl implements VerbStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  protected VerbStatementImpl()
+  protected NearbyStatementImpl()
   {
     super();
   }
@@ -57,7 +57,7 @@ public class VerbStatementImpl extends StatementImpl implements VerbStatement
   @Override
   protected EClass eStaticClass()
   {
-    return StoryPackage.Literals.VERB_STATEMENT;
+    return StoryPackage.Literals.NEARBY_STATEMENT;
   }
 
   /**
@@ -70,7 +70,7 @@ public class VerbStatementImpl extends StatementImpl implements VerbStatement
   {
     if (list == null)
     {
-      list = new EDataTypeEList<String>(String.class, this, StoryPackage.VERB_STATEMENT__LIST);
+      list = new EDataTypeEList<String>(String.class, this, StoryPackage.NEARBY_STATEMENT__LIST);
     }
     return list;
   }
@@ -85,7 +85,7 @@ public class VerbStatementImpl extends StatementImpl implements VerbStatement
   {
     switch (featureID)
     {
-      case StoryPackage.VERB_STATEMENT__LIST:
+      case StoryPackage.NEARBY_STATEMENT__LIST:
         return getList();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -102,7 +102,7 @@ public class VerbStatementImpl extends StatementImpl implements VerbStatement
   {
     switch (featureID)
     {
-      case StoryPackage.VERB_STATEMENT__LIST:
+      case StoryPackage.NEARBY_STATEMENT__LIST:
         getList().clear();
         getList().addAll((Collection<? extends String>)newValue);
         return;
@@ -120,7 +120,7 @@ public class VerbStatementImpl extends StatementImpl implements VerbStatement
   {
     switch (featureID)
     {
-      case StoryPackage.VERB_STATEMENT__LIST:
+      case StoryPackage.NEARBY_STATEMENT__LIST:
         getList().clear();
         return;
     }
@@ -137,7 +137,7 @@ public class VerbStatementImpl extends StatementImpl implements VerbStatement
   {
     switch (featureID)
     {
-      case StoryPackage.VERB_STATEMENT__LIST:
+      case StoryPackage.NEARBY_STATEMENT__LIST:
         return list != null && !list.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -160,4 +160,4 @@ public class VerbStatementImpl extends StatementImpl implements VerbStatement
     return result.toString();
   }
 
-} //VerbStatementImpl
+} //NearbyStatementImpl

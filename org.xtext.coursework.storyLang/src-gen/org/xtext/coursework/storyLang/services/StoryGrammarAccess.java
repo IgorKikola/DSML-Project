@@ -41,67 +41,67 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	public class StatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coursework.storyLang.Story.Statement");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cNameStatementParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cEmotionStatementParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cVerbStatementParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cAdverbStatementParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cAdjectiveStatementParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cLocationStatementParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cPlaceStatementParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cPathStatementParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cMoveStatementParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cNearbyStatementParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cSubstanceStatementParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cMoodStatementParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//Statement:
-		//    NameStatement |
-		//    EmotionStatement |
-		//    VerbStatement |
-		//    AdverbStatement |
-		//    AdjectiveStatement |
-		//    LocationStatement
+		//    PlaceStatement |
+		//    PathStatement |
+		//    MoveStatement |
+		//    NearbyStatement |
+		//    SubstanceStatement |
+		//    MoodStatement
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//NameStatement |
-		//EmotionStatement |
-		//VerbStatement |
-		//AdverbStatement |
-		//AdjectiveStatement |
-		//LocationStatement
+		//PlaceStatement |
+		//PathStatement |
+		//MoveStatement |
+		//NearbyStatement |
+		//SubstanceStatement |
+		//MoodStatement
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//NameStatement
-		public RuleCall getNameStatementParserRuleCall_0() { return cNameStatementParserRuleCall_0; }
+		//PlaceStatement
+		public RuleCall getPlaceStatementParserRuleCall_0() { return cPlaceStatementParserRuleCall_0; }
 		
-		//EmotionStatement
-		public RuleCall getEmotionStatementParserRuleCall_1() { return cEmotionStatementParserRuleCall_1; }
+		//PathStatement
+		public RuleCall getPathStatementParserRuleCall_1() { return cPathStatementParserRuleCall_1; }
 		
-		//VerbStatement
-		public RuleCall getVerbStatementParserRuleCall_2() { return cVerbStatementParserRuleCall_2; }
+		//MoveStatement
+		public RuleCall getMoveStatementParserRuleCall_2() { return cMoveStatementParserRuleCall_2; }
 		
-		//AdverbStatement
-		public RuleCall getAdverbStatementParserRuleCall_3() { return cAdverbStatementParserRuleCall_3; }
+		//NearbyStatement
+		public RuleCall getNearbyStatementParserRuleCall_3() { return cNearbyStatementParserRuleCall_3; }
 		
-		//AdjectiveStatement
-		public RuleCall getAdjectiveStatementParserRuleCall_4() { return cAdjectiveStatementParserRuleCall_4; }
+		//SubstanceStatement
+		public RuleCall getSubstanceStatementParserRuleCall_4() { return cSubstanceStatementParserRuleCall_4; }
 		
-		//LocationStatement
-		public RuleCall getLocationStatementParserRuleCall_5() { return cLocationStatementParserRuleCall_5; }
+		//MoodStatement
+		public RuleCall getMoodStatementParserRuleCall_5() { return cMoodStatementParserRuleCall_5; }
 	}
-	public class NameStatementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coursework.storyLang.Story.NameStatement");
+	public class PlaceStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coursework.storyLang.Story.PlaceStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cNameKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cPlaceKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
-		//NameStatement:
-		//    'name:' value=STRING ';'
+		//PlaceStatement:
+		//    'place:' value=STRING ';'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'name:' value=STRING ';'
+		//'place:' value=STRING ';'
 		public Group getGroup() { return cGroup; }
 		
-		//'name:'
-		public Keyword getNameKeyword_0() { return cNameKeyword_0; }
+		//'place:'
+		public Keyword getPlaceKeyword_0() { return cPlaceKeyword_0; }
 		
 		//value=STRING
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
@@ -112,10 +112,10 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//';'
 		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
-	public class EmotionStatementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coursework.storyLang.Story.EmotionStatement");
+	public class PathStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coursework.storyLang.Story.PathStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cEmotionsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cPathKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cListAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cListSTRINGTerminalRuleCall_1_0 = (RuleCall)cListAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
@@ -124,16 +124,16 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cListSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cListAssignment_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//EmotionStatement:
-		//    'emotions:' list+=STRING (',' list+=STRING )* ';'
+		//PathStatement:
+		//    'path:' list+=STRING (',' list+=STRING )* ';'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'emotions:' list+=STRING (',' list+=STRING )* ';'
+		//'path:' list+=STRING (',' list+=STRING )* ';'
 		public Group getGroup() { return cGroup; }
 		
-		//'emotions:'
-		public Keyword getEmotionsKeyword_0() { return cEmotionsKeyword_0; }
+		//'path:'
+		public Keyword getPathKeyword_0() { return cPathKeyword_0; }
 		
 		//list+=STRING
 		public Assignment getListAssignment_1() { return cListAssignment_1; }
@@ -156,10 +156,10 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//';'
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 	}
-	public class VerbStatementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coursework.storyLang.Story.VerbStatement");
+	public class MoveStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coursework.storyLang.Story.MoveStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cVerbKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cMoveKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cListAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cListSTRINGTerminalRuleCall_1_0 = (RuleCall)cListAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
@@ -168,16 +168,16 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cListSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cListAssignment_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//VerbStatement:
-		//    'verb:' list+=STRING (',' list+=STRING )* ';'
+		//MoveStatement:
+		//    'move:' list+=STRING (',' list+=STRING )* ';'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'verb:' list+=STRING (',' list+=STRING )* ';'
+		//'move:' list+=STRING (',' list+=STRING )* ';'
 		public Group getGroup() { return cGroup; }
 		
-		//'verb:'
-		public Keyword getVerbKeyword_0() { return cVerbKeyword_0; }
+		//'move:'
+		public Keyword getMoveKeyword_0() { return cMoveKeyword_0; }
 		
 		//list+=STRING
 		public Assignment getListAssignment_1() { return cListAssignment_1; }
@@ -200,10 +200,10 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//';'
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 	}
-	public class AdverbStatementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coursework.storyLang.Story.AdverbStatement");
+	public class NearbyStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coursework.storyLang.Story.NearbyStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cAdverbsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cNearbyKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cListAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cListSTRINGTerminalRuleCall_1_0 = (RuleCall)cListAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
@@ -212,16 +212,16 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cListSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cListAssignment_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//AdverbStatement:
-		//    'adverbs:' list+=STRING (',' list+=STRING )* ';'
+		//NearbyStatement:
+		//    'nearby:' list+=STRING (',' list+=STRING )* ';'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'adverbs:' list+=STRING (',' list+=STRING )* ';'
+		//'nearby:' list+=STRING (',' list+=STRING )* ';'
 		public Group getGroup() { return cGroup; }
 		
-		//'adverbs:'
-		public Keyword getAdverbsKeyword_0() { return cAdverbsKeyword_0; }
+		//'nearby:'
+		public Keyword getNearbyKeyword_0() { return cNearbyKeyword_0; }
 		
 		//list+=STRING
 		public Assignment getListAssignment_1() { return cListAssignment_1; }
@@ -244,10 +244,10 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//';'
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 	}
-	public class LocationStatementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coursework.storyLang.Story.LocationStatement");
+	public class SubstanceStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coursework.storyLang.Story.SubstanceStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLocationsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cSubstanceKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cListAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cListSTRINGTerminalRuleCall_1_0 = (RuleCall)cListAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
@@ -256,16 +256,16 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cListSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cListAssignment_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//LocationStatement:
-		//    'locations:' list+=STRING (',' list+=STRING )* ';'
+		//SubstanceStatement:
+		//    'substance:' list+=STRING (',' list+=STRING )* ';'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'locations:' list+=STRING (',' list+=STRING )* ';'
+		//'substance:' list+=STRING (',' list+=STRING )* ';'
 		public Group getGroup() { return cGroup; }
 		
-		//'locations:'
-		public Keyword getLocationsKeyword_0() { return cLocationsKeyword_0; }
+		//'substance:'
+		public Keyword getSubstanceKeyword_0() { return cSubstanceKeyword_0; }
 		
 		//list+=STRING
 		public Assignment getListAssignment_1() { return cListAssignment_1; }
@@ -288,10 +288,10 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//';'
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 	}
-	public class AdjectiveStatementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coursework.storyLang.Story.AdjectiveStatement");
+	public class MoodStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coursework.storyLang.Story.MoodStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cAdjectivesKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cMoodKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cListAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cListSTRINGTerminalRuleCall_1_0 = (RuleCall)cListAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
@@ -300,16 +300,16 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cListSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cListAssignment_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//AdjectiveStatement:
-		//    'adjectives:' list+=STRING (',' list+=STRING )* ';'
+		//MoodStatement:
+		//    'mood:' list+=STRING (',' list+=STRING )* ';'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'adjectives:' list+=STRING (',' list+=STRING )* ';'
+		//'mood:' list+=STRING (',' list+=STRING )* ';'
 		public Group getGroup() { return cGroup; }
 		
-		//'adjectives:'
-		public Keyword getAdjectivesKeyword_0() { return cAdjectivesKeyword_0; }
+		//'mood:'
+		public Keyword getMoodKeyword_0() { return cMoodKeyword_0; }
 		
 		//list+=STRING
 		public Assignment getListAssignment_1() { return cListAssignment_1; }
@@ -336,12 +336,12 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	private final StoryProgramElements pStoryProgram;
 	private final StatementElements pStatement;
-	private final NameStatementElements pNameStatement;
-	private final EmotionStatementElements pEmotionStatement;
-	private final VerbStatementElements pVerbStatement;
-	private final AdverbStatementElements pAdverbStatement;
-	private final LocationStatementElements pLocationStatement;
-	private final AdjectiveStatementElements pAdjectiveStatement;
+	private final PlaceStatementElements pPlaceStatement;
+	private final PathStatementElements pPathStatement;
+	private final MoveStatementElements pMoveStatement;
+	private final NearbyStatementElements pNearbyStatement;
+	private final SubstanceStatementElements pSubstanceStatement;
+	private final MoodStatementElements pMoodStatement;
 	
 	private final Grammar grammar;
 	
@@ -354,12 +354,12 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.gaTerminals = gaTerminals;
 		this.pStoryProgram = new StoryProgramElements();
 		this.pStatement = new StatementElements();
-		this.pNameStatement = new NameStatementElements();
-		this.pEmotionStatement = new EmotionStatementElements();
-		this.pVerbStatement = new VerbStatementElements();
-		this.pAdverbStatement = new AdverbStatementElements();
-		this.pLocationStatement = new LocationStatementElements();
-		this.pAdjectiveStatement = new AdjectiveStatementElements();
+		this.pPlaceStatement = new PlaceStatementElements();
+		this.pPathStatement = new PathStatementElements();
+		this.pMoveStatement = new MoveStatementElements();
+		this.pNearbyStatement = new NearbyStatementElements();
+		this.pSubstanceStatement = new SubstanceStatementElements();
+		this.pMoodStatement = new MoodStatementElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -401,12 +401,12 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//Statement:
-	//    NameStatement |
-	//    EmotionStatement |
-	//    VerbStatement |
-	//    AdverbStatement |
-	//    AdjectiveStatement |
-	//    LocationStatement
+	//    PlaceStatement |
+	//    PathStatement |
+	//    MoveStatement |
+	//    NearbyStatement |
+	//    SubstanceStatement |
+	//    MoodStatement
 	//;
 	public StatementElements getStatementAccess() {
 		return pStatement;
@@ -416,70 +416,70 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getStatementAccess().getRule();
 	}
 	
-	//NameStatement:
-	//    'name:' value=STRING ';'
+	//PlaceStatement:
+	//    'place:' value=STRING ';'
 	//;
-	public NameStatementElements getNameStatementAccess() {
-		return pNameStatement;
+	public PlaceStatementElements getPlaceStatementAccess() {
+		return pPlaceStatement;
 	}
 	
-	public ParserRule getNameStatementRule() {
-		return getNameStatementAccess().getRule();
+	public ParserRule getPlaceStatementRule() {
+		return getPlaceStatementAccess().getRule();
 	}
 	
-	//EmotionStatement:
-	//    'emotions:' list+=STRING (',' list+=STRING )* ';'
+	//PathStatement:
+	//    'path:' list+=STRING (',' list+=STRING )* ';'
 	//;
-	public EmotionStatementElements getEmotionStatementAccess() {
-		return pEmotionStatement;
+	public PathStatementElements getPathStatementAccess() {
+		return pPathStatement;
 	}
 	
-	public ParserRule getEmotionStatementRule() {
-		return getEmotionStatementAccess().getRule();
+	public ParserRule getPathStatementRule() {
+		return getPathStatementAccess().getRule();
 	}
 	
-	//VerbStatement:
-	//    'verb:' list+=STRING (',' list+=STRING )* ';'
+	//MoveStatement:
+	//    'move:' list+=STRING (',' list+=STRING )* ';'
 	//;
-	public VerbStatementElements getVerbStatementAccess() {
-		return pVerbStatement;
+	public MoveStatementElements getMoveStatementAccess() {
+		return pMoveStatement;
 	}
 	
-	public ParserRule getVerbStatementRule() {
-		return getVerbStatementAccess().getRule();
+	public ParserRule getMoveStatementRule() {
+		return getMoveStatementAccess().getRule();
 	}
 	
-	//AdverbStatement:
-	//    'adverbs:' list+=STRING (',' list+=STRING )* ';'
+	//NearbyStatement:
+	//    'nearby:' list+=STRING (',' list+=STRING )* ';'
 	//;
-	public AdverbStatementElements getAdverbStatementAccess() {
-		return pAdverbStatement;
+	public NearbyStatementElements getNearbyStatementAccess() {
+		return pNearbyStatement;
 	}
 	
-	public ParserRule getAdverbStatementRule() {
-		return getAdverbStatementAccess().getRule();
+	public ParserRule getNearbyStatementRule() {
+		return getNearbyStatementAccess().getRule();
 	}
 	
-	//LocationStatement:
-	//    'locations:' list+=STRING (',' list+=STRING )* ';'
+	//SubstanceStatement:
+	//    'substance:' list+=STRING (',' list+=STRING )* ';'
 	//;
-	public LocationStatementElements getLocationStatementAccess() {
-		return pLocationStatement;
+	public SubstanceStatementElements getSubstanceStatementAccess() {
+		return pSubstanceStatement;
 	}
 	
-	public ParserRule getLocationStatementRule() {
-		return getLocationStatementAccess().getRule();
+	public ParserRule getSubstanceStatementRule() {
+		return getSubstanceStatementAccess().getRule();
 	}
 	
-	//AdjectiveStatement:
-	//    'adjectives:' list+=STRING (',' list+=STRING )* ';'
+	//MoodStatement:
+	//    'mood:' list+=STRING (',' list+=STRING )* ';'
 	//;
-	public AdjectiveStatementElements getAdjectiveStatementAccess() {
-		return pAdjectiveStatement;
+	public MoodStatementElements getMoodStatementAccess() {
+		return pMoodStatement;
 	}
 	
-	public ParserRule getAdjectiveStatementRule() {
-		return getAdjectiveStatementAccess().getRule();
+	public ParserRule getMoodStatementRule() {
+		return getMoodStatementAccess().getRule();
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

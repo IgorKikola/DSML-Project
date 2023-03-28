@@ -11,23 +11,23 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
-import org.xtext.coursework.storyLang.story.EmotionStatement;
 import org.xtext.coursework.storyLang.story.StoryPackage;
+import org.xtext.coursework.storyLang.story.SubstanceStatement;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Emotion Statement</b></em>'.
+ * An implementation of the model object '<em><b>Substance Statement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.coursework.storyLang.story.impl.EmotionStatementImpl#getList <em>List</em>}</li>
+ *   <li>{@link org.xtext.coursework.storyLang.story.impl.SubstanceStatementImpl#getList <em>List</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class EmotionStatementImpl extends StatementImpl implements EmotionStatement
+public class SubstanceStatementImpl extends StatementImpl implements SubstanceStatement
 {
   /**
    * The cached value of the '{@link #getList() <em>List</em>}' attribute list.
@@ -44,7 +44,7 @@ public class EmotionStatementImpl extends StatementImpl implements EmotionStatem
    * <!-- end-user-doc -->
    * @generated
    */
-  protected EmotionStatementImpl()
+  protected SubstanceStatementImpl()
   {
     super();
   }
@@ -57,7 +57,7 @@ public class EmotionStatementImpl extends StatementImpl implements EmotionStatem
   @Override
   protected EClass eStaticClass()
   {
-    return StoryPackage.Literals.EMOTION_STATEMENT;
+    return StoryPackage.Literals.SUBSTANCE_STATEMENT;
   }
 
   /**
@@ -70,7 +70,7 @@ public class EmotionStatementImpl extends StatementImpl implements EmotionStatem
   {
     if (list == null)
     {
-      list = new EDataTypeEList<String>(String.class, this, StoryPackage.EMOTION_STATEMENT__LIST);
+      list = new EDataTypeEList<String>(String.class, this, StoryPackage.SUBSTANCE_STATEMENT__LIST);
     }
     return list;
   }
@@ -85,7 +85,7 @@ public class EmotionStatementImpl extends StatementImpl implements EmotionStatem
   {
     switch (featureID)
     {
-      case StoryPackage.EMOTION_STATEMENT__LIST:
+      case StoryPackage.SUBSTANCE_STATEMENT__LIST:
         return getList();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -102,7 +102,7 @@ public class EmotionStatementImpl extends StatementImpl implements EmotionStatem
   {
     switch (featureID)
     {
-      case StoryPackage.EMOTION_STATEMENT__LIST:
+      case StoryPackage.SUBSTANCE_STATEMENT__LIST:
         getList().clear();
         getList().addAll((Collection<? extends String>)newValue);
         return;
@@ -120,7 +120,7 @@ public class EmotionStatementImpl extends StatementImpl implements EmotionStatem
   {
     switch (featureID)
     {
-      case StoryPackage.EMOTION_STATEMENT__LIST:
+      case StoryPackage.SUBSTANCE_STATEMENT__LIST:
         getList().clear();
         return;
     }
@@ -137,7 +137,7 @@ public class EmotionStatementImpl extends StatementImpl implements EmotionStatem
   {
     switch (featureID)
     {
-      case StoryPackage.EMOTION_STATEMENT__LIST:
+      case StoryPackage.SUBSTANCE_STATEMENT__LIST:
         return list != null && !list.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -160,4 +160,4 @@ public class EmotionStatementImpl extends StatementImpl implements EmotionStatem
     return result.toString();
   }
 
-} //EmotionStatementImpl
+} //SubstanceStatementImpl
