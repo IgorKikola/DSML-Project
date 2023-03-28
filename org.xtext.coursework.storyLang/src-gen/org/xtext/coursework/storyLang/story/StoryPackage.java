@@ -105,6 +105,34 @@ public interface StoryPackage extends EPackage
   int STATEMENT_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link org.xtext.coursework.storyLang.story.impl.AmountStatementImpl <em>Amount Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.coursework.storyLang.story.impl.AmountStatementImpl
+   * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getAmountStatement()
+   * @generated
+   */
+  int AMOUNT_STATEMENT = 2;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AMOUNT_STATEMENT__VALUE = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Amount Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AMOUNT_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.coursework.storyLang.story.impl.PlaceStatementImpl <em>Place Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -112,7 +140,7 @@ public interface StoryPackage extends EPackage
    * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getPlaceStatement()
    * @generated
    */
-  int PLACE_STATEMENT = 2;
+  int PLACE_STATEMENT = 3;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -140,7 +168,7 @@ public interface StoryPackage extends EPackage
    * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getPathStatement()
    * @generated
    */
-  int PATH_STATEMENT = 3;
+  int PATH_STATEMENT = 4;
 
   /**
    * The feature id for the '<em><b>List</b></em>' attribute list.
@@ -168,7 +196,7 @@ public interface StoryPackage extends EPackage
    * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getMoveStatement()
    * @generated
    */
-  int MOVE_STATEMENT = 4;
+  int MOVE_STATEMENT = 5;
 
   /**
    * The feature id for the '<em><b>List</b></em>' attribute list.
@@ -196,7 +224,7 @@ public interface StoryPackage extends EPackage
    * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getNearbyStatement()
    * @generated
    */
-  int NEARBY_STATEMENT = 5;
+  int NEARBY_STATEMENT = 6;
 
   /**
    * The feature id for the '<em><b>List</b></em>' attribute list.
@@ -224,7 +252,7 @@ public interface StoryPackage extends EPackage
    * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getSubstanceStatement()
    * @generated
    */
-  int SUBSTANCE_STATEMENT = 6;
+  int SUBSTANCE_STATEMENT = 7;
 
   /**
    * The feature id for the '<em><b>List</b></em>' attribute list.
@@ -252,7 +280,7 @@ public interface StoryPackage extends EPackage
    * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getMoodStatement()
    * @generated
    */
-  int MOOD_STATEMENT = 7;
+  int MOOD_STATEMENT = 8;
 
   /**
    * The feature id for the '<em><b>List</b></em>' attribute list.
@@ -303,6 +331,27 @@ public interface StoryPackage extends EPackage
    * @generated
    */
   EClass getStatement();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.coursework.storyLang.story.AmountStatement <em>Amount Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Amount Statement</em>'.
+   * @see org.xtext.coursework.storyLang.story.AmountStatement
+   * @generated
+   */
+  EClass getAmountStatement();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.coursework.storyLang.story.AmountStatement#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.coursework.storyLang.story.AmountStatement#getValue()
+   * @see #getAmountStatement()
+   * @generated
+   */
+  EAttribute getAmountStatement_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.coursework.storyLang.story.PlaceStatement <em>Place Statement</em>}'.
@@ -480,6 +529,24 @@ public interface StoryPackage extends EPackage
      * @generated
      */
     EClass STATEMENT = eINSTANCE.getStatement();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.coursework.storyLang.story.impl.AmountStatementImpl <em>Amount Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.coursework.storyLang.story.impl.AmountStatementImpl
+     * @see org.xtext.coursework.storyLang.story.impl.StoryPackageImpl#getAmountStatement()
+     * @generated
+     */
+    EClass AMOUNT_STATEMENT = eINSTANCE.getAmountStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute AMOUNT_STATEMENT__VALUE = eINSTANCE.getAmountStatement_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.coursework.storyLang.story.impl.PlaceStatementImpl <em>Place Statement</em>}' class.

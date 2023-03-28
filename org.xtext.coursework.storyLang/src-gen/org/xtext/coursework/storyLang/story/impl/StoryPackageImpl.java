@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.coursework.storyLang.story.AmountStatement;
 import org.xtext.coursework.storyLang.story.MoodStatement;
 import org.xtext.coursework.storyLang.story.MoveStatement;
 import org.xtext.coursework.storyLang.story.NearbyStatement;
@@ -42,6 +43,13 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
    * @generated
    */
   private EClass statementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass amountStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -179,6 +187,28 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
   public EClass getStatement()
   {
     return statementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAmountStatement()
+  {
+    return amountStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAmountStatement_Value()
+  {
+    return (EAttribute)amountStatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -349,6 +379,9 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
 
     statementEClass = createEClass(STATEMENT);
 
+    amountStatementEClass = createEClass(AMOUNT_STATEMENT);
+    createEAttribute(amountStatementEClass, AMOUNT_STATEMENT__VALUE);
+
     placeStatementEClass = createEClass(PLACE_STATEMENT);
     createEAttribute(placeStatementEClass, PLACE_STATEMENT__VALUE);
 
@@ -397,6 +430,7 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    amountStatementEClass.getESuperTypes().add(this.getStatement());
     placeStatementEClass.getESuperTypes().add(this.getStatement());
     pathStatementEClass.getESuperTypes().add(this.getStatement());
     moveStatementEClass.getESuperTypes().add(this.getStatement());
@@ -409,6 +443,9 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage
     initEReference(getStoryProgram_Statements(), this.getStatement(), null, "statements", null, 0, -1, StoryProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(amountStatementEClass, AmountStatement.class, "AmountStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAmountStatement_Value(), ecorePackage.getEInt(), "value", null, 0, 1, AmountStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(placeStatementEClass, PlaceStatement.class, "PlaceStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPlaceStatement_Value(), ecorePackage.getEString(), "value", null, 0, 1, PlaceStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -86,6 +86,11 @@ public class StoryAdapterFactory extends AdapterFactoryImpl
         return createStatementAdapter();
       }
       @Override
+      public Adapter caseAmountStatement(AmountStatement object)
+      {
+        return createAmountStatementAdapter();
+      }
+      @Override
       public Adapter casePlaceStatement(PlaceStatement object)
       {
         return createPlaceStatementAdapter();
@@ -163,6 +168,21 @@ public class StoryAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.coursework.storyLang.story.AmountStatement <em>Amount Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.coursework.storyLang.story.AmountStatement
+   * @generated
+   */
+  public Adapter createAmountStatementAdapter()
   {
     return null;
   }

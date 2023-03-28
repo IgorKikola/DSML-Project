@@ -10,6 +10,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Story.ecore#//StoryProgram/statements"/>
     </genClasses>
     <genClasses ecoreClass="Story.ecore#//Statement"/>
+    <genClasses ecoreClass="Story.ecore#//AmountStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Story.ecore#//AmountStatement/value"/>
+    </genClasses>
     <genClasses ecoreClass="Story.ecore#//PlaceStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Story.ecore#//PlaceStatement/value"/>
     </genClasses>

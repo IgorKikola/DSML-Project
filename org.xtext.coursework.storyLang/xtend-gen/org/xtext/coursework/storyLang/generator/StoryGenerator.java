@@ -11,8 +11,10 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
+import org.xtext.coursework.storyLang.story.AmountStatement;
 import org.xtext.coursework.storyLang.story.MoodStatement;
 import org.xtext.coursework.storyLang.story.MoveStatement;
 import org.xtext.coursework.storyLang.story.NearbyStatement;
@@ -39,103 +41,146 @@ public class StoryGenerator extends AbstractGenerator {
     return resource.getURI().appendFileExtension("txt").lastSegment();
   }
   
-  public String doGenerate(final StoryProgram program) {
+  public String functionOutput1(final StoryProgram program) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("        ");
-    _builder.append("Program contains:");
-    _builder.newLine();
     double _random = Math.random();
-    int _size = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
+    int _size = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().size();
     double _multiply = (_random * _size);
-    String mood1 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply)).intValue());
-    _builder.newLineIfNotEmpty();
-    double _random_1 = Math.random();
-    int _size_1 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
-    double _multiply_1 = (_random_1 * _size_1);
-    String mood2 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_1)).intValue());
+    String move = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply)).intValue());
     _builder.append("\t");
-    _builder.newLineIfNotEmpty();
-    double _random_2 = Math.random();
-    int _size_2 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
-    double _multiply_2 = (_random_2 * _size_2);
-    String mood3 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_2)).intValue());
-    _builder.append("\t\t");
-    _builder.newLineIfNotEmpty();
-    double _random_3 = Math.random();
-    int _size_3 = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().size();
-    double _multiply_3 = (_random_3 * _size_3);
-    String move = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_3)).intValue());
-    _builder.append("\t");
-    _builder.newLineIfNotEmpty();
-    String adjust = "";
     _builder.newLineIfNotEmpty();
     String place = Iterables.<PlaceStatement>filter(program.getStatements(), PlaceStatement.class).iterator().next().getValue();
-    _builder.newLineIfNotEmpty();
-    _builder.newLine();
-    String _firstUpper = StringExtensions.toFirstUpper(mood1);
-    _builder.append(_firstUpper);
-    _builder.append(" and ");
-    _builder.newLineIfNotEmpty();
-    double _random_4 = Math.random();
-    int _size_4 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
-    double _multiply_4 = (_random_4 * _size_4);
-    String _get = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_4)).intValue());
-    _builder.append(_get);
-    _builder.append(", the ");
-    _builder.newLineIfNotEmpty();
-    _builder.append(place);
-    _builder.append(" was ");
-    _builder.newLineIfNotEmpty();
-    _builder.append(mood2);
-    _builder.append(" with ");
-    _builder.newLineIfNotEmpty();
-    double _random_5 = Math.random();
-    int _size_5 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
-    double _multiply_5 = (_random_5 * _size_5);
-    String _get_1 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_5)).intValue());
-    _builder.append(_get_1);
-    _builder.append(".");
-    _builder.newLineIfNotEmpty();
-    double _random_6 = Math.random();
-    int _size_6 = Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().size();
-    double _multiply_6 = (_random_6 * _size_6);
-    String _firstUpper_1 = StringExtensions.toFirstUpper(Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_6)).intValue()));
-    _builder.append(_firstUpper_1);
-    _builder.append(" ");
+    _builder.append("\t");
     _builder.newLineIfNotEmpty();
     String _xifexpression = null;
-    if (((((Objects.equal(Character.valueOf(place.charAt(0)), "a") || Objects.equal(Character.valueOf(place.charAt(0)), "e")) || Objects.equal(Character.valueOf(place.charAt(0)), "i")) || Objects.equal(Character.valueOf(place.charAt(0)), "o")) || Objects.equal(Character.valueOf(place.charAt(0)), "u"))) {
-      _xifexpression = adjust = "an";
+    boolean _endsWith = move.endsWith("ed");
+    if (_endsWith) {
+      _xifexpression = null;
     } else {
-      _xifexpression = adjust = "a";
+      String _xifexpression_1 = null;
+      boolean _endsWith_1 = move.endsWith("e");
+      if (_endsWith_1) {
+        String _xblockexpression = null;
+        {
+          move = (move + "d");
+          _xblockexpression = "";
+        }
+        _xifexpression_1 = _xblockexpression;
+      } else {
+        String _xifexpression_2 = null;
+        boolean _matches = move.matches("[a-z]*[^aeiou]y");
+        if (_matches) {
+          String _xblockexpression_1 = null;
+          {
+            int _length = move.length();
+            int _minus = (_length - 1);
+            String _substring = move.substring(0, _minus);
+            String _plus = (_substring + "ied");
+            move = _plus;
+            _xblockexpression_1 = "";
+          }
+          _xifexpression_2 = _xblockexpression_1;
+        } else {
+          String _xifexpression_3 = null;
+          boolean _matches_1 = move.matches("[a-z]+");
+          if (_matches_1) {
+            String _xblockexpression_2 = null;
+            {
+              move = (move + "ed");
+              _xblockexpression_2 = "";
+            }
+            _xifexpression_3 = _xblockexpression_2;
+          }
+          _xifexpression_2 = _xifexpression_3;
+        }
+        _xifexpression_1 = _xifexpression_2;
+      }
+      _xifexpression = _xifexpression_1;
     }
     _builder.append(_xifexpression);
     _builder.newLineIfNotEmpty();
+    _builder.append("The ");
     _builder.append(place);
+    _builder.append(" ");
+    _builder.append(move);
+    _builder.append(".");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String functionOutput2(final StoryProgram program) {
+    StringConcatenation _builder = new StringConcatenation();
+    double _random = Math.random();
+    int _size = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().size();
+    double _multiply = (_random * _size);
+    String move = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply)).intValue());
+    _builder.append("\t");
+    _builder.newLineIfNotEmpty();
+    String place = Iterables.<PlaceStatement>filter(program.getStatements(), PlaceStatement.class).iterator().next().getValue();
+    _builder.newLineIfNotEmpty();
+    double _random_1 = Math.random();
+    int _size_1 = Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().size();
+    double _multiply_1 = (_random_1 * _size_1);
+    String nearby = StringExtensions.toFirstUpper(Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_1)).intValue()));
+    _builder.newLineIfNotEmpty();
+    String adjust = "";
+    _builder.newLineIfNotEmpty();
+    String _xifexpression = null;
+    if (((((Objects.equal(Character.valueOf(place.charAt(0)), "a") || Objects.equal(Character.valueOf(place.charAt(0)), "e")) || Objects.equal(Character.valueOf(place.charAt(0)), "i")) || Objects.equal(Character.valueOf(place.charAt(0)), "o")) || Objects.equal(Character.valueOf(place.charAt(0)), "u"))) {
+      String _xblockexpression = null;
+      {
+        adjust = "an";
+        _xblockexpression = "";
+      }
+      _xifexpression = _xblockexpression;
+    } else {
+      String _xblockexpression_1 = null;
+      {
+        adjust = "a";
+        _xblockexpression_1 = "";
+      }
+      _xifexpression = _xblockexpression_1;
+    }
+    _builder.append(_xifexpression);
     _builder.newLineIfNotEmpty();
     String _xifexpression_1 = null;
-    boolean _endsWith = place.endsWith("ed");
+    boolean _endsWith = move.endsWith("ed");
     if (_endsWith) {
-      _xifexpression_1 = move;
+      _xifexpression_1 = null;
     } else {
       String _xifexpression_2 = null;
-      boolean _endsWith_1 = place.endsWith("e");
+      boolean _endsWith_1 = move.endsWith("e");
       if (_endsWith_1) {
-        _xifexpression_2 = move = (move + "d");
+        String _xblockexpression_2 = null;
+        {
+          move = (move + "d");
+          _xblockexpression_2 = "";
+        }
+        _xifexpression_2 = _xblockexpression_2;
       } else {
         String _xifexpression_3 = null;
-        boolean _matches = place.matches("[a-z]*[^aeiou]y");
+        boolean _matches = move.matches("[a-z]*[^aeiou]y");
         if (_matches) {
-          int _length = move.length();
-          int _minus = (_length - 1);
-          String _substring = move.substring(0, _minus);
-          String _plus = (_substring + "ied");
-          _xifexpression_3 = move = _plus;
+          String _xblockexpression_3 = null;
+          {
+            int _length = move.length();
+            int _minus = (_length - 1);
+            String _substring = move.substring(0, _minus);
+            String _plus = (_substring + "ied");
+            move = _plus;
+            _xblockexpression_3 = "";
+          }
+          _xifexpression_3 = _xblockexpression_3;
         } else {
           String _xifexpression_4 = null;
-          boolean _matches_1 = place.matches("[a-z]+");
+          boolean _matches_1 = move.matches("[a-z]+");
           if (_matches_1) {
-            _xifexpression_4 = move = (move + "ed");
+            String _xblockexpression_4 = null;
+            {
+              move = (move + "ed");
+              _xblockexpression_4 = "";
+            }
+            _xifexpression_4 = _xblockexpression_4;
           }
           _xifexpression_3 = _xifexpression_4;
         }
@@ -144,22 +189,1596 @@ public class StoryGenerator extends AbstractGenerator {
       _xifexpression_1 = _xifexpression_2;
     }
     _builder.append(_xifexpression_1);
-    _builder.append(" through the ");
     _builder.newLineIfNotEmpty();
-    double _random_7 = Math.random();
-    int _size_7 = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().size();
-    double _multiply_7 = (_random_7 * _size_7);
-    String _get_2 = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_7)).intValue());
-    _builder.append(_get_2);
-    _builder.append(", filling me with ");
-    _builder.newLineIfNotEmpty();
-    double _random_8 = Math.random();
-    int _size_8 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
-    double _multiply_8 = (_random_8 * _size_8);
-    String _get_3 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_8)).intValue());
-    _builder.append(_get_3);
+    _builder.append(nearby);
+    _builder.append(" ");
+    _builder.append(adjust);
+    _builder.append(" ");
+    _builder.append(place);
+    _builder.append(" ");
+    _builder.append(move);
     _builder.append(".");
     _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String functionOutput3(final StoryProgram program) {
+    StringConcatenation _builder = new StringConcatenation();
+    double _random = Math.random();
+    int _size = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().size();
+    double _multiply = (_random * _size);
+    String move = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply)).intValue());
+    _builder.append("\t");
+    _builder.newLineIfNotEmpty();
+    String place = Iterables.<PlaceStatement>filter(program.getStatements(), PlaceStatement.class).iterator().next().getValue();
+    _builder.newLineIfNotEmpty();
+    double _random_1 = Math.random();
+    int _size_1 = Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().size();
+    double _multiply_1 = (_random_1 * _size_1);
+    String nearby = StringExtensions.toFirstUpper(Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_1)).intValue()));
+    _builder.newLineIfNotEmpty();
+    double _random_2 = Math.random();
+    int _size_2 = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().size();
+    double _multiply_2 = (_random_2 * _size_2);
+    String path = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_2)).intValue());
+    _builder.newLineIfNotEmpty();
+    String adjust = "";
+    _builder.newLineIfNotEmpty();
+    String _xifexpression = null;
+    if (((((Objects.equal(Character.valueOf(place.charAt(0)), "a") || Objects.equal(Character.valueOf(place.charAt(0)), "e")) || Objects.equal(Character.valueOf(place.charAt(0)), "i")) || Objects.equal(Character.valueOf(place.charAt(0)), "o")) || Objects.equal(Character.valueOf(place.charAt(0)), "u"))) {
+      String _xblockexpression = null;
+      {
+        adjust = "an";
+        _xblockexpression = "";
+      }
+      _xifexpression = _xblockexpression;
+    } else {
+      String _xblockexpression_1 = null;
+      {
+        adjust = "a";
+        _xblockexpression_1 = "";
+      }
+      _xifexpression = _xblockexpression_1;
+    }
+    _builder.append(_xifexpression);
+    _builder.newLineIfNotEmpty();
+    String _xifexpression_1 = null;
+    boolean _endsWith = move.endsWith("ed");
+    if (_endsWith) {
+      _xifexpression_1 = null;
+    } else {
+      String _xifexpression_2 = null;
+      boolean _endsWith_1 = move.endsWith("e");
+      if (_endsWith_1) {
+        String _xblockexpression_2 = null;
+        {
+          move = (move + "d");
+          _xblockexpression_2 = "";
+        }
+        _xifexpression_2 = _xblockexpression_2;
+      } else {
+        String _xifexpression_3 = null;
+        boolean _matches = move.matches("[a-z]*[^aeiou]y");
+        if (_matches) {
+          String _xblockexpression_3 = null;
+          {
+            int _length = move.length();
+            int _minus = (_length - 1);
+            String _substring = move.substring(0, _minus);
+            String _plus = (_substring + "ied");
+            move = _plus;
+            _xblockexpression_3 = "";
+          }
+          _xifexpression_3 = _xblockexpression_3;
+        } else {
+          String _xifexpression_4 = null;
+          boolean _matches_1 = move.matches("[a-z]+");
+          if (_matches_1) {
+            String _xblockexpression_4 = null;
+            {
+              move = (move + "ed");
+              _xblockexpression_4 = "";
+            }
+            _xifexpression_4 = _xblockexpression_4;
+          }
+          _xifexpression_3 = _xifexpression_4;
+        }
+        _xifexpression_2 = _xifexpression_3;
+      }
+      _xifexpression_1 = _xifexpression_2;
+    }
+    _builder.append(_xifexpression_1);
+    _builder.newLineIfNotEmpty();
+    _builder.append(nearby);
+    _builder.append(" ");
+    _builder.append(adjust);
+    _builder.append(" ");
+    _builder.append(place);
+    _builder.append(" ");
+    _builder.append(move);
+    _builder.append(" through the ");
+    _builder.append(path);
+    _builder.append(".");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String functionOutput4(final StoryProgram program) {
+    StringConcatenation _builder = new StringConcatenation();
+    double _random = Math.random();
+    int _size = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
+    double _multiply = (_random * _size);
+    String mood = StringExtensions.toFirstUpper(Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply)).intValue()));
+    _builder.append("\t");
+    _builder.newLineIfNotEmpty();
+    String place = Iterables.<PlaceStatement>filter(program.getStatements(), PlaceStatement.class).iterator().next().getValue();
+    _builder.newLineIfNotEmpty();
+    _builder.append(mood);
+    _builder.append(" ");
+    _builder.append(place);
+    _builder.append(".");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String functionOutput5(final StoryProgram program) {
+    StringConcatenation _builder = new StringConcatenation();
+    double _random = Math.random();
+    int _size = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
+    double _multiply = (_random * _size);
+    String mood1 = StringExtensions.toFirstUpper(Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply)).intValue()));
+    _builder.newLineIfNotEmpty();
+    double _random_1 = Math.random();
+    int _size_1 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
+    double _multiply_1 = (_random_1 * _size_1);
+    String mood2 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_1)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_2 = Math.random();
+    int _size_2 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
+    double _multiply_2 = (_random_2 * _size_2);
+    String mood3 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_2)).intValue());
+    _builder.newLineIfNotEmpty();
+    String place = Iterables.<PlaceStatement>filter(program.getStatements(), PlaceStatement.class).iterator().next().getValue();
+    _builder.newLineIfNotEmpty();
+    double _random_3 = Math.random();
+    int _size_3 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
+    double _multiply_3 = (_random_3 * _size_3);
+    String substance = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_3)).intValue());
+    _builder.newLineIfNotEmpty();
+    _builder.append(mood1);
+    _builder.append(" and ");
+    _builder.append(mood2);
+    _builder.append(", the ");
+    _builder.append(place);
+    _builder.append(" was ");
+    _builder.append(mood3);
+    _builder.append(" with ");
+    _builder.append(substance);
+    _builder.append(".");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String functionOutput6(final StoryProgram program) {
+    StringConcatenation _builder = new StringConcatenation();
+    double _random = Math.random();
+    int _size = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().size();
+    double _multiply = (_random * _size);
+    String move = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply)).intValue());
+    _builder.append("\t");
+    _builder.newLineIfNotEmpty();
+    String place = Iterables.<PlaceStatement>filter(program.getStatements(), PlaceStatement.class).iterator().next().getValue();
+    _builder.newLineIfNotEmpty();
+    double _random_1 = Math.random();
+    int _size_1 = Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().size();
+    double _multiply_1 = (_random_1 * _size_1);
+    String nearby = StringExtensions.toFirstUpper(Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_1)).intValue()));
+    _builder.newLineIfNotEmpty();
+    double _random_2 = Math.random();
+    int _size_2 = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().size();
+    double _multiply_2 = (_random_2 * _size_2);
+    String path = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_2)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_3 = Math.random();
+    int _size_3 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
+    double _multiply_3 = (_random_3 * _size_3);
+    String substance = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_3)).intValue());
+    _builder.newLineIfNotEmpty();
+    String adjust = "";
+    _builder.newLineIfNotEmpty();
+    String _xifexpression = null;
+    if (((((Objects.equal(Character.valueOf(place.charAt(0)), "a") || Objects.equal(Character.valueOf(place.charAt(0)), "e")) || Objects.equal(Character.valueOf(place.charAt(0)), "i")) || Objects.equal(Character.valueOf(place.charAt(0)), "o")) || Objects.equal(Character.valueOf(place.charAt(0)), "u"))) {
+      String _xblockexpression = null;
+      {
+        adjust = "an";
+        _xblockexpression = "";
+      }
+      _xifexpression = _xblockexpression;
+    } else {
+      String _xblockexpression_1 = null;
+      {
+        adjust = "a";
+        _xblockexpression_1 = "";
+      }
+      _xifexpression = _xblockexpression_1;
+    }
+    _builder.append(_xifexpression);
+    _builder.newLineIfNotEmpty();
+    String _xifexpression_1 = null;
+    boolean _endsWith = move.endsWith("ed");
+    if (_endsWith) {
+      _xifexpression_1 = null;
+    } else {
+      String _xifexpression_2 = null;
+      boolean _endsWith_1 = move.endsWith("e");
+      if (_endsWith_1) {
+        String _xblockexpression_2 = null;
+        {
+          move = (move + "d");
+          _xblockexpression_2 = "";
+        }
+        _xifexpression_2 = _xblockexpression_2;
+      } else {
+        String _xifexpression_3 = null;
+        boolean _matches = move.matches("[a-z]*[^aeiou]y");
+        if (_matches) {
+          String _xblockexpression_3 = null;
+          {
+            int _length = move.length();
+            int _minus = (_length - 1);
+            String _substring = move.substring(0, _minus);
+            String _plus = (_substring + "ied");
+            move = _plus;
+            _xblockexpression_3 = "";
+          }
+          _xifexpression_3 = _xblockexpression_3;
+        } else {
+          String _xifexpression_4 = null;
+          boolean _matches_1 = move.matches("[a-z]+");
+          if (_matches_1) {
+            String _xblockexpression_4 = null;
+            {
+              move = (move + "ed");
+              _xblockexpression_4 = "";
+            }
+            _xifexpression_4 = _xblockexpression_4;
+          }
+          _xifexpression_3 = _xifexpression_4;
+        }
+        _xifexpression_2 = _xifexpression_3;
+      }
+      _xifexpression_1 = _xifexpression_2;
+    }
+    _builder.append(_xifexpression_1);
+    _builder.newLineIfNotEmpty();
+    _builder.append(nearby);
+    _builder.append(" ");
+    _builder.append(adjust);
+    _builder.append(" ");
+    _builder.append(place);
+    _builder.append(" ");
+    _builder.append(move);
+    _builder.append(" through the ");
+    _builder.append(path);
+    _builder.append(", filling me with ");
+    _builder.append(substance);
+    _builder.append(".");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String functionOutput7(final StoryProgram program) {
+    StringConcatenation _builder = new StringConcatenation();
+    double _random = Math.random();
+    int _size = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().size();
+    double _multiply = (_random * _size);
+    String move = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply)).intValue());
+    _builder.append("\t");
+    _builder.newLineIfNotEmpty();
+    String place = Iterables.<PlaceStatement>filter(program.getStatements(), PlaceStatement.class).iterator().next().getValue();
+    _builder.newLineIfNotEmpty();
+    double _random_1 = Math.random();
+    int _size_1 = Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().size();
+    double _multiply_1 = (_random_1 * _size_1);
+    String nearby = StringExtensions.toFirstUpper(Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_1)).intValue()));
+    _builder.newLineIfNotEmpty();
+    double _random_2 = Math.random();
+    int _size_2 = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().size();
+    double _multiply_2 = (_random_2 * _size_2);
+    String path = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_2)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_3 = Math.random();
+    int _size_3 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
+    double _multiply_3 = (_random_3 * _size_3);
+    String substance1 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_3)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_4 = Math.random();
+    int _size_4 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
+    double _multiply_4 = (_random_4 * _size_4);
+    String substance2 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_4)).intValue());
+    _builder.append("\t\t");
+    _builder.newLineIfNotEmpty();
+    String adjust = "";
+    _builder.newLineIfNotEmpty();
+    String _xifexpression = null;
+    if (((((Objects.equal(Character.valueOf(place.charAt(0)), "a") || Objects.equal(Character.valueOf(place.charAt(0)), "e")) || Objects.equal(Character.valueOf(place.charAt(0)), "i")) || Objects.equal(Character.valueOf(place.charAt(0)), "o")) || Objects.equal(Character.valueOf(place.charAt(0)), "u"))) {
+      String _xblockexpression = null;
+      {
+        adjust = "an";
+        _xblockexpression = "";
+      }
+      _xifexpression = _xblockexpression;
+    } else {
+      String _xblockexpression_1 = null;
+      {
+        adjust = "a";
+        _xblockexpression_1 = "";
+      }
+      _xifexpression = _xblockexpression_1;
+    }
+    _builder.append(_xifexpression);
+    _builder.newLineIfNotEmpty();
+    String _xifexpression_1 = null;
+    boolean _endsWith = move.endsWith("ed");
+    if (_endsWith) {
+      _xifexpression_1 = null;
+    } else {
+      String _xifexpression_2 = null;
+      boolean _endsWith_1 = move.endsWith("e");
+      if (_endsWith_1) {
+        String _xblockexpression_2 = null;
+        {
+          move = (move + "d");
+          _xblockexpression_2 = "";
+        }
+        _xifexpression_2 = _xblockexpression_2;
+      } else {
+        String _xifexpression_3 = null;
+        boolean _matches = move.matches("[a-z]*[^aeiou]y");
+        if (_matches) {
+          String _xblockexpression_3 = null;
+          {
+            int _length = move.length();
+            int _minus = (_length - 1);
+            String _substring = move.substring(0, _minus);
+            String _plus = (_substring + "ied");
+            move = _plus;
+            _xblockexpression_3 = "";
+          }
+          _xifexpression_3 = _xblockexpression_3;
+        } else {
+          String _xifexpression_4 = null;
+          boolean _matches_1 = move.matches("[a-z]+");
+          if (_matches_1) {
+            String _xblockexpression_4 = null;
+            {
+              move = (move + "ed");
+              _xblockexpression_4 = "";
+            }
+            _xifexpression_4 = _xblockexpression_4;
+          }
+          _xifexpression_3 = _xifexpression_4;
+        }
+        _xifexpression_2 = _xifexpression_3;
+      }
+      _xifexpression_1 = _xifexpression_2;
+    }
+    _builder.append(_xifexpression_1);
+    _builder.newLineIfNotEmpty();
+    _builder.append(nearby);
+    _builder.append(" ");
+    _builder.append(adjust);
+    _builder.append(" ");
+    _builder.append(place);
+    _builder.append(" ");
+    _builder.append(move);
+    _builder.append(" through the ");
+    _builder.append(path);
+    _builder.append(", filling me with ");
+    _builder.append(substance1);
+    _builder.append(" and ");
+    _builder.append(substance2);
+    _builder.append(".");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String functionOutput8(final StoryProgram program) {
+    StringConcatenation _builder = new StringConcatenation();
+    double _random = Math.random();
+    int _size = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().size();
+    double _multiply = (_random * _size);
+    String move = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply)).intValue());
+    _builder.append("\t");
+    _builder.newLineIfNotEmpty();
+    String place = Iterables.<PlaceStatement>filter(program.getStatements(), PlaceStatement.class).iterator().next().getValue();
+    _builder.newLineIfNotEmpty();
+    double _random_1 = Math.random();
+    int _size_1 = Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().size();
+    double _multiply_1 = (_random_1 * _size_1);
+    String nearby = StringExtensions.toFirstUpper(Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_1)).intValue()));
+    _builder.newLineIfNotEmpty();
+    double _random_2 = Math.random();
+    int _size_2 = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().size();
+    double _multiply_2 = (_random_2 * _size_2);
+    String path = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_2)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_3 = Math.random();
+    int _size_3 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
+    double _multiply_3 = (_random_3 * _size_3);
+    String substance1 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_3)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_4 = Math.random();
+    int _size_4 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
+    double _multiply_4 = (_random_4 * _size_4);
+    String substance2 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_4)).intValue());
+    _builder.append("\t\t");
+    _builder.newLineIfNotEmpty();
+    double _random_5 = Math.random();
+    int _size_5 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
+    double _multiply_5 = (_random_5 * _size_5);
+    String mood = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_5)).intValue());
+    _builder.newLineIfNotEmpty();
+    String adjust = "";
+    _builder.newLineIfNotEmpty();
+    String _xifexpression = null;
+    if (((((Objects.equal(Character.valueOf(place.charAt(0)), "a") || Objects.equal(Character.valueOf(place.charAt(0)), "e")) || Objects.equal(Character.valueOf(place.charAt(0)), "i")) || Objects.equal(Character.valueOf(place.charAt(0)), "o")) || Objects.equal(Character.valueOf(place.charAt(0)), "u"))) {
+      String _xblockexpression = null;
+      {
+        adjust = "an";
+        _xblockexpression = "";
+      }
+      _xifexpression = _xblockexpression;
+    } else {
+      String _xblockexpression_1 = null;
+      {
+        adjust = "a";
+        _xblockexpression_1 = "";
+      }
+      _xifexpression = _xblockexpression_1;
+    }
+    _builder.append(_xifexpression);
+    _builder.newLineIfNotEmpty();
+    String _xifexpression_1 = null;
+    boolean _endsWith = move.endsWith("ed");
+    if (_endsWith) {
+      _xifexpression_1 = null;
+    } else {
+      String _xifexpression_2 = null;
+      boolean _endsWith_1 = move.endsWith("e");
+      if (_endsWith_1) {
+        String _xblockexpression_2 = null;
+        {
+          move = (move + "d");
+          _xblockexpression_2 = "";
+        }
+        _xifexpression_2 = _xblockexpression_2;
+      } else {
+        String _xifexpression_3 = null;
+        boolean _matches = move.matches("[a-z]*[^aeiou]y");
+        if (_matches) {
+          String _xblockexpression_3 = null;
+          {
+            int _length = move.length();
+            int _minus = (_length - 1);
+            String _substring = move.substring(0, _minus);
+            String _plus = (_substring + "ied");
+            move = _plus;
+            _xblockexpression_3 = "";
+          }
+          _xifexpression_3 = _xblockexpression_3;
+        } else {
+          String _xifexpression_4 = null;
+          boolean _matches_1 = move.matches("[a-z]+");
+          if (_matches_1) {
+            String _xblockexpression_4 = null;
+            {
+              move = (move + "ed");
+              _xblockexpression_4 = "";
+            }
+            _xifexpression_4 = _xblockexpression_4;
+          }
+          _xifexpression_3 = _xifexpression_4;
+        }
+        _xifexpression_2 = _xifexpression_3;
+      }
+      _xifexpression_1 = _xifexpression_2;
+    }
+    _builder.append(_xifexpression_1);
+    _builder.append(" ");
+    _builder.newLineIfNotEmpty();
+    _builder.append(nearby);
+    _builder.append(" ");
+    _builder.append(adjust);
+    _builder.append(" ");
+    _builder.append(mood);
+    _builder.append(" ");
+    _builder.append(place);
+    _builder.append(" ");
+    _builder.append(move);
+    _builder.append(" through the ");
+    _builder.append(path);
+    _builder.append(", filling me with ");
+    _builder.append(substance1);
+    _builder.append(" and ");
+    _builder.append(substance2);
+    _builder.append(".");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String functionOutput9(final StoryProgram program) {
+    StringConcatenation _builder = new StringConcatenation();
+    double _random = Math.random();
+    int _size = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().size();
+    double _multiply = (_random * _size);
+    String move = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply)).intValue());
+    _builder.append("\t");
+    _builder.newLineIfNotEmpty();
+    String place = Iterables.<PlaceStatement>filter(program.getStatements(), PlaceStatement.class).iterator().next().getValue();
+    _builder.newLineIfNotEmpty();
+    double _random_1 = Math.random();
+    int _size_1 = Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().size();
+    double _multiply_1 = (_random_1 * _size_1);
+    String nearby = StringExtensions.toFirstUpper(Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_1)).intValue()));
+    _builder.newLineIfNotEmpty();
+    double _random_2 = Math.random();
+    int _size_2 = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().size();
+    double _multiply_2 = (_random_2 * _size_2);
+    String path = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_2)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_3 = Math.random();
+    int _size_3 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
+    double _multiply_3 = (_random_3 * _size_3);
+    String substance1 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_3)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_4 = Math.random();
+    int _size_4 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
+    double _multiply_4 = (_random_4 * _size_4);
+    String substance2 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_4)).intValue());
+    _builder.append("\t\t");
+    _builder.newLineIfNotEmpty();
+    double _random_5 = Math.random();
+    int _size_5 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
+    double _multiply_5 = (_random_5 * _size_5);
+    String mood1 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_5)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_6 = Math.random();
+    int _size_6 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
+    double _multiply_6 = (_random_6 * _size_6);
+    String mood2 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_6)).intValue());
+    _builder.newLineIfNotEmpty();
+    String adjust = "";
+    _builder.newLineIfNotEmpty();
+    String _xifexpression = null;
+    if (((((Objects.equal(Character.valueOf(place.charAt(0)), "a") || Objects.equal(Character.valueOf(place.charAt(0)), "e")) || Objects.equal(Character.valueOf(place.charAt(0)), "i")) || Objects.equal(Character.valueOf(place.charAt(0)), "o")) || Objects.equal(Character.valueOf(place.charAt(0)), "u"))) {
+      String _xblockexpression = null;
+      {
+        adjust = "an";
+        _xblockexpression = "";
+      }
+      _xifexpression = _xblockexpression;
+    } else {
+      String _xblockexpression_1 = null;
+      {
+        adjust = "a";
+        _xblockexpression_1 = "";
+      }
+      _xifexpression = _xblockexpression_1;
+    }
+    _builder.append(_xifexpression);
+    _builder.newLineIfNotEmpty();
+    String _xifexpression_1 = null;
+    boolean _endsWith = move.endsWith("ed");
+    if (_endsWith) {
+      _xifexpression_1 = null;
+    } else {
+      String _xifexpression_2 = null;
+      boolean _endsWith_1 = move.endsWith("e");
+      if (_endsWith_1) {
+        String _xblockexpression_2 = null;
+        {
+          move = (move + "d");
+          _xblockexpression_2 = "";
+        }
+        _xifexpression_2 = _xblockexpression_2;
+      } else {
+        String _xifexpression_3 = null;
+        boolean _matches = move.matches("[a-z]*[^aeiou]y");
+        if (_matches) {
+          String _xblockexpression_3 = null;
+          {
+            int _length = move.length();
+            int _minus = (_length - 1);
+            String _substring = move.substring(0, _minus);
+            String _plus = (_substring + "ied");
+            move = _plus;
+            _xblockexpression_3 = "";
+          }
+          _xifexpression_3 = _xblockexpression_3;
+        } else {
+          String _xifexpression_4 = null;
+          boolean _matches_1 = move.matches("[a-z]+");
+          if (_matches_1) {
+            String _xblockexpression_4 = null;
+            {
+              move = (move + "ed");
+              _xblockexpression_4 = "";
+            }
+            _xifexpression_4 = _xblockexpression_4;
+          }
+          _xifexpression_3 = _xifexpression_4;
+        }
+        _xifexpression_2 = _xifexpression_3;
+      }
+      _xifexpression_1 = _xifexpression_2;
+    }
+    _builder.append(_xifexpression_1);
+    _builder.newLineIfNotEmpty();
+    _builder.append(nearby);
+    _builder.append(" ");
+    _builder.append(adjust);
+    _builder.append(" ");
+    _builder.append(mood1);
+    _builder.append(" ");
+    _builder.append(place);
+    _builder.append(" ");
+    _builder.append(move);
+    _builder.append(" through the ");
+    _builder.append(mood2);
+    _builder.append(" ");
+    _builder.append(path);
+    _builder.append(", filling me with ");
+    _builder.append(substance1);
+    _builder.append(" and ");
+    _builder.append(substance2);
+    _builder.append(".");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String functionOutput10(final StoryProgram program) {
+    StringConcatenation _builder = new StringConcatenation();
+    double _random = Math.random();
+    int _size = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().size();
+    double _multiply = (_random * _size);
+    String move1 = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_1 = Math.random();
+    int _size_1 = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().size();
+    double _multiply_1 = (_random_1 * _size_1);
+    String move2 = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_1)).intValue());
+    _builder.newLineIfNotEmpty();
+    String place = Iterables.<PlaceStatement>filter(program.getStatements(), PlaceStatement.class).iterator().next().getValue();
+    _builder.newLineIfNotEmpty();
+    double _random_2 = Math.random();
+    int _size_2 = Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().size();
+    double _multiply_2 = (_random_2 * _size_2);
+    String nearby = StringExtensions.toFirstUpper(Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_2)).intValue()));
+    _builder.newLineIfNotEmpty();
+    double _random_3 = Math.random();
+    int _size_3 = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().size();
+    double _multiply_3 = (_random_3 * _size_3);
+    String path = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_3)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_4 = Math.random();
+    int _size_4 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
+    double _multiply_4 = (_random_4 * _size_4);
+    String substance1 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_4)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_5 = Math.random();
+    int _size_5 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
+    double _multiply_5 = (_random_5 * _size_5);
+    String substance2 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_5)).intValue());
+    _builder.append("\t\t");
+    _builder.newLineIfNotEmpty();
+    double _random_6 = Math.random();
+    int _size_6 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
+    double _multiply_6 = (_random_6 * _size_6);
+    String mood1 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_6)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_7 = Math.random();
+    int _size_7 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
+    double _multiply_7 = (_random_7 * _size_7);
+    String mood2 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_7)).intValue());
+    _builder.newLineIfNotEmpty();
+    String adjust = "";
+    _builder.newLineIfNotEmpty();
+    String _xifexpression = null;
+    if (((((Objects.equal(Character.valueOf(place.charAt(0)), "a") || Objects.equal(Character.valueOf(place.charAt(0)), "e")) || Objects.equal(Character.valueOf(place.charAt(0)), "i")) || Objects.equal(Character.valueOf(place.charAt(0)), "o")) || Objects.equal(Character.valueOf(place.charAt(0)), "u"))) {
+      String _xblockexpression = null;
+      {
+        adjust = "an";
+        _xblockexpression = "";
+      }
+      _xifexpression = _xblockexpression;
+    } else {
+      String _xblockexpression_1 = null;
+      {
+        adjust = "a";
+        _xblockexpression_1 = "";
+      }
+      _xifexpression = _xblockexpression_1;
+    }
+    _builder.append(_xifexpression);
+    _builder.newLineIfNotEmpty();
+    String _xifexpression_1 = null;
+    boolean _endsWith = move1.endsWith("ed");
+    if (_endsWith) {
+      _xifexpression_1 = null;
+    } else {
+      String _xifexpression_2 = null;
+      boolean _endsWith_1 = move1.endsWith("e");
+      if (_endsWith_1) {
+        String _xblockexpression_2 = null;
+        {
+          move1 = (move1 + "d");
+          _xblockexpression_2 = "";
+        }
+        _xifexpression_2 = _xblockexpression_2;
+      } else {
+        String _xifexpression_3 = null;
+        boolean _matches = move1.matches("[a-z]*[^aeiou]y");
+        if (_matches) {
+          String _xblockexpression_3 = null;
+          {
+            int _length = move1.length();
+            int _minus = (_length - 1);
+            String _substring = move1.substring(0, _minus);
+            String _plus = (_substring + "ied");
+            move1 = _plus;
+            _xblockexpression_3 = "";
+          }
+          _xifexpression_3 = _xblockexpression_3;
+        } else {
+          String _xifexpression_4 = null;
+          boolean _matches_1 = move1.matches("[a-z]+");
+          if (_matches_1) {
+            String _xblockexpression_4 = null;
+            {
+              move1 = (move1 + "ed");
+              _xblockexpression_4 = "";
+            }
+            _xifexpression_4 = _xblockexpression_4;
+          }
+          _xifexpression_3 = _xifexpression_4;
+        }
+        _xifexpression_2 = _xifexpression_3;
+      }
+      _xifexpression_1 = _xifexpression_2;
+    }
+    _builder.append(_xifexpression_1);
+    _builder.newLineIfNotEmpty();
+    String _xifexpression_5 = null;
+    boolean _endsWith_2 = move2.endsWith("ing");
+    if (_endsWith_2) {
+      _xifexpression_5 = null;
+    } else {
+      String _xifexpression_6 = null;
+      boolean _endsWith_3 = move2.endsWith("ed");
+      if (_endsWith_3) {
+        String _xblockexpression_5 = null;
+        {
+          int _length = move2.length();
+          int _minus = (_length - 2);
+          String _substring = move2.substring(0, _minus);
+          String _plus = (_substring + "ing");
+          move2 = _plus;
+          _xblockexpression_5 = "";
+        }
+        _xifexpression_6 = _xblockexpression_5;
+      } else {
+        String _xifexpression_7 = null;
+        boolean _endsWith_4 = move2.endsWith("e");
+        if (_endsWith_4) {
+          String _xblockexpression_6 = null;
+          {
+            int _length = move2.length();
+            int _minus = (_length - 1);
+            String _substring = move2.substring(0, _minus);
+            String _plus = (_substring + "ing");
+            move2 = _plus;
+            _xblockexpression_6 = "";
+          }
+          _xifexpression_7 = _xblockexpression_6;
+        } else {
+          String _xifexpression_8 = null;
+          boolean _endsWith_5 = move2.endsWith("n");
+          if (_endsWith_5) {
+            _xifexpression_8 = move2 = (move2 + "ning");
+          } else {
+            String _xifexpression_9 = null;
+            boolean _matches_2 = move2.matches(".*[^aeiou][aeiou][^aeiouy]$");
+            if (_matches_2) {
+              String _xblockexpression_7 = null;
+              {
+                move2 = (move2 + "ing");
+                _xblockexpression_7 = "";
+              }
+              _xifexpression_9 = _xblockexpression_7;
+            }
+            _xifexpression_8 = _xifexpression_9;
+          }
+          _xifexpression_7 = _xifexpression_8;
+        }
+        _xifexpression_6 = _xifexpression_7;
+      }
+      _xifexpression_5 = _xifexpression_6;
+    }
+    _builder.append(_xifexpression_5);
+    _builder.newLineIfNotEmpty();
+    _builder.append(nearby);
+    _builder.append(" ");
+    _builder.append(adjust);
+    _builder.append(" ");
+    _builder.append(mood1);
+    _builder.append(" ");
+    _builder.append(place);
+    _builder.append(" ");
+    _builder.append(move1);
+    _builder.append(" through the ");
+    _builder.append(mood2);
+    _builder.append(" ");
+    _builder.append(move2);
+    _builder.append(" ");
+    _builder.append(path);
+    _builder.append(", filling me with ");
+    _builder.append(substance1);
+    _builder.append(" and ");
+    _builder.append(substance2);
+    _builder.append(".");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String functionOutput11(final StoryProgram program) {
+    StringConcatenation _builder = new StringConcatenation();
+    double _random = Math.random();
+    int _size = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().size();
+    double _multiply = (_random * _size);
+    String move1 = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_1 = Math.random();
+    int _size_1 = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().size();
+    double _multiply_1 = (_random_1 * _size_1);
+    String move2 = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_1)).intValue());
+    _builder.newLineIfNotEmpty();
+    String place = Iterables.<PlaceStatement>filter(program.getStatements(), PlaceStatement.class).iterator().next().getValue();
+    _builder.newLineIfNotEmpty();
+    double _random_2 = Math.random();
+    int _size_2 = Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().size();
+    double _multiply_2 = (_random_2 * _size_2);
+    String nearby = StringExtensions.toFirstUpper(Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_2)).intValue()));
+    _builder.newLineIfNotEmpty();
+    double _random_3 = Math.random();
+    int _size_3 = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().size();
+    double _multiply_3 = (_random_3 * _size_3);
+    String path = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_3)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_4 = Math.random();
+    int _size_4 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
+    double _multiply_4 = (_random_4 * _size_4);
+    String substance1 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_4)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_5 = Math.random();
+    int _size_5 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
+    double _multiply_5 = (_random_5 * _size_5);
+    String substance2 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_5)).intValue());
+    _builder.append("\t\t");
+    _builder.newLineIfNotEmpty();
+    String adjust = "";
+    _builder.newLineIfNotEmpty();
+    String _xifexpression = null;
+    if (((((Objects.equal(Character.valueOf(place.charAt(0)), "a") || Objects.equal(Character.valueOf(place.charAt(0)), "e")) || Objects.equal(Character.valueOf(place.charAt(0)), "i")) || Objects.equal(Character.valueOf(place.charAt(0)), "o")) || Objects.equal(Character.valueOf(place.charAt(0)), "u"))) {
+      String _xblockexpression = null;
+      {
+        adjust = "an";
+        _xblockexpression = "";
+      }
+      _xifexpression = _xblockexpression;
+    } else {
+      String _xblockexpression_1 = null;
+      {
+        adjust = "a";
+        _xblockexpression_1 = "";
+      }
+      _xifexpression = _xblockexpression_1;
+    }
+    _builder.append(_xifexpression);
+    _builder.newLineIfNotEmpty();
+    String _xifexpression_1 = null;
+    boolean _endsWith = move1.endsWith("ed");
+    if (_endsWith) {
+      _xifexpression_1 = null;
+    } else {
+      String _xifexpression_2 = null;
+      boolean _endsWith_1 = move1.endsWith("e");
+      if (_endsWith_1) {
+        String _xblockexpression_2 = null;
+        {
+          move1 = (move1 + "d");
+          _xblockexpression_2 = "";
+        }
+        _xifexpression_2 = _xblockexpression_2;
+      } else {
+        String _xifexpression_3 = null;
+        boolean _matches = move1.matches("[a-z]*[^aeiou]y");
+        if (_matches) {
+          String _xblockexpression_3 = null;
+          {
+            int _length = move1.length();
+            int _minus = (_length - 1);
+            String _substring = move1.substring(0, _minus);
+            String _plus = (_substring + "ied");
+            move1 = _plus;
+            _xblockexpression_3 = "";
+          }
+          _xifexpression_3 = _xblockexpression_3;
+        } else {
+          String _xifexpression_4 = null;
+          boolean _matches_1 = move1.matches("[a-z]+");
+          if (_matches_1) {
+            String _xblockexpression_4 = null;
+            {
+              move1 = (move1 + "ed");
+              _xblockexpression_4 = "";
+            }
+            _xifexpression_4 = _xblockexpression_4;
+          }
+          _xifexpression_3 = _xifexpression_4;
+        }
+        _xifexpression_2 = _xifexpression_3;
+      }
+      _xifexpression_1 = _xifexpression_2;
+    }
+    _builder.append(_xifexpression_1);
+    _builder.newLineIfNotEmpty();
+    String _xifexpression_5 = null;
+    boolean _endsWith_2 = move2.endsWith("ing");
+    if (_endsWith_2) {
+      _xifexpression_5 = null;
+    } else {
+      String _xifexpression_6 = null;
+      boolean _endsWith_3 = move2.endsWith("ed");
+      if (_endsWith_3) {
+        String _xblockexpression_5 = null;
+        {
+          int _length = move2.length();
+          int _minus = (_length - 2);
+          String _substring = move2.substring(0, _minus);
+          String _plus = (_substring + "ing");
+          move2 = _plus;
+          _xblockexpression_5 = "";
+        }
+        _xifexpression_6 = _xblockexpression_5;
+      } else {
+        String _xifexpression_7 = null;
+        boolean _endsWith_4 = move2.endsWith("e");
+        if (_endsWith_4) {
+          String _xblockexpression_6 = null;
+          {
+            int _length = move2.length();
+            int _minus = (_length - 1);
+            String _substring = move2.substring(0, _minus);
+            String _plus = (_substring + "ing");
+            move2 = _plus;
+            _xblockexpression_6 = "";
+          }
+          _xifexpression_7 = _xblockexpression_6;
+        } else {
+          String _xifexpression_8 = null;
+          boolean _endsWith_5 = move2.endsWith("n");
+          if (_endsWith_5) {
+            _xifexpression_8 = move2 = (move2 + "ning");
+          } else {
+            String _xifexpression_9 = null;
+            boolean _matches_2 = move2.matches(".*[^aeiou][aeiou][^aeiouy]$");
+            if (_matches_2) {
+              String _xblockexpression_7 = null;
+              {
+                move2 = (move2 + "ing");
+                _xblockexpression_7 = "";
+              }
+              _xifexpression_9 = _xblockexpression_7;
+            }
+            _xifexpression_8 = _xifexpression_9;
+          }
+          _xifexpression_7 = _xifexpression_8;
+        }
+        _xifexpression_6 = _xifexpression_7;
+      }
+      _xifexpression_5 = _xifexpression_6;
+    }
+    _builder.append(_xifexpression_5);
+    _builder.newLineIfNotEmpty();
+    _builder.append(nearby);
+    _builder.append(" ");
+    _builder.append(adjust);
+    _builder.append(" ");
+    _builder.append(place);
+    _builder.append(" ");
+    _builder.append(move1);
+    _builder.append(" through the ");
+    _builder.append(move2);
+    _builder.append(" ");
+    _builder.append(path);
+    _builder.append(", filling me with ");
+    _builder.append(substance1);
+    _builder.append(" and ");
+    _builder.append(substance2);
+    _builder.append(".");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String functionOutput12(final StoryProgram program) {
+    StringConcatenation _builder = new StringConcatenation();
+    double _random = Math.random();
+    int _size = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().size();
+    double _multiply = (_random * _size);
+    String move = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply)).intValue());
+    _builder.newLineIfNotEmpty();
+    String place = Iterables.<PlaceStatement>filter(program.getStatements(), PlaceStatement.class).iterator().next().getValue();
+    _builder.newLineIfNotEmpty();
+    double _random_1 = Math.random();
+    int _size_1 = Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().size();
+    double _multiply_1 = (_random_1 * _size_1);
+    String nearby = StringExtensions.toFirstUpper(Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_1)).intValue()));
+    _builder.newLineIfNotEmpty();
+    double _random_2 = Math.random();
+    int _size_2 = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().size();
+    double _multiply_2 = (_random_2 * _size_2);
+    String path = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_2)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_3 = Math.random();
+    int _size_3 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
+    double _multiply_3 = (_random_3 * _size_3);
+    String substance1 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_3)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_4 = Math.random();
+    int _size_4 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
+    double _multiply_4 = (_random_4 * _size_4);
+    String substance2 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_4)).intValue());
+    _builder.append("\t\t");
+    _builder.newLineIfNotEmpty();
+    double _random_5 = Math.random();
+    int _size_5 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
+    double _multiply_5 = (_random_5 * _size_5);
+    String mood = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_5)).intValue());
+    _builder.newLineIfNotEmpty();
+    String adjust = "";
+    _builder.newLineIfNotEmpty();
+    String _xifexpression = null;
+    if (((((Objects.equal(Character.valueOf(place.charAt(0)), "a") || Objects.equal(Character.valueOf(place.charAt(0)), "e")) || Objects.equal(Character.valueOf(place.charAt(0)), "i")) || Objects.equal(Character.valueOf(place.charAt(0)), "o")) || Objects.equal(Character.valueOf(place.charAt(0)), "u"))) {
+      String _xblockexpression = null;
+      {
+        adjust = "an";
+        _xblockexpression = "";
+      }
+      _xifexpression = _xblockexpression;
+    } else {
+      String _xblockexpression_1 = null;
+      {
+        adjust = "a";
+        _xblockexpression_1 = "";
+      }
+      _xifexpression = _xblockexpression_1;
+    }
+    _builder.append(_xifexpression);
+    _builder.newLineIfNotEmpty();
+    String _xifexpression_1 = null;
+    boolean _endsWith = move.endsWith("ed");
+    if (_endsWith) {
+      _xifexpression_1 = null;
+    } else {
+      String _xifexpression_2 = null;
+      boolean _endsWith_1 = move.endsWith("e");
+      if (_endsWith_1) {
+        String _xblockexpression_2 = null;
+        {
+          move = (move + "d");
+          _xblockexpression_2 = "";
+        }
+        _xifexpression_2 = _xblockexpression_2;
+      } else {
+        String _xifexpression_3 = null;
+        boolean _matches = move.matches("[a-z]*[^aeiou]y");
+        if (_matches) {
+          String _xblockexpression_3 = null;
+          {
+            int _length = move.length();
+            int _minus = (_length - 1);
+            String _substring = move.substring(0, _minus);
+            String _plus = (_substring + "ied");
+            move = _plus;
+            _xblockexpression_3 = "";
+          }
+          _xifexpression_3 = _xblockexpression_3;
+        } else {
+          String _xifexpression_4 = null;
+          boolean _matches_1 = move.matches("[a-z]+");
+          if (_matches_1) {
+            String _xblockexpression_4 = null;
+            {
+              move = (move + "ed");
+              _xblockexpression_4 = "";
+            }
+            _xifexpression_4 = _xblockexpression_4;
+          }
+          _xifexpression_3 = _xifexpression_4;
+        }
+        _xifexpression_2 = _xifexpression_3;
+      }
+      _xifexpression_1 = _xifexpression_2;
+    }
+    _builder.append(_xifexpression_1);
+    _builder.newLineIfNotEmpty();
+    _builder.append(nearby);
+    _builder.append(" ");
+    _builder.append(adjust);
+    _builder.append(" ");
+    _builder.append(place);
+    _builder.append(" ");
+    _builder.append(move);
+    _builder.append(" through the ");
+    _builder.append(mood);
+    _builder.append(" ");
+    _builder.append(path);
+    _builder.append(", filling me with ");
+    _builder.append(substance1);
+    _builder.append(" and ");
+    _builder.append(substance2);
+    _builder.append(".");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String functionOutput13(final StoryProgram program) {
+    StringConcatenation _builder = new StringConcatenation();
+    double _random = Math.random();
+    int _size = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
+    double _multiply = (_random * _size);
+    String mood1 = StringExtensions.toFirstUpper(Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply)).intValue()));
+    _builder.newLineIfNotEmpty();
+    double _random_1 = Math.random();
+    int _size_1 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
+    double _multiply_1 = (_random_1 * _size_1);
+    String mood2 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_1)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_2 = Math.random();
+    int _size_2 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
+    double _multiply_2 = (_random_2 * _size_2);
+    String mood3 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_2)).intValue());
+    _builder.newLineIfNotEmpty();
+    String place = Iterables.<PlaceStatement>filter(program.getStatements(), PlaceStatement.class).iterator().next().getValue();
+    _builder.newLineIfNotEmpty();
+    double _random_3 = Math.random();
+    int _size_3 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
+    double _multiply_3 = (_random_3 * _size_3);
+    String substance1 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_3)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_4 = Math.random();
+    int _size_4 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
+    double _multiply_4 = (_random_4 * _size_4);
+    String substance2 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_4)).intValue());
+    _builder.newLineIfNotEmpty();
+    _builder.append(mood1);
+    _builder.append(" and ");
+    _builder.append(mood2);
+    _builder.append(", the ");
+    _builder.append(place);
+    _builder.append(" was ");
+    _builder.append(mood3);
+    _builder.append(" with ");
+    _builder.append(substance1);
+    _builder.append(" and ");
+    _builder.append(substance2);
+    _builder.append(".");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String functionOutput14(final StoryProgram program) {
+    StringConcatenation _builder = new StringConcatenation();
+    double _random = Math.random();
+    int _size = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().size();
+    double _multiply = (_random * _size);
+    String move = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply)).intValue());
+    _builder.newLineIfNotEmpty();
+    String place = Iterables.<PlaceStatement>filter(program.getStatements(), PlaceStatement.class).iterator().next().getValue();
+    _builder.newLineIfNotEmpty();
+    double _random_1 = Math.random();
+    int _size_1 = Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().size();
+    double _multiply_1 = (_random_1 * _size_1);
+    String nearby = StringExtensions.toFirstUpper(Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_1)).intValue()));
+    _builder.newLineIfNotEmpty();
+    double _random_2 = Math.random();
+    int _size_2 = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().size();
+    double _multiply_2 = (_random_2 * _size_2);
+    String path = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_2)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_3 = Math.random();
+    int _size_3 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
+    double _multiply_3 = (_random_3 * _size_3);
+    String substance = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_3)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_4 = Math.random();
+    int _size_4 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
+    double _multiply_4 = (_random_4 * _size_4);
+    String mood = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_4)).intValue());
+    _builder.newLineIfNotEmpty();
+    String adjust = "";
+    _builder.newLineIfNotEmpty();
+    String _xifexpression = null;
+    if (((((Objects.equal(Character.valueOf(place.charAt(0)), "a") || Objects.equal(Character.valueOf(place.charAt(0)), "e")) || Objects.equal(Character.valueOf(place.charAt(0)), "i")) || Objects.equal(Character.valueOf(place.charAt(0)), "o")) || Objects.equal(Character.valueOf(place.charAt(0)), "u"))) {
+      String _xblockexpression = null;
+      {
+        adjust = "an";
+        _xblockexpression = "";
+      }
+      _xifexpression = _xblockexpression;
+    } else {
+      String _xblockexpression_1 = null;
+      {
+        adjust = "a";
+        _xblockexpression_1 = "";
+      }
+      _xifexpression = _xblockexpression_1;
+    }
+    _builder.append(_xifexpression);
+    _builder.newLineIfNotEmpty();
+    String _xifexpression_1 = null;
+    boolean _endsWith = move.endsWith("ed");
+    if (_endsWith) {
+      _xifexpression_1 = null;
+    } else {
+      String _xifexpression_2 = null;
+      boolean _endsWith_1 = move.endsWith("e");
+      if (_endsWith_1) {
+        String _xblockexpression_2 = null;
+        {
+          move = (move + "d");
+          _xblockexpression_2 = "";
+        }
+        _xifexpression_2 = _xblockexpression_2;
+      } else {
+        String _xifexpression_3 = null;
+        boolean _matches = move.matches("[a-z]*[^aeiou]y");
+        if (_matches) {
+          String _xblockexpression_3 = null;
+          {
+            int _length = move.length();
+            int _minus = (_length - 1);
+            String _substring = move.substring(0, _minus);
+            String _plus = (_substring + "ied");
+            move = _plus;
+            _xblockexpression_3 = "";
+          }
+          _xifexpression_3 = _xblockexpression_3;
+        } else {
+          String _xifexpression_4 = null;
+          boolean _matches_1 = move.matches("[a-z]+");
+          if (_matches_1) {
+            String _xblockexpression_4 = null;
+            {
+              move = (move + "ed");
+              _xblockexpression_4 = "";
+            }
+            _xifexpression_4 = _xblockexpression_4;
+          }
+          _xifexpression_3 = _xifexpression_4;
+        }
+        _xifexpression_2 = _xifexpression_3;
+      }
+      _xifexpression_1 = _xifexpression_2;
+    }
+    _builder.append(_xifexpression_1);
+    _builder.append(" ");
+    _builder.newLineIfNotEmpty();
+    _builder.append(nearby);
+    _builder.append(" ");
+    _builder.append(adjust);
+    _builder.append(" ");
+    _builder.append(mood);
+    _builder.append(" ");
+    _builder.append(place);
+    _builder.append(" ");
+    _builder.append(move);
+    _builder.append(" through the ");
+    _builder.append(path);
+    _builder.append(", filling me with ");
+    _builder.append(substance);
+    _builder.append(".");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String functionOutput15(final StoryProgram program) {
+    StringConcatenation _builder = new StringConcatenation();
+    double _random = Math.random();
+    int _size = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().size();
+    double _multiply = (_random * _size);
+    String move1 = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_1 = Math.random();
+    int _size_1 = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().size();
+    double _multiply_1 = (_random_1 * _size_1);
+    String move2 = Iterables.<MoveStatement>filter(program.getStatements(), MoveStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_1)).intValue());
+    _builder.newLineIfNotEmpty();
+    String place = Iterables.<PlaceStatement>filter(program.getStatements(), PlaceStatement.class).iterator().next().getValue();
+    _builder.newLineIfNotEmpty();
+    double _random_2 = Math.random();
+    int _size_2 = Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().size();
+    double _multiply_2 = (_random_2 * _size_2);
+    String nearby = StringExtensions.toFirstUpper(Iterables.<NearbyStatement>filter(program.getStatements(), NearbyStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_2)).intValue()));
+    _builder.newLineIfNotEmpty();
+    double _random_3 = Math.random();
+    int _size_3 = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().size();
+    double _multiply_3 = (_random_3 * _size_3);
+    String path = Iterables.<PathStatement>filter(program.getStatements(), PathStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_3)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_4 = Math.random();
+    int _size_4 = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().size();
+    double _multiply_4 = (_random_4 * _size_4);
+    String mood = Iterables.<MoodStatement>filter(program.getStatements(), MoodStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_4)).intValue());
+    _builder.newLineIfNotEmpty();
+    double _random_5 = Math.random();
+    int _size_5 = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().size();
+    double _multiply_5 = (_random_5 * _size_5);
+    String substance = Iterables.<SubstanceStatement>filter(program.getStatements(), SubstanceStatement.class).iterator().next().getList().get(Double.valueOf(Math.floor(_multiply_5)).intValue());
+    _builder.newLineIfNotEmpty();
+    String adjust = "";
+    _builder.append("\t");
+    _builder.newLineIfNotEmpty();
+    String _xifexpression = null;
+    if (((((Objects.equal(Character.valueOf(place.charAt(0)), "a") || Objects.equal(Character.valueOf(place.charAt(0)), "e")) || Objects.equal(Character.valueOf(place.charAt(0)), "i")) || Objects.equal(Character.valueOf(place.charAt(0)), "o")) || Objects.equal(Character.valueOf(place.charAt(0)), "u"))) {
+      String _xblockexpression = null;
+      {
+        adjust = "an";
+        _xblockexpression = "";
+      }
+      _xifexpression = _xblockexpression;
+    } else {
+      String _xblockexpression_1 = null;
+      {
+        adjust = "a";
+        _xblockexpression_1 = "";
+      }
+      _xifexpression = _xblockexpression_1;
+    }
+    _builder.append(_xifexpression);
+    _builder.newLineIfNotEmpty();
+    String _xifexpression_1 = null;
+    boolean _endsWith = move1.endsWith("ed");
+    if (_endsWith) {
+      _xifexpression_1 = null;
+    } else {
+      String _xifexpression_2 = null;
+      boolean _endsWith_1 = move1.endsWith("e");
+      if (_endsWith_1) {
+        String _xblockexpression_2 = null;
+        {
+          move1 = (move1 + "d");
+          _xblockexpression_2 = "";
+        }
+        _xifexpression_2 = _xblockexpression_2;
+      } else {
+        String _xifexpression_3 = null;
+        boolean _matches = move1.matches("[a-z]*[^aeiou]y");
+        if (_matches) {
+          String _xblockexpression_3 = null;
+          {
+            int _length = move1.length();
+            int _minus = (_length - 1);
+            String _substring = move1.substring(0, _minus);
+            String _plus = (_substring + "ied");
+            move1 = _plus;
+            _xblockexpression_3 = "";
+          }
+          _xifexpression_3 = _xblockexpression_3;
+        } else {
+          String _xifexpression_4 = null;
+          boolean _matches_1 = move1.matches("[a-z]+");
+          if (_matches_1) {
+            String _xblockexpression_4 = null;
+            {
+              move1 = (move1 + "ed");
+              _xblockexpression_4 = "";
+            }
+            _xifexpression_4 = _xblockexpression_4;
+          }
+          _xifexpression_3 = _xifexpression_4;
+        }
+        _xifexpression_2 = _xifexpression_3;
+      }
+      _xifexpression_1 = _xifexpression_2;
+    }
+    _builder.append(_xifexpression_1);
+    _builder.newLineIfNotEmpty();
+    String _xifexpression_5 = null;
+    boolean _endsWith_2 = move2.endsWith("ing");
+    if (_endsWith_2) {
+      _xifexpression_5 = null;
+    } else {
+      String _xifexpression_6 = null;
+      boolean _endsWith_3 = move2.endsWith("ed");
+      if (_endsWith_3) {
+        String _xblockexpression_5 = null;
+        {
+          int _length = move2.length();
+          int _minus = (_length - 2);
+          String _substring = move2.substring(0, _minus);
+          String _plus = (_substring + "ing");
+          move2 = _plus;
+          _xblockexpression_5 = "";
+        }
+        _xifexpression_6 = _xblockexpression_5;
+      } else {
+        String _xifexpression_7 = null;
+        boolean _endsWith_4 = move2.endsWith("e");
+        if (_endsWith_4) {
+          String _xblockexpression_6 = null;
+          {
+            int _length = move2.length();
+            int _minus = (_length - 1);
+            String _substring = move2.substring(0, _minus);
+            String _plus = (_substring + "ing");
+            move2 = _plus;
+            _xblockexpression_6 = "";
+          }
+          _xifexpression_7 = _xblockexpression_6;
+        } else {
+          String _xifexpression_8 = null;
+          boolean _endsWith_5 = move2.endsWith("n");
+          if (_endsWith_5) {
+            _xifexpression_8 = move2 = (move2 + "ning");
+          } else {
+            String _xifexpression_9 = null;
+            boolean _matches_2 = move2.matches(".*[^aeiou][aeiou][^aeiouy]$");
+            if (_matches_2) {
+              String _xblockexpression_7 = null;
+              {
+                move2 = (move2 + "ing");
+                _xblockexpression_7 = "";
+              }
+              _xifexpression_9 = _xblockexpression_7;
+            }
+            _xifexpression_8 = _xifexpression_9;
+          }
+          _xifexpression_7 = _xifexpression_8;
+        }
+        _xifexpression_6 = _xifexpression_7;
+      }
+      _xifexpression_5 = _xifexpression_6;
+    }
+    _builder.append(_xifexpression_5);
+    _builder.newLineIfNotEmpty();
+    _builder.append(nearby);
+    _builder.append(" ");
+    _builder.append(adjust);
+    _builder.append(" ");
+    _builder.append(mood);
+    _builder.append(" ");
+    _builder.append(place);
+    _builder.append(" ");
+    _builder.append(move1);
+    _builder.append(" through the ");
+    _builder.append(move2);
+    _builder.append(" ");
+    _builder.append(path);
+    _builder.append(", filling me with ");
+    _builder.append(substance);
+    _builder.append(".");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String doGenerate(final StoryProgram program) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Program contains:");
+    _builder.newLine();
+    int amount = Iterables.<AmountStatement>filter(program.getStatements(), AmountStatement.class).iterator().next().getValue();
+    _builder.newLineIfNotEmpty();
+    {
+      IntegerRange _upTo = new IntegerRange(0, amount);
+      for(final Integer Integer : _upTo) {
+        double _random = Math.random();
+        double _multiply = (_random * 15);
+        double _floor = Math.floor(_multiply);
+        double outputRandomizer = (_floor + 1);
+        _builder.newLineIfNotEmpty();
+        String _xifexpression = null;
+        if ((outputRandomizer == 1)) {
+          _xifexpression = this.functionOutput1(program);
+        } else {
+          String _xifexpression_1 = null;
+          if ((outputRandomizer == 2)) {
+            _xifexpression_1 = this.functionOutput2(program);
+          } else {
+            String _xifexpression_2 = null;
+            if ((outputRandomizer == 3)) {
+              _xifexpression_2 = this.functionOutput3(program);
+            } else {
+              String _xifexpression_3 = null;
+              if ((outputRandomizer == 4)) {
+                _xifexpression_3 = this.functionOutput4(program);
+              } else {
+                String _xifexpression_4 = null;
+                if ((outputRandomizer == 5)) {
+                  _xifexpression_4 = this.functionOutput5(program);
+                } else {
+                  String _xifexpression_5 = null;
+                  if ((outputRandomizer == 6)) {
+                    _xifexpression_5 = this.functionOutput6(program);
+                  } else {
+                    String _xifexpression_6 = null;
+                    if ((outputRandomizer == 7)) {
+                      _xifexpression_6 = this.functionOutput7(program);
+                    } else {
+                      String _xifexpression_7 = null;
+                      if ((outputRandomizer == 8)) {
+                        _xifexpression_7 = this.functionOutput8(program);
+                      } else {
+                        String _xifexpression_8 = null;
+                        if ((outputRandomizer == 9)) {
+                          _xifexpression_8 = this.functionOutput9(program);
+                        } else {
+                          String _xifexpression_9 = null;
+                          if ((outputRandomizer == 10)) {
+                            _xifexpression_9 = this.functionOutput10(program);
+                          } else {
+                            String _xifexpression_10 = null;
+                            if ((outputRandomizer == 11)) {
+                              _xifexpression_10 = this.functionOutput11(program);
+                            } else {
+                              String _xifexpression_11 = null;
+                              if ((outputRandomizer == 12)) {
+                                _xifexpression_11 = this.functionOutput12(program);
+                              } else {
+                                String _xifexpression_12 = null;
+                                if ((outputRandomizer == 13)) {
+                                  _xifexpression_12 = this.functionOutput13(program);
+                                } else {
+                                  String _xifexpression_13 = null;
+                                  if ((outputRandomizer == 14)) {
+                                    _xifexpression_13 = this.functionOutput14(program);
+                                  } else {
+                                    String _xifexpression_14 = null;
+                                    if ((outputRandomizer == 15)) {
+                                      _xifexpression_14 = this.functionOutput15(program);
+                                    }
+                                    _xifexpression_13 = _xifexpression_14;
+                                  }
+                                  _xifexpression_12 = _xifexpression_13;
+                                }
+                                _xifexpression_11 = _xifexpression_12;
+                              }
+                              _xifexpression_10 = _xifexpression_11;
+                            }
+                            _xifexpression_9 = _xifexpression_10;
+                          }
+                          _xifexpression_8 = _xifexpression_9;
+                        }
+                        _xifexpression_7 = _xifexpression_8;
+                      }
+                      _xifexpression_6 = _xifexpression_7;
+                    }
+                    _xifexpression_5 = _xifexpression_6;
+                  }
+                  _xifexpression_4 = _xifexpression_5;
+                }
+                _xifexpression_3 = _xifexpression_4;
+              }
+              _xifexpression_2 = _xifexpression_3;
+            }
+            _xifexpression_1 = _xifexpression_2;
+          }
+          _xifexpression = _xifexpression_1;
+        }
+        _builder.append(_xifexpression);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder.toString();
   }
 }

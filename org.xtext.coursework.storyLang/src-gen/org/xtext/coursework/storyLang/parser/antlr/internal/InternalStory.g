@@ -165,6 +165,60 @@ ruleStatement returns [EObject current=null]
 			$current = $this_MoodStatement_5.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getStatementAccess().getAmountStatementParserRuleCall_6());
+		}
+		this_AmountStatement_6=ruleAmountStatement
+		{
+			$current = $this_AmountStatement_6.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleAmountStatement
+entryRuleAmountStatement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAmountStatementRule()); }
+	iv_ruleAmountStatement=ruleAmountStatement
+	{ $current=$iv_ruleAmountStatement.current; }
+	EOF;
+
+// Rule AmountStatement
+ruleAmountStatement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='amount:'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getAmountStatementAccess().getAmountKeyword_0());
+		}
+		(
+			(
+				lv_value_1_0=RULE_INT
+				{
+					newLeafNode(lv_value_1_0, grammarAccess.getAmountStatementAccess().getValueINTTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAmountStatementRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"value",
+						lv_value_1_0,
+						"org.eclipse.xtext.common.Terminals.INT");
+				}
+			)
+		)
+		otherlv_2=';'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getAmountStatementAccess().getSemicolonKeyword_2());
+		}
 	)
 ;
 

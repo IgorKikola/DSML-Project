@@ -15,6 +15,7 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.coursework.storyLang.services.StoryGrammarAccess;
+import org.xtext.coursework.storyLang.story.AmountStatement;
 import org.xtext.coursework.storyLang.story.MoodStatement;
 import org.xtext.coursework.storyLang.story.MoveStatement;
 import org.xtext.coursework.storyLang.story.NearbyStatement;
@@ -38,6 +39,9 @@ public class StorySemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == StoryPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case StoryPackage.AMOUNT_STATEMENT:
+				sequence_AmountStatement(context, (AmountStatement) semanticObject); 
+				return; 
 			case StoryPackage.MOOD_STATEMENT:
 				sequence_MoodStatement(context, (MoodStatement) semanticObject); 
 				return; 
@@ -63,6 +67,25 @@ public class StorySemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     Statement returns AmountStatement
+	 *     AmountStatement returns AmountStatement
+	 *
+	 * Constraint:
+	 *     value=INT
+	 */
+	protected void sequence_AmountStatement(ISerializationContext context, AmountStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, StoryPackage.Literals.AMOUNT_STATEMENT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StoryPackage.Literals.AMOUNT_STATEMENT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAmountStatementAccess().getValueINTTerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
 	
 	/**
 	 * Contexts:

@@ -47,6 +47,7 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cNearbyStatementParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cSubstanceStatementParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cMoodStatementParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cAmountStatementParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//Statement:
 		//    PlaceStatement |
@@ -54,7 +55,8 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    MoveStatement |
 		//    NearbyStatement |
 		//    SubstanceStatement |
-		//    MoodStatement
+		//    MoodStatement |
+		//    AmountStatement
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -63,7 +65,8 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//MoveStatement |
 		//NearbyStatement |
 		//SubstanceStatement |
-		//MoodStatement
+		//MoodStatement |
+		//AmountStatement
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//PlaceStatement
@@ -83,6 +86,37 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//MoodStatement
 		public RuleCall getMoodStatementParserRuleCall_5() { return cMoodStatementParserRuleCall_5; }
+		
+		//AmountStatement
+		public RuleCall getAmountStatementParserRuleCall_6() { return cAmountStatementParserRuleCall_6; }
+	}
+	public class AmountStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coursework.storyLang.Story.AmountStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAmountKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueINTTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//AmountStatement:
+		//    'amount:' value=INT ';'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'amount:' value=INT ';'
+		public Group getGroup() { return cGroup; }
+		
+		//'amount:'
+		public Keyword getAmountKeyword_0() { return cAmountKeyword_0; }
+		
+		//value=INT
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		
+		//INT
+		public RuleCall getValueINTTerminalRuleCall_1_0() { return cValueINTTerminalRuleCall_1_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class PlaceStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coursework.storyLang.Story.PlaceStatement");
@@ -336,6 +370,7 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	private final StoryProgramElements pStoryProgram;
 	private final StatementElements pStatement;
+	private final AmountStatementElements pAmountStatement;
 	private final PlaceStatementElements pPlaceStatement;
 	private final PathStatementElements pPathStatement;
 	private final MoveStatementElements pMoveStatement;
@@ -354,6 +389,7 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.gaTerminals = gaTerminals;
 		this.pStoryProgram = new StoryProgramElements();
 		this.pStatement = new StatementElements();
+		this.pAmountStatement = new AmountStatementElements();
 		this.pPlaceStatement = new PlaceStatementElements();
 		this.pPathStatement = new PathStatementElements();
 		this.pMoveStatement = new MoveStatementElements();
@@ -406,7 +442,8 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    MoveStatement |
 	//    NearbyStatement |
 	//    SubstanceStatement |
-	//    MoodStatement
+	//    MoodStatement |
+	//    AmountStatement
 	//;
 	public StatementElements getStatementAccess() {
 		return pStatement;
@@ -414,6 +451,17 @@ public class StoryGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getStatementRule() {
 		return getStatementAccess().getRule();
+	}
+	
+	//AmountStatement:
+	//    'amount:' value=INT ';'
+	//;
+	public AmountStatementElements getAmountStatementAccess() {
+		return pAmountStatement;
+	}
+	
+	public ParserRule getAmountStatementRule() {
+		return getAmountStatementAccess().getRule();
 	}
 	
 	//PlaceStatement:

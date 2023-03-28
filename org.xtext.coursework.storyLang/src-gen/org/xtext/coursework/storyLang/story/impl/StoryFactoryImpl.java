@@ -67,6 +67,7 @@ public class StoryFactoryImpl extends EFactoryImpl implements StoryFactory
     {
       case StoryPackage.STORY_PROGRAM: return createStoryProgram();
       case StoryPackage.STATEMENT: return createStatement();
+      case StoryPackage.AMOUNT_STATEMENT: return createAmountStatement();
       case StoryPackage.PLACE_STATEMENT: return createPlaceStatement();
       case StoryPackage.PATH_STATEMENT: return createPathStatement();
       case StoryPackage.MOVE_STATEMENT: return createMoveStatement();
@@ -100,6 +101,18 @@ public class StoryFactoryImpl extends EFactoryImpl implements StoryFactory
   {
     StatementImpl statement = new StatementImpl();
     return statement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AmountStatement createAmountStatement()
+  {
+    AmountStatementImpl amountStatement = new AmountStatementImpl();
+    return amountStatement;
   }
 
   /**

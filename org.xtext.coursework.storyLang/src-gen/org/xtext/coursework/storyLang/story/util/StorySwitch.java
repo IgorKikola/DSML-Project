@@ -87,6 +87,14 @@ public class StorySwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case StoryPackage.AMOUNT_STATEMENT:
+      {
+        AmountStatement amountStatement = (AmountStatement)theEObject;
+        T result = caseAmountStatement(amountStatement);
+        if (result == null) result = caseStatement(amountStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case StoryPackage.PLACE_STATEMENT:
       {
         PlaceStatement placeStatement = (PlaceStatement)theEObject;
@@ -167,6 +175,22 @@ public class StorySwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStatement(Statement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Amount Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Amount Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAmountStatement(AmountStatement object)
   {
     return null;
   }

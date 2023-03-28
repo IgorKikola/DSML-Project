@@ -42,6 +42,15 @@ public interface StoryFactory extends EFactory
   Statement createStatement();
 
   /**
+   * Returns a new object of class '<em>Amount Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Amount Statement</em>'.
+   * @generated
+   */
+  AmountStatement createAmountStatement();
+
+  /**
    * Returns a new object of class '<em>Place Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

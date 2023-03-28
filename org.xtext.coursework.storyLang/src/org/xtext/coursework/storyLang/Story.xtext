@@ -12,8 +12,14 @@ Statement:
 	MoveStatement |
 	NearbyStatement |
 	SubstanceStatement |
-	MoodStatement
+	MoodStatement |
+	AmountStatement
 ;
+
+AmountStatement:
+	'amount:' value=INT ';'
+;
+
 
 PlaceStatement:
 	'place:' value=STRING ';'
