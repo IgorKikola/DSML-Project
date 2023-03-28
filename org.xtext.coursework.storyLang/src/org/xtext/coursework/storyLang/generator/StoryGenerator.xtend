@@ -366,7 +366,7 @@ class StoryGenerator extends AbstractGenerator {
     def String doGenerate(StoryProgram program) '''
         Program contains:
         «var amount = program.statements.filter(AmountStatement).iterator.next.value»
-        «FOR Integer : 0..amount»
+        «FOR Integer : 0..<amount»
         «var outputRandomizer = Math.floor(Math.random()*15)+1»
         «if(outputRandomizer == 1){functionOutput1(program)}
         else if(outputRandomizer == 2){functionOutput2(program)}
@@ -384,7 +384,5 @@ class StoryGenerator extends AbstractGenerator {
         else if(outputRandomizer == 14){functionOutput14(program)}
         else if(outputRandomizer == 15){functionOutput15(program)}»
         «ENDFOR»
-    '''
-	
-r	
+    '''	
 }

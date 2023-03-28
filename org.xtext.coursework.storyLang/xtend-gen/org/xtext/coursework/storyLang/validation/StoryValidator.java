@@ -3,16 +3,17 @@
  */
 package org.xtext.coursework.storyLang.validation;
 
-import java.util.HashSet;
-import org.eclipse.emf.common.util.EList;
+import java.util.List;
+import java.util.Set;
 import org.eclipse.xtext.validation.Check;
-import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.xtext.coursework.storyLang.story.AmountStatement;
 import org.xtext.coursework.storyLang.story.MoodStatement;
 import org.xtext.coursework.storyLang.story.MoveStatement;
 import org.xtext.coursework.storyLang.story.NearbyStatement;
 import org.xtext.coursework.storyLang.story.PathStatement;
 import org.xtext.coursework.storyLang.story.PlaceStatement;
+import org.xtext.coursework.storyLang.story.StoryPackage;
 import org.xtext.coursework.storyLang.story.SubstanceStatement;
 
 /**
@@ -22,18 +23,18 @@ import org.xtext.coursework.storyLang.story.SubstanceStatement;
 @SuppressWarnings("all")
 public class StoryValidator extends AbstractStoryValidator {
   @Check
-  public void checkAmountStatement(final AmountStatement amountStatement) {
-    int _value = amountStatement.getValue();
-    boolean _lessEqualsThan = (_value <= 0);
-    if (_lessEqualsThan) {
-      this.error("Amount must be a positive integer", amountStatement, null, null);
+  public void checkAmountStatement(final AmountStatement statement) {
+    int _value = statement.getValue();
+    boolean _lessThan = (_value < 1);
+    if (_lessThan) {
+      this.warning("Amount must be a positive integer larger than zero", StoryPackage.Literals.AMOUNT_STATEMENT__VALUE);
     }
   }
   
   @Check
   public void checkPlaceStatement(final PlaceStatement placeStatement) {
     if (((placeStatement.getValue() == null) || placeStatement.getValue().trim().isEmpty())) {
-      this.error("Place name cannot be empty", placeStatement, null, null);
+      this.warning("Place name cannot be empty", placeStatement, null, null);
     }
   }
   
@@ -42,11 +43,7 @@ public class StoryValidator extends AbstractStoryValidator {
     int _size = pathStatement.getList().size();
     boolean _lessThan = (_size < 2);
     if (_lessThan) {
-      this.error("Path must have at least two elements", pathStatement, null, null);
-    }
-    EList<String> _list = pathStatement.getList();
-    for (final String item : _list) {
-      this.checkDuplicates(item, "Path");
+      this.warning("Path must have at least two elements", pathStatement, null, null);
     }
   }
   
@@ -55,11 +52,7 @@ public class StoryValidator extends AbstractStoryValidator {
     int _size = moveStatement.getList().size();
     boolean _lessThan = (_size < 2);
     if (_lessThan) {
-      this.error("Move list must have at least two elements", moveStatement, null, null);
-    }
-    EList<String> _list = moveStatement.getList();
-    for (final String item : _list) {
-      this.checkDuplicates(item, "Move");
+      this.warning("Move list must have at least two elements", moveStatement, null, null);
     }
   }
   
@@ -67,11 +60,7 @@ public class StoryValidator extends AbstractStoryValidator {
   public void checkNearbyStatement(final NearbyStatement nearbyStatement) {
     boolean _isEmpty = nearbyStatement.getList().isEmpty();
     if (_isEmpty) {
-      this.error("Nearby list cannot be empty", nearbyStatement, null, null);
-    }
-    EList<String> _list = nearbyStatement.getList();
-    for (final String item : _list) {
-      this.checkDuplicates(item, "Nearby");
+      this.warning("Nearby list cannot be empty", nearbyStatement, null, null);
     }
   }
   
@@ -80,11 +69,7 @@ public class StoryValidator extends AbstractStoryValidator {
     int _size = substanceStatement.getList().size();
     boolean _lessThan = (_size < 2);
     if (_lessThan) {
-      this.error("Substance list must have at least two elements", substanceStatement, null, null);
-    }
-    EList<String> _list = substanceStatement.getList();
-    for (final String item : _list) {
-      this.checkDuplicates(item, "Substance");
+      this.warning("Substance list must have at least two elements", substanceStatement, null, null);
     }
   }
   
@@ -93,20 +78,60 @@ public class StoryValidator extends AbstractStoryValidator {
     int _size = moodStatement.getList().size();
     boolean _lessThan = (_size < 3);
     if (_lessThan) {
-      this.error("Mood list must have at least three elements", moodStatement, null, null);
-    }
-    EList<String> _list = moodStatement.getList();
-    for (final String item : _list) {
-      this.checkDuplicates(item, "Mood");
+      this.warning("Mood list must have at least three elements", moodStatement, null, null);
     }
   }
   
-  public void checkDuplicates(final String item, final String statementName) {
-    final HashSet<String> set = CollectionLiterals.<String>newHashSet(item);
+  @Check
+  public void checkDuplicateItems(final PathStatement statement) {
+    this.checkDuplicates(statement.getList(), "Path");
+  }
+  
+  @Check
+  public void checkDuplicateItems(final MoveStatement statement) {
+    this.checkDuplicates(statement.getList(), "Move");
+  }
+  
+  @Check
+  public void checkDuplicateItems(final NearbyStatement statement) {
+    this.checkDuplicates(statement.getList(), "Nearby");
+  }
+  
+  @Check
+  public void checkDuplicateItems(final SubstanceStatement statement) {
+    this.checkDuplicates(statement.getList(), "Substance");
+  }
+  
+  @Check
+  public void checkDuplicateItems(final MoodStatement statement) {
+    this.checkDuplicates(statement.getList(), "Mood");
+  }
+  
+  public void checkDuplicates(final List<String> list, final String statementName) {
+    final Set<String> set = IterableExtensions.<String>toSet(list);
     int _size = set.size();
-    boolean _lessThan = (_size < 2);
+    int _size_1 = list.size();
+    boolean _lessThan = (_size < _size_1);
     if (_lessThan) {
-      this.warning((((("Duplicate item \'" + item) + "\' in ") + statementName) + " statement"), null);
+      this.warning((("Duplicate items found in " + statementName) + " statement"), null);
+    }
+  }
+  
+  @Check
+  public void checkAmountStatementType(final AmountStatement amountStatement) {
+    boolean _matches = Integer.valueOf(amountStatement.getValue()).toString().matches("-?[0-9]+");
+    boolean _not = (!_matches);
+    if (_not) {
+      this.warning("Amount value must be an integer", amountStatement, StoryPackage.Literals.AMOUNT_STATEMENT__VALUE);
+    }
+  }
+  
+  @Check
+  public void checkPlaceStatementType(final PlaceStatement placeStatement) {
+    boolean _matches = placeStatement.getValue().matches("[a-zA-Z0-9_]*");
+    boolean _not = (!_matches);
+    if (_not) {
+      this.warning("Place value must be a string", placeStatement, StoryPackage.Literals.PLACE_STATEMENT__VALUE);
     }
   }
 }

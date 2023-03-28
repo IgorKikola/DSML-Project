@@ -12,6 +12,8 @@ import org.xtext.coursework.storyLang.story.NearbyStatement
 import org.xtext.coursework.storyLang.story.SubstanceStatement
 import org.xtext.coursework.storyLang.story.MoodStatement
 import org.xtext.coursework.storyLang.story.AmountStatement
+import org.xtext.coursework.storyLang.story.StoryPackage
+import java.util.List
 
 /** 
  * This class contains custom validation rules. 
@@ -19,81 +21,98 @@ import org.xtext.coursework.storyLang.story.AmountStatement
  */
 class StoryValidator extends AbstractStoryValidator {
 	
-    // validation rule for the AmountStatement
-    @Check
-    def checkAmountStatement(AmountStatement amountStatement) {
-        if (amountStatement.value <= 0) {
-            error("Amount must be a positive integer", amountStatement, null, null)
-        }        
-    }
+   @Check
+  	def checkAmountStatement(AmountStatement statement) {
+    	if (statement.value < 1) {
+      		warning("Amount must be a positive integer larger than zero", StoryPackage.Literals.AMOUNT_STATEMENT__VALUE)
+    	}
+  	}
 
-    // validation rule for the PlaceStatement
     @Check
     def checkPlaceStatement(PlaceStatement placeStatement) {
         if (placeStatement.value === null || placeStatement.value.trim().isEmpty()) {
-            error("Place name cannot be empty", placeStatement, null, null)
+            warning("Place name cannot be empty", placeStatement, null, null)
         }      
     }
 
-    // validation rule for the PathStatement
     @Check
     def checkPathStatement(PathStatement pathStatement) {
         if (pathStatement.list.size() < 2) {
-            error("Path must have at least two elements", pathStatement, null, null)
-        }
-        for (item : pathStatement.list) {
-      	checkDuplicates(item, "Path")
-    	}        
+            warning("Path must have at least two elements", pathStatement, null, null)
+        }       
     }
 
-    // validation rule for the MoveStatement
     @Check
     def checkMoveStatement(MoveStatement moveStatement) {
         if (moveStatement.list.size() < 2) {
-            error("Move list must have at least two elements", moveStatement, null, null)
-        }
-        for (item : moveStatement.list) {
-      	checkDuplicates(item, "Move")
-    	}        
+            warning("Move list must have at least two elements", moveStatement, null, null)
+        }       
     }
 
-    // validation rule for the NearbyStatement
     @Check
     def checkNearbyStatement(NearbyStatement nearbyStatement) {
         if (nearbyStatement.list.isEmpty()) {
-            error("Nearby list cannot be empty", nearbyStatement, null, null)
-        }
-        for (item : nearbyStatement.list) {
-      	checkDuplicates(item, "Nearby")
-    	}       
+            warning("Nearby list cannot be empty", nearbyStatement, null, null)
+        }     
     }
 
-    // validation rule for the SubstanceStatement
     @Check
     def checkSubstanceStatement(SubstanceStatement substanceStatement) {
         if (substanceStatement.list.size() < 2) {
-            error("Substance list must have at least two elements", substanceStatement, null, null)
-        }
-        for (item : substanceStatement.list) {
-      	checkDuplicates(item, "Substance")
-    	}        
+            warning("Substance list must have at least two elements", substanceStatement, null, null)
+        }      
     }
 
-    // validation rule for the MoodStatement
     @Check
     def checkMoodStatement(MoodStatement moodStatement) {
         if (moodStatement.list.size() < 3) {
-            error("Mood list must have at least three elements", moodStatement, null, null)
+            warning("Mood list must have at least three elements", moodStatement, null, null)
         }
-        for (item : moodStatement.list) {
-      	checkDuplicates(item, "Mood")
+    } 
+ 
+  	@Check
+  	def checkDuplicateItems(PathStatement statement) {
+    	checkDuplicates(statement.list, "Path")
+  	}
+
+  	@Check
+  	def checkDuplicateItems(MoveStatement statement) {
+    	checkDuplicates(statement.list, "Move")
+  	}
+
+  	@Check
+  	def checkDuplicateItems(NearbyStatement statement) {
+    	checkDuplicates(statement.list, "Nearby")
+  	}
+
+  	@Check
+  	def checkDuplicateItems(SubstanceStatement statement) {
+    	checkDuplicates(statement.list, "Substance")
+  	}
+
+  	@Check
+  	def checkDuplicateItems(MoodStatement statement) {
+    	checkDuplicates(statement.list, "Mood")
+  	}
+
+  	def checkDuplicates(List<String> list, String statementName) {
+    	val set = list.toSet
+    	if (set.size < list.size) {
+      	warning("Duplicate items found in " + statementName + " statement", null)
     	}
-    }
+  	}
   
-  def checkDuplicates(String item, String statementName) {
-    val set = newHashSet(item)
-    if (set.size < 2) {
-      warning("Duplicate item '" + item + "' in " + statementName + " statement", null)
+     @Check
+    def checkAmountStatementType(AmountStatement amountStatement) {
+        if (!amountStatement.value.toString.matches("-?[0-9]+")) {
+            warning("Amount value must be an integer", amountStatement, StoryPackage.Literals.AMOUNT_STATEMENT__VALUE)
+        }
     }
-  }    
+    
+    @Check
+    def checkPlaceStatementType(PlaceStatement placeStatement) {
+        if (!placeStatement.value.matches("[a-zA-Z0-9_]*")) {
+            warning("Place value must be a string", placeStatement, StoryPackage.Literals.PLACE_STATEMENT__VALUE)
+        }
+    }     
 }

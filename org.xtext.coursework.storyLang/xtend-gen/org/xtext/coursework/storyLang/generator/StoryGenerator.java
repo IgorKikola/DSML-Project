@@ -11,7 +11,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
-import org.eclipse.xtext.xbase.lib.IntegerRange;
+import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.xtext.coursework.storyLang.story.AmountStatement;
@@ -1680,8 +1680,8 @@ public class StoryGenerator extends AbstractGenerator {
     int amount = Iterables.<AmountStatement>filter(program.getStatements(), AmountStatement.class).iterator().next().getValue();
     _builder.newLineIfNotEmpty();
     {
-      IntegerRange _upTo = new IntegerRange(0, amount);
-      for(final Integer Integer : _upTo) {
+      ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, amount, true);
+      for(final Integer Integer : _doubleDotLessThan) {
         double _random = Math.random();
         double _multiply = (_random * 15);
         double _floor = Math.floor(_multiply);
