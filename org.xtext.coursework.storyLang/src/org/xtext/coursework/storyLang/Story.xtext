@@ -20,7 +20,6 @@ AmountStatement:
 	'amount:' value=INT ';'
 ;
 
-
 PlaceStatement:
 	'place:' value=STRING ';'
 ;
