@@ -34,14 +34,14 @@ public class StoryValidator extends AbstractStoryValidator {
     int _value = amountStatement.getValue();
     boolean _lessThan = (_value < 1);
     if (_lessThan) {
-      this.warning("Amount must be a positive integer larger than zero", StoryPackage.Literals.AMOUNT_STATEMENT__VALUE);
+      this.error("Amount must be a positive integer larger than zero", StoryPackage.Literals.AMOUNT_STATEMENT__VALUE);
     }
   }
 
   @Check
   public void checkPlaceStatement(final PlaceStatement placeStatement) {
     if (((placeStatement.getValue() == null) || placeStatement.getValue().trim().isEmpty())) {
-      this.warning("Place name cannot be empty", placeStatement, null, null);
+      this.error("Place name cannot be empty", placeStatement, null, null);
     }
   }
 
@@ -50,7 +50,7 @@ public class StoryValidator extends AbstractStoryValidator {
     int _size = pathStatement.getList().size();
     boolean _lessThan = (_size < 2);
     if (_lessThan) {
-      this.warning("Path must have at least two elements", pathStatement, null, null);
+      this.error("Path must have at least two elements", pathStatement, null, null);
     }
   }
 
@@ -59,7 +59,7 @@ public class StoryValidator extends AbstractStoryValidator {
     int _size = moveStatement.getList().size();
     boolean _lessThan = (_size < 2);
     if (_lessThan) {
-      this.warning("Move list must have at least two elements", moveStatement, null, null);
+      this.error("Move list must have at least two elements", moveStatement, null, null);
     }
   }
 
@@ -67,7 +67,7 @@ public class StoryValidator extends AbstractStoryValidator {
   public void checkNearbyStatement(final NearbyStatement nearbyStatement) {
     boolean _isEmpty = nearbyStatement.getList().isEmpty();
     if (_isEmpty) {
-      this.warning("Nearby list cannot be empty", nearbyStatement, null, null);
+      this.error("Nearby list cannot be empty", nearbyStatement, null, null);
     }
   }
 
@@ -76,7 +76,7 @@ public class StoryValidator extends AbstractStoryValidator {
     int _size = substanceStatement.getList().size();
     boolean _lessThan = (_size < 2);
     if (_lessThan) {
-      this.warning("Substance list must have at least two elements", substanceStatement, null, null);
+      this.error("Substance list must have at least two elements", substanceStatement, null, null);
     }
   }
 
@@ -85,7 +85,7 @@ public class StoryValidator extends AbstractStoryValidator {
     int _size = moodStatement.getList().size();
     boolean _lessThan = (_size < 3);
     if (_lessThan) {
-      this.warning("Mood list must have at least three elements", moodStatement, null, null);
+      this.error("Mood list must have at least three elements", moodStatement, null, null);
     }
   }
 
@@ -120,7 +120,7 @@ public class StoryValidator extends AbstractStoryValidator {
     int _size_1 = list.size();
     boolean _lessThan = (_size < _size_1);
     if (_lessThan) {
-      this.warning((("Duplicate items found in " + statementName) + " statement"), null);
+      this.error((("Duplicate items found in " + statementName) + " statement"), null);
     }
   }
 
@@ -129,7 +129,7 @@ public class StoryValidator extends AbstractStoryValidator {
     boolean _matches = Integer.valueOf(amountStatement.getValue()).toString().matches("-?[0-9]+");
     boolean _not = (!_matches);
     if (_not) {
-      this.warning("Amount value must be an integer", amountStatement, StoryPackage.Literals.AMOUNT_STATEMENT__VALUE);
+      this.error("Amount value must be an integer", amountStatement, StoryPackage.Literals.AMOUNT_STATEMENT__VALUE);
     }
   }
 

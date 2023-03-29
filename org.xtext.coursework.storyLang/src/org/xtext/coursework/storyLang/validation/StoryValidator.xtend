@@ -26,49 +26,49 @@ class StoryValidator extends AbstractStoryValidator {
    @Check
   	def checkAmountStatement(AmountStatement amountStatement) {
   		if (amountStatement.value < 1) {
-      		warning("Amount must be a positive integer larger than zero", StoryPackage.Literals.AMOUNT_STATEMENT__VALUE)
+      		error("Amount must be a positive integer larger than zero", StoryPackage.Literals.AMOUNT_STATEMENT__VALUE)
     	}
   	}
 
     @Check
     def checkPlaceStatement(PlaceStatement placeStatement) {
         if (placeStatement.value === null || placeStatement.value.trim().isEmpty()) {
-            warning("Place name cannot be empty", placeStatement, null, null)
+            error("Place name cannot be empty", placeStatement, null, null)
         }      
     }
 
     @Check
     def checkPathStatement(PathStatement pathStatement) {
         if (pathStatement.list.size() < 2) {
-            warning("Path must have at least two elements", pathStatement, null, null)
+            error("Path must have at least two elements", pathStatement, null, null)
         }       
     }
 
     @Check
     def checkMoveStatement(MoveStatement moveStatement) {
         if (moveStatement.list.size() < 2) {
-            warning("Move list must have at least two elements", moveStatement, null, null)
+            error("Move list must have at least two elements", moveStatement, null, null)
         }       
     }
 
     @Check
     def checkNearbyStatement(NearbyStatement nearbyStatement) {
         if (nearbyStatement.list.isEmpty()) {
-            warning("Nearby list cannot be empty", nearbyStatement, null, null)
+            error("Nearby list cannot be empty", nearbyStatement, null, null)
         }     
     }
 
     @Check
     def checkSubstanceStatement(SubstanceStatement substanceStatement) {
         if (substanceStatement.list.size() < 2) {
-            warning("Substance list must have at least two elements", substanceStatement, null, null)
+            error("Substance list must have at least two elements", substanceStatement, null, null)
         }      
     }
 
     @Check
     def checkMoodStatement(MoodStatement moodStatement) {
         if (moodStatement.list.size() < 3) {
-            warning("Mood list must have at least three elements", moodStatement, null, null)
+            error("Mood list must have at least three elements", moodStatement, null, null)
         }
     } 
  
@@ -100,14 +100,14 @@ class StoryValidator extends AbstractStoryValidator {
   	def checkDuplicates(List<String> list, String statementName) {
     	val set = list.toSet
     	if (set.size < list.size) {
-      	warning("Duplicate items found in " + statementName + " statement", null)
+      	error("Duplicate items found in " + statementName + " statement", null)
     	}
   	}
   
      @Check
     def checkAmountStatementType(AmountStatement amountStatement) {
         if (!amountStatement.value.toString.matches("-?[0-9]+")) {
-            warning("Amount value must be an integer", amountStatement, StoryPackage.Literals.AMOUNT_STATEMENT__VALUE)
+            error("Amount value must be an integer", amountStatement, StoryPackage.Literals.AMOUNT_STATEMENT__VALUE)
         }
     }
     
