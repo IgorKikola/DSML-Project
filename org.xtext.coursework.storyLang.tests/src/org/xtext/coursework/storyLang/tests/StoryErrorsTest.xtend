@@ -17,26 +17,9 @@ import org.junit.jupiter.api.DisplayName
 
 @ExtendWith(InjectionExtension)
 @InjectWith(StoryInjectorProvider)
-class StorySimpleParsingTest {
+class StoryErrorsTest {
 	@Inject
 	ParseHelper<StoryProgram> parseHelper = new ParseHelper<StoryProgram>();
-
-	@Test
-	@DisplayName("Test parsing all statements at once")
-	def void testParsing() {
-		val String input = '''
-			place: "forest";
-			path: "river", "bridge", "mountain";
-			move: "run", "climb", "jump";
-			nearby: "waterfall", "cave";
-			substance: "moss", "rocks";
-			mood: "excited", "nervous";
-			amount: 3;
-		'''
-		val StoryProgram program = parseHelper.parse(input)
-		Assert.assertNotNull(program)
-		Assert.assertEquals(7, program.statements.size)
-	}
 
 	@Test
 	@DisplayName("Test invalid place statement parsing")

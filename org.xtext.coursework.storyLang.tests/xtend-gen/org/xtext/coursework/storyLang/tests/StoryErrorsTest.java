@@ -22,37 +22,9 @@ import org.xtext.coursework.storyLang.story.StoryProgram;
 @ExtendWith(InjectionExtension.class)
 @InjectWith(StoryInjectorProvider.class)
 @SuppressWarnings("all")
-public class StorySimpleParsingTest {
+public class StoryErrorsTest {
   @Inject
   private ParseHelper<StoryProgram> parseHelper = new ParseHelper<StoryProgram>();
-
-  @Test
-  @DisplayName("Test parsing all statements at once")
-  public void testParsing() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("place: \"forest\";");
-      _builder.newLine();
-      _builder.append("path: \"river\", \"bridge\", \"mountain\";");
-      _builder.newLine();
-      _builder.append("move: \"run\", \"climb\", \"jump\";");
-      _builder.newLine();
-      _builder.append("nearby: \"waterfall\", \"cave\";");
-      _builder.newLine();
-      _builder.append("substance: \"moss\", \"rocks\";");
-      _builder.newLine();
-      _builder.append("mood: \"excited\", \"nervous\";");
-      _builder.newLine();
-      _builder.append("amount: 3;");
-      _builder.newLine();
-      final String input = _builder.toString();
-      final StoryProgram program = this.parseHelper.parse(input);
-      Assert.assertNotNull(program);
-      Assert.assertEquals(7, program.getStatements().size());
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
-  }
 
   @Test
   @DisplayName("Test invalid place statement parsing")

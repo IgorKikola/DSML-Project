@@ -3,3 +3,5 @@
 /StoryParsingTest.java
 /.StorySimpleParsingTest.java._trace
 /.StoryEdgeCaseParsingTest.java._trace
+/.StoryErrorsTest.java._trace
+/.StoryDataParsingTest.java._trace
