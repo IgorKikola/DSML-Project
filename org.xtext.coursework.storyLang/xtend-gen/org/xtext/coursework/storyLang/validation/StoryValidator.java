@@ -3,17 +3,24 @@
  */
 package org.xtext.coursework.storyLang.validation;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.xtext.coursework.storyLang.story.AmountStatement;
 import org.xtext.coursework.storyLang.story.MoodStatement;
 import org.xtext.coursework.storyLang.story.MoveStatement;
 import org.xtext.coursework.storyLang.story.NearbyStatement;
 import org.xtext.coursework.storyLang.story.PathStatement;
 import org.xtext.coursework.storyLang.story.PlaceStatement;
+import org.xtext.coursework.storyLang.story.Statement;
 import org.xtext.coursework.storyLang.story.StoryPackage;
+import org.xtext.coursework.storyLang.story.StoryProgram;
 import org.xtext.coursework.storyLang.story.SubstanceStatement;
 
 /**
@@ -23,21 +30,21 @@ import org.xtext.coursework.storyLang.story.SubstanceStatement;
 @SuppressWarnings("all")
 public class StoryValidator extends AbstractStoryValidator {
   @Check
-  public void checkAmountStatement(final AmountStatement statement) {
-    int _value = statement.getValue();
+  public void checkAmountStatement(final AmountStatement amountStatement) {
+    int _value = amountStatement.getValue();
     boolean _lessThan = (_value < 1);
     if (_lessThan) {
       this.warning("Amount must be a positive integer larger than zero", StoryPackage.Literals.AMOUNT_STATEMENT__VALUE);
     }
   }
-  
+
   @Check
   public void checkPlaceStatement(final PlaceStatement placeStatement) {
     if (((placeStatement.getValue() == null) || placeStatement.getValue().trim().isEmpty())) {
       this.warning("Place name cannot be empty", placeStatement, null, null);
     }
   }
-  
+
   @Check
   public void checkPathStatement(final PathStatement pathStatement) {
     int _size = pathStatement.getList().size();
@@ -46,7 +53,7 @@ public class StoryValidator extends AbstractStoryValidator {
       this.warning("Path must have at least two elements", pathStatement, null, null);
     }
   }
-  
+
   @Check
   public void checkMoveStatement(final MoveStatement moveStatement) {
     int _size = moveStatement.getList().size();
@@ -55,7 +62,7 @@ public class StoryValidator extends AbstractStoryValidator {
       this.warning("Move list must have at least two elements", moveStatement, null, null);
     }
   }
-  
+
   @Check
   public void checkNearbyStatement(final NearbyStatement nearbyStatement) {
     boolean _isEmpty = nearbyStatement.getList().isEmpty();
@@ -63,7 +70,7 @@ public class StoryValidator extends AbstractStoryValidator {
       this.warning("Nearby list cannot be empty", nearbyStatement, null, null);
     }
   }
-  
+
   @Check
   public void checkSubstanceStatement(final SubstanceStatement substanceStatement) {
     int _size = substanceStatement.getList().size();
@@ -72,7 +79,7 @@ public class StoryValidator extends AbstractStoryValidator {
       this.warning("Substance list must have at least two elements", substanceStatement, null, null);
     }
   }
-  
+
   @Check
   public void checkMoodStatement(final MoodStatement moodStatement) {
     int _size = moodStatement.getList().size();
@@ -81,32 +88,32 @@ public class StoryValidator extends AbstractStoryValidator {
       this.warning("Mood list must have at least three elements", moodStatement, null, null);
     }
   }
-  
+
   @Check
   public void checkDuplicateItems(final PathStatement statement) {
     this.checkDuplicates(statement.getList(), "Path");
   }
-  
+
   @Check
   public void checkDuplicateItems(final MoveStatement statement) {
     this.checkDuplicates(statement.getList(), "Move");
   }
-  
+
   @Check
   public void checkDuplicateItems(final NearbyStatement statement) {
     this.checkDuplicates(statement.getList(), "Nearby");
   }
-  
+
   @Check
   public void checkDuplicateItems(final SubstanceStatement statement) {
     this.checkDuplicates(statement.getList(), "Substance");
   }
-  
+
   @Check
   public void checkDuplicateItems(final MoodStatement statement) {
     this.checkDuplicates(statement.getList(), "Mood");
   }
-  
+
   public void checkDuplicates(final List<String> list, final String statementName) {
     final Set<String> set = IterableExtensions.<String>toSet(list);
     int _size = set.size();
@@ -116,7 +123,7 @@ public class StoryValidator extends AbstractStoryValidator {
       this.warning((("Duplicate items found in " + statementName) + " statement"), null);
     }
   }
-  
+
   @Check
   public void checkAmountStatementType(final AmountStatement amountStatement) {
     boolean _matches = Integer.valueOf(amountStatement.getValue()).toString().matches("-?[0-9]+");
@@ -125,13 +132,73 @@ public class StoryValidator extends AbstractStoryValidator {
       this.warning("Amount value must be an integer", amountStatement, StoryPackage.Literals.AMOUNT_STATEMENT__VALUE);
     }
   }
-  
+
   @Check
   public void checkPlaceStatementType(final PlaceStatement placeStatement) {
     boolean _matches = placeStatement.getValue().matches("[a-zA-Z0-9_]*");
     boolean _not = (!_matches);
     if (_not) {
       this.warning("Place value must be a string", placeStatement, StoryPackage.Literals.PLACE_STATEMENT__VALUE);
+    }
+  }
+
+  @Check
+  public void checkRequiredKeywords(final StoryProgram program) {
+    final Set<String> requiredKeywords = Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("amount:", "place:", "path:", "move:", "nearby:", "substance:", "mood:"));
+    final Function1<Statement, String> _function = (Statement statement) -> {
+      String _switchResult = null;
+      boolean _matched = false;
+      if (statement instanceof AmountStatement) {
+        _matched=true;
+        _switchResult = "amount:";
+      }
+      if (!_matched) {
+        if (statement instanceof PlaceStatement) {
+          _matched=true;
+          _switchResult = "place:";
+        }
+      }
+      if (!_matched) {
+        if (statement instanceof PathStatement) {
+          _matched=true;
+          _switchResult = "path:";
+        }
+      }
+      if (!_matched) {
+        if (statement instanceof MoveStatement) {
+          _matched=true;
+          _switchResult = "move:";
+        }
+      }
+      if (!_matched) {
+        if (statement instanceof NearbyStatement) {
+          _matched=true;
+          _switchResult = "nearby:";
+        }
+      }
+      if (!_matched) {
+        if (statement instanceof SubstanceStatement) {
+          _matched=true;
+          _switchResult = "substance:";
+        }
+      }
+      if (!_matched) {
+        if (statement instanceof MoodStatement) {
+          _matched=true;
+          _switchResult = "mood:";
+        }
+      }
+      return _switchResult;
+    };
+    final Set<String> usedKeywords = IterableExtensions.<String>toSet(ListExtensions.<Statement, String>map(program.getStatements(), _function));
+    final HashSet<String> missingKeywords = new HashSet<String>(requiredKeywords);
+    missingKeywords.removeAll(usedKeywords);
+    boolean _isEmpty = missingKeywords.isEmpty();
+    boolean _not = (!_isEmpty);
+    if (_not) {
+      String _join = IterableExtensions.join(missingKeywords, ", ");
+      String _plus = ("Missing required statements: " + _join);
+      this.warning(_plus, program, null);
     }
   }
 }

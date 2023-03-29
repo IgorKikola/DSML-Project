@@ -364,7 +364,7 @@ class StoryGenerator extends AbstractGenerator {
 
 
     def String doGenerate(StoryProgram program) '''
-        Program contains:
+        Generated Landscapes:
         «var amount = program.statements.filter(AmountStatement).iterator.next.value»
         «FOR Integer : 0..<amount»
         «var outputRandomizer = Math.floor(Math.random()*15)+1»

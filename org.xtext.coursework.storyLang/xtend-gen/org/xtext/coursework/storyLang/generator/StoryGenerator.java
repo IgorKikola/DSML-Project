@@ -36,11 +36,11 @@ public class StoryGenerator extends AbstractGenerator {
     final StoryProgram model = ((StoryProgram) _head);
     fsa.generateFile(this.deriveTargetFileNameFor(resource), this.doGenerate(model));
   }
-  
+
   public String deriveTargetFileNameFor(final Resource resource) {
     return resource.getURI().appendFileExtension("txt").lastSegment();
   }
-  
+
   public String functionOutput1(final StoryProgram program) {
     StringConcatenation _builder = new StringConcatenation();
     double _random = Math.random();
@@ -107,7 +107,7 @@ public class StoryGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-  
+
   public String functionOutput2(final StoryProgram program) {
     StringConcatenation _builder = new StringConcatenation();
     double _random = Math.random();
@@ -201,7 +201,7 @@ public class StoryGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-  
+
   public String functionOutput3(final StoryProgram program) {
     StringConcatenation _builder = new StringConcatenation();
     double _random = Math.random();
@@ -302,7 +302,7 @@ public class StoryGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-  
+
   public String functionOutput4(final StoryProgram program) {
     StringConcatenation _builder = new StringConcatenation();
     double _random = Math.random();
@@ -320,7 +320,7 @@ public class StoryGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-  
+
   public String functionOutput5(final StoryProgram program) {
     StringConcatenation _builder = new StringConcatenation();
     double _random = Math.random();
@@ -358,7 +358,7 @@ public class StoryGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-  
+
   public String functionOutput6(final StoryProgram program) {
     StringConcatenation _builder = new StringConcatenation();
     double _random = Math.random();
@@ -466,7 +466,7 @@ public class StoryGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-  
+
   public String functionOutput7(final StoryProgram program) {
     StringConcatenation _builder = new StringConcatenation();
     double _random = Math.random();
@@ -582,7 +582,7 @@ public class StoryGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-  
+
   public String functionOutput8(final StoryProgram program) {
     StringConcatenation _builder = new StringConcatenation();
     double _random = Math.random();
@@ -706,7 +706,7 @@ public class StoryGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-  
+
   public String functionOutput9(final StoryProgram program) {
     StringConcatenation _builder = new StringConcatenation();
     double _random = Math.random();
@@ -836,7 +836,7 @@ public class StoryGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-  
+
   public String functionOutput10(final StoryProgram program) {
     StringConcatenation _builder = new StringConcatenation();
     double _random = Math.random();
@@ -1030,7 +1030,7 @@ public class StoryGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-  
+
   public String functionOutput11(final StoryProgram program) {
     StringConcatenation _builder = new StringConcatenation();
     double _random = Math.random();
@@ -1210,7 +1210,7 @@ public class StoryGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-  
+
   public String functionOutput12(final StoryProgram program) {
     StringConcatenation _builder = new StringConcatenation();
     double _random = Math.random();
@@ -1332,7 +1332,7 @@ public class StoryGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-  
+
   public String functionOutput13(final StoryProgram program) {
     StringConcatenation _builder = new StringConcatenation();
     double _random = Math.random();
@@ -1377,7 +1377,7 @@ public class StoryGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-  
+
   public String functionOutput14(final StoryProgram program) {
     StringConcatenation _builder = new StringConcatenation();
     double _random = Math.random();
@@ -1492,7 +1492,7 @@ public class StoryGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-  
+
   public String functionOutput15(final StoryProgram program) {
     StringConcatenation _builder = new StringConcatenation();
     double _random = Math.random();
@@ -1672,10 +1672,10 @@ public class StoryGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-  
+
   public String doGenerate(final StoryProgram program) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("Program contains:");
+    _builder.append("Generated Landscapes:");
     _builder.newLine();
     int amount = Iterables.<AmountStatement>filter(program.getStatements(), AmountStatement.class).iterator().next().getValue();
     _builder.newLineIfNotEmpty();

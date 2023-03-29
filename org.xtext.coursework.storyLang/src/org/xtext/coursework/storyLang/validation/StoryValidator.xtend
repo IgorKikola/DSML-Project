@@ -14,6 +14,8 @@ import org.xtext.coursework.storyLang.story.MoodStatement
 import org.xtext.coursework.storyLang.story.AmountStatement
 import org.xtext.coursework.storyLang.story.StoryPackage
 import java.util.List
+import org.xtext.coursework.storyLang.story.StoryProgram
+import java.util.HashSet
 
 /** 
  * This class contains custom validation rules. 
@@ -22,8 +24,8 @@ import java.util.List
 class StoryValidator extends AbstractStoryValidator {
 	
    @Check
-  	def checkAmountStatement(AmountStatement statement) {
-    	if (statement.value < 1) {
+  	def checkAmountStatement(AmountStatement amountStatement) {
+  		if (amountStatement.value < 1) {
       		warning("Amount must be a positive integer larger than zero", StoryPackage.Literals.AMOUNT_STATEMENT__VALUE)
     	}
   	}
@@ -115,4 +117,27 @@ class StoryValidator extends AbstractStoryValidator {
             warning("Place value must be a string", placeStatement, StoryPackage.Literals.PLACE_STATEMENT__VALUE)
         }
     }     
+    
+    @Check
+    def checkRequiredKeywords(StoryProgram program) {
+        val requiredKeywords = #{'amount:', 'place:', 'path:', 'move:', 'nearby:', 'substance:', 'mood:'}
+        val usedKeywords = program.statements.map[statement |
+            switch (statement) {
+                AmountStatement: "amount:"
+                PlaceStatement: "place:"
+                PathStatement: "path:"
+                MoveStatement: "move:"
+                NearbyStatement: "nearby:"
+                SubstanceStatement: "substance:"
+                MoodStatement: "mood:"
+            }
+        ].toSet()
+     	val missingKeywords = new HashSet<String>(requiredKeywords);
+     	
+        missingKeywords.removeAll(usedKeywords)
+        if (!missingKeywords.isEmpty) {
+            warning("Missing required statements: " + missingKeywords.join(", "), program, null)
+        }
+    }
+    
 }
