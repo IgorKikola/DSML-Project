@@ -1,12 +1,13 @@
 ## StoryLang
 The Story language is a domain-specific language for generating landscape descriptions inspired by the "landscape" option in the Tracery language. It allows users to create random landscape descriptions by providing words in six different categories: place, path, mood, substance, nearby, and move.
 
-The "place" category is used to describe the setting of the landscape with a noun, such as the name of a city or the type of terrain.
-The "path" category is used to describe the paths or roads that run through the landscape with a noun, including any notable landmarks or points of interest along the way.
-The "mood" category is used to describe the overall feeling or atmosphere of the landscape with an adjective, such as peaceful, serene, or eerie. 
-The "substance" category defines the physical elements of the landscape. It allows users to describe the features of the landscape, such as natural phenomena or physical elements.
-The "nearby" category is used to describe how far the landscape is from the point of view of the user. Example uses: 'far away', 'ahead', 'behind me'. 
-The "move" category is used to describe the movement of things in the landscape with a verb, such as the flow of a river or the flight of birds.
+The **"place"** category is used to describe the setting of the landscape with a noun, such as the name of a city or the type of terrain.<br>
+The **"path"** category is used to describe the paths or roads that run through the landscape with a noun, including any notable landmarks or points of interest along the way.<br>
+The **"mood"** category is used to describe the overall feeling or atmosphere of the landscape with an adjective, such as peaceful, serene, or eerie. <br>
+The **"substance"** category defines the physical elements of the landscape. It allows users to describe the features of the landscape, such as natural phenomena or physical elements.<br>
+The **"nearby"** category is used to describe how far the landscape is from the point of view of the user. Example uses: 'far away', 'ahead', 'behind me'. <br>
+The **"move"** category is used to describe the movement of things in the landscape with a verb, such as the flow of a river or the flight of birds.<br>
+The **"amount"** category is used to choose how many randomly generated landscape descriptions should be created at once. It has to be an integer greater than 0.
 
 With these categories of words, users can create unique and varied landscape descriptions in the Story language. By combining statements that use different categories of words, users can generate a wide range of landscapes with different settings, moods, and physical features. The Story language is a powerful tool for generating rich and evocative descriptions of imaginary landscapes.
 
