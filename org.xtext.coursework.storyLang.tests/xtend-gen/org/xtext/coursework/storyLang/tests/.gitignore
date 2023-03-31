@@ -5,3 +5,7 @@
 /.StoryEdgeCaseParsingTest.java._trace
 /.StoryErrorsTest.java._trace
 /.StoryDataParsingTest.java._trace
+/.StoryDataParsingTest.xtendbin
+/.StoryErrorsTest.xtendbin
+/StoryDataParsingTest.java
+/StoryErrorsTest.java
